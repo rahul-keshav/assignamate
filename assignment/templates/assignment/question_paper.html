@@ -1,0 +1,96 @@
+{% extends 'accounts/base.html'%}
+{% block heading %}<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>{% endblock %}
+{% block body %}
+
+<h1>{{ assignment.title }}</h1>
+
+
+<form action="{% url 'assignment:assignment_check' assignment.id %}" method="post">
+    {% csrf_token %}
+    <div class="w3-container">
+<ol>
+
+{% for question in assignment.questions_set.all %}
+
+    <li>
+        <div class="w3-card-4">
+            <header class="w3-container w3-light-grey">
+                <h3>{{ question.question }}
+            </header>
+            <div class="w3-container">
+                <p>{% if request.user == assignment.user%}
+                    <a href="{% url 'assignment:question_update' question.id %}">edit </a>
+                    <a href="{% url 'assignment:question_delete' question.id %}">delete </a>
+                {% endif %}</p>
+                <hr>
+
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="inlineRadio1{{ forloop.counter }}">a)</label>&nbsp;
+                  <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio1{{ forloop.counter }}" value="a" onclick="selectOnlyThis(this)">
+                  <label class="form-check-label" for="inlineRadio1{{ forloop.counter }}">{{question.option_a}}</label>
+                </div>
+                <hr>
+
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="inlineRadio2{{ forloop.counter }}">b)</label>&nbsp;
+                  <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio2{{ forloop.counter }}" value="b" onclick="selectOnlyThis(this)">
+                  <label class="form-check-label" for="inlineRadio2{{ forloop.counter }}">{{question.option_b}}</label>
+                </div>
+                <hr>
+
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="inlineRadio3{{ forloop.counter }}">c)</label>&nbsp;
+                  <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio3{{ forloop.counter }}" value="c" onclick="selectOnlyThis(this)">
+                  <label class="form-check-label" for="inlineRadio3{{ forloop.counter }}">{{question.option_c}}</label>
+                </div>
+                <hr>
+
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="inlineRadio4{{ forloop.counter }}">d)</label>&nbsp;
+                  <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio4{{ forloop.counter }}" value="d" onclick="selectOnlyThis(this)">
+                  <label class="form-check-label" for="inlineRadio4{{ forloop.counter }}">{{question.option_d}}</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" style="display:none" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio5{{ forloop.counter }}" value="z" onclick="selectOnlyThis(this)" checked>
+                </div>
+                </div>
+
+        </div>
+    </li>
+
+{% endfor %}
+
+</ol>
+
+    <button type="submit">submit</button>
+        </div>
+    </form>
+{% if request.user == assignment.user %}
+ <a href="{% url 'assignment:question_add' assignment.id %}">Add Question </a>
+{% endif %}
+
+
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    function selectOnlyThis(id){
+var check=id.checked;
+n=id.name;
+
+b=$("input[name*='"+n+"']");
+  Array.prototype.forEach.call(b,function(el){
+  	el.checked = false;
+  });
+   if(check==true){
+  id.checked = true;
+
+  }
+  else{
+  b[4].checked=true;
+  }
+}
+</script>
+
+{% endblock %}

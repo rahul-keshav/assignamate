@@ -1,0 +1,29 @@
+{%extends 'accounts/base.html'%}
+{% block title %}
+<title>registration</title>
+{% endblock %}
+
+{% block head %}
+<h1>Welcome</h1>
+{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+<div class="container">
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">submit</button>
+</form>
+    </div>
+
+{% endblock %}
+

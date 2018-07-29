@@ -1,0 +1,40 @@
+{% extends 'accounts/base.html'%}
+{% block body %}
+<div class="container">
+    {% for result in result %}
+    <div class="row">
+        <div class="col-3">
+            </div>
+        ##################################
+        <div class="col-6">
+            <table class="table">
+                <tr>
+                    <th>{{result.name_of_assignment}}</th>
+                    <th>submitted on:{{result.submitted}}</th>
+                </tr>
+                <tr>
+                    <td>assigner</td>
+                    <td>{{result.name_of_teacher}}/{{result.assigner_username}}</td>
+                </tr>
+                <tr>
+                    <td>marks</td>
+                    <td>{{result.marks}}</td>
+                </tr>
+                <tr>
+                    <td>full marks</td>
+                    <td>{{result.total_marks}}</td>
+                </tr>
+                <tr>
+                    <td><a href="#">answer sheet</a></td>
+                    <td><a href="{% url 'assignment:answersheet' ass_id=result.assignment_id ans_id=result.id  %}">Asignment</a></td>
+                </tr>
+
+            </table>
+
+            </div>
+        <div class="col-3">
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,319 @@
+{% extends 'accounts/base.html'%}
+{% block style %}
+{% endblock %}
+{% block body %}
+<!-- Content Section Begins -->
+<div id="main-content" class="content-box right-sidebar pad-top-big pr">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <!--form post-->
+                  <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group ">
+                    {{ form.post }}
+                        <br>
+                    <button class="btn" type="submit">Submit</button>
+                        </div>
+                    </form>
+                <!--form post-->
+
+                <!--thumbnails of assigners-->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-9 col-sm-9 col-lg-12">
+                            <div class="w3-container">
+                                  <div class="w3-card-4" style="width:100%">
+                                    <img src="https://www.wallpaperup.com/uploads/wallpapers/2013/12/30/210466/4415006f42c2dfa1c5bce76a5a34952f-700.jpg" alt="Norway" style="width:100%">
+                                    <div class="w3-container w3-center">
+                                      <p>The Troll's tongue in Hardanger, Norway</p>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-9 col-sm-9 col-lg-12">
+                            <div class="w3-container">
+                                  <div class="w3-card-4" style="width:100%">
+                                    <img src="https://www.wallpaperup.com/uploads/wallpapers/2013/12/30/210466/4415006f42c2dfa1c5bce76a5a34952f-700.jpg" alt="Norway" style="width:100%">
+                                    <div class="w3-container w3-center">
+                                      <p>The Troll's tongue in Hardanger, Norway</p>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-9 col-sm-9 col-lg-12">
+                            <div class="w3-container">
+                                  <div class="w3-card-4" style="width:100%">
+                                    <img src="https://www.wallpaperup.com/uploads/wallpapers/2013/12/30/210466/4415006f42c2dfa1c5bce76a5a34952f-700.jpg" alt="Norway" style="width:100%">
+                                    <div class="w3-container w3-center">
+                                      <p>The Troll's tongue in Hardanger, Norway</p>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--end of thumbnail-->
+
+                <!--Blog Post Begin-->
+              {% for post in posts%}
+
+                <article class="outer-blog-box pr pad-bottom-small">
+                    <!--<div class="blog-img blog-media"><img src="images/large-image-1.png" alt="images" /></div>-->
+                    <!--<div class="blog-captions">-->
+                        <!--&lt;!&ndash;<h2 class="blog-title"> <a href="blog-detail-right-sidebar.html">{{post.post}} </a> </h2>&ndash;&gt;-->
+                        <!--<ul class="below-blog-list">-->
+                            <!--<li>-->
+                                <!--<a href="javascript:void(0)"> <i class="fa fa-user-o" aria-hidden="true"></i>{{post.user.get_full_name}} </a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="javascript:void(0)"> <i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}} </a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="javascript:void(0)"> <i class="fa fa-comment-o" aria-hidden="true"></i> 3 Comment </a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="javascript:void(0)"> <i class="fa fa-heart-o" aria-hidden="true"></i> Lifestyle </a>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                        <!--<p>{{post.post}} </p>-->
+                        <!--<div class="bottom-blog">-->
+                            <!--<a href="javascript:void(0)" class="continue-read"> Continue Reading <i class="fa fa-angle-right" aria-hidden="true"></i> </a>-->
+                            <!--<ul class="social">-->
+                                <!--<li>-->
+                                    <!--<a href="javascript:void(0)"> <i class="fa fa-facebook"></i> </a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="javascript:void(0)"> <i class="fa fa-twitter"></i> </a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="javascript:void(0)"> <i class="fa fa-google-plus"></i> </a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="javascript:void(0)"> <i class="fa fa-linkedin"></i> </a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--##############-->
+                    <div class="w3-container">
+                      <!--<h2>Card Example</h2>-->
+                      <div class="w3-card-4">
+                        <header class="w3-container w3-light-grey">
+                          <h3>{{post.user.get_full_name}}</h3>
+                          <a href="javascript:void(0)"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}}</a>
+                        </header>
+                        <div class="w3-container">
+                          <!--<p>1 new friend request</p>-->
+                          <!--<hr>-->
+                          <!--<img src="img_avatar3.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">-->
+                          <p>{{post.post}}</p>
+                            <hr>
+                        </div>
+                          <div class="container bottom-blog">
+                            <a href="javascript:void(0)" class="continue-read"> Continue Reading <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+                            <ul class="social">
+                                <li>
+                                    <a href="javascript:void(0)"> <i class="fa fa-facebook"></i> </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"> <i class="fa fa-twitter"></i> </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"> <i class="fa fa-google-plus"></i> </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"> <i class="fa fa-linkedin"></i> </a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <button class="w3-button w3-block w3-dark-grey">reply</button>
+                      </div>
+                    </div>
+
+                    <!--##############-->
+
+
+                </article>
+                <!-- Blog Post Ends -->
+                {% endfor %}
+                <!--thumbnails of assigners-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-lg-12">
+                            <div class="w3-container">
+                                  <div class="w3-card-4" style="width:100%">
+                                    <img src="https://www.wallpaperup.com/uploads/wallpapers/2013/12/30/210466/4415006f42c2dfa1c5bce76a5a34952f-700.jpg" alt="Norway" style="width:100%">
+                                    <div class="w3-container w3-center">
+                                      <p>The Troll's tongue in Hardanger, Norway</p>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-lg-12">
+                            <div class="w3-container">
+                                  <div class="w3-card-4" style="width:100%">
+                                    <img src="https://www.wallpaperup.com/uploads/wallpapers/2013/12/30/210466/4415006f42c2dfa1c5bce76a5a34952f-700.jpg" alt="Norway" style="width:100%">
+                                    <div class="w3-container w3-center">
+                                      <p>The Troll's tongue in Hardanger, Norway</p>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-lg-12">
+                            <div class="w3-container">
+                                  <div class="w3-card-4" style="width:100%">
+                                    <img src="https://www.wallpaperup.com/uploads/wallpapers/2013/12/30/210466/4415006f42c2dfa1c5bce76a5a34952f-700.jpg" alt="Norway" style="width:100%">
+                                    <div class="w3-container w3-center">
+                                      <p>The Troll's tongue in Hardanger, Norway</p>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-lg-12">
+                            <div class="w3-container">
+                                  <div class="w3-card-4" style="width:100%">
+                                    <img src="https://www.wallpaperup.com/uploads/wallpapers/2013/12/30/210466/4415006f42c2dfa1c5bce76a5a34952f-700.jpg" alt="Norway" style="width:100%">
+                                    <div class="w3-container w3-center">
+                                      <p>The Troll's tongue in Hardanger, Norway</p>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end of thumbnail-->
+
+
+
+                <!-- Blog Pagination Begins -->
+                <div class="blog-pagination pad-bottom-small">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Blog Pagination Ends -->
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                  <div class="sidebar pad-bottom-small">
+                      <!-- Search Form Widget Begins -->
+                      <!--<div class="widget widget_search">-->
+                          <!--<h2 class="widget-title">Search</h2>-->
+                          <!--<form>-->
+                              <!--<input type="text" />-->
+                              <!--<button type="button" class="search-submit"><i class="fa fa-search"></i></button>-->
+                          <!--</form>-->
+                      <!--</div>-->
+                      <!-- Search Form Widget Ends -->
+                      <!-- About Widget Begins -->
+                      <div class="widget widget_about">
+                          <h2 class="widget-title">About Me</h2>
+                          <div class="about-box">
+                              <div class="about-img">
+                                  {%if user.useraccount.image%}
+                                    <img src="{{user.useraccount.image.url}}" alt="images" />
+                                  {% else %}
+                                    <img src="https://www.atomix.com.au/media/2015/06/atomix_user31.png" alt="images" />
+                                  {%endif%}
+                              </div>
+                              <div class="about-info">
+                                  <p>Suffered alteration in some passage of Lorem.</p>
+                                  <ul class="social">
+                                      <li>
+                                          <a href="javascript:void(0)"> <i class="fa fa-facebook"></i> </a>
+                                      </li>
+                                      <li>
+                                          <a href="javascript:void(0)"> <i class="fa fa-twitter"></i> </a>
+                                      </li>
+                                      <li>
+                                          <a href="javascript:void(0)"> <i class="fa fa-google-plus"></i> </a>
+                                      </li>
+                                      <li>
+                                          <a href="javascript:void(0)"> <i class="fa fa-linkedin"></i> </a>
+                                      </li>
+                                      <li>
+                                          <a href="javascript:void(0)"> <i class="fa fa-youtube"></i> </a>
+                                      </li>
+                                  </ul>
+                                  <a href="javascript:void(0)" class="continue-read">Read More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- About Widget Ends -->
+                      <!-- Recent Entry Widget Begins -->
+                      <div class="widget widget_recent_entries">
+                          <h2 class="widget-title">Recent Posts</h2>
+                          <div class="recent-box">
+                              <div class="recent-img"> <img src="images/recent-img-1.png" alt="images"> </div>
+                              <div class="about-info recent-info">
+                                  <h4> <a href="javascript:void(0)">Passage of Lorem Ipsum of passages Lorem Ipsum available.</a> </h4>
+                                  <h5>January 10, 2017</h5>
+                              </div>
+                          </div>
+                          <div class="recent-box">
+                              <div class="recent-img"> <img src="images/recent-img-2.png" alt="images"> </div>
+                              <div class="about-info recent-info">
+                                  <h4> <a href="javascript:void(0)">Passage of Lorem Ipsum of passages Lorem Ipsum available.</a> </h4>
+                                  <h5>January 10, 2017</h5>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Recent Entry Widget Ends -->
+                      <!-- other users Widget Begins -->
+                      <div class="widget widget_categories">
+                          <h2 class="widget-title">Other Users</h2>
+
+                          <ul>
+                              {% for user in users %}
+                              <li>
+                                  <a href="{% url 'accounts:view_profile_with_pk' pk=user.pk %}">{{ user.username}}</a>
+                              </li>
+                              {% endfor %}
+                          </ul>
+
+                      </div>
+                      <!-- other users Widget Ends -->
+                      <!-- Ad Banner Widget Begins -->
+                      <div class="widget widget_ad_banner">
+                          <a href="javascript:void(0)" target="_blank"> <img src="images/ad-banner-img.png" alt="images" /> </a>
+                      </div>
+                      <!-- Ad Banner Widget Ends -->
+                      <!-- Tag Cloud Widget Begins -->
+                      <div class="widget widget_tag_cloud">
+                          <h2 class="widget-title">Popular Tag</h2>
+                          <div class="popular-box">
+                              <ul>
+                                  <li> <a href="javascript:void(0)">alteration</a> </li>
+                                  <li> <a href="javascript:void(0)">altetion</a> </li>
+                                  <li> <a href="javascript:void(0)">suffere</a> </li>
+                                  <li> <a href="javascript:void(0)">passdfgtages</a> </li>
+                                  <li> <a href="javascript:void(0)">alteon</a> </li>
+                                  <li> <a href="javascript:void(0)">eteratssion</a> </li>
+                              </ul>
+                          </div>
+                      </div>
+                      <!-- Tag Cloud Widget Ends -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Content Section Ends -->
+
+
+{% endblock %}
+{% block script %}
+{% endblock%}

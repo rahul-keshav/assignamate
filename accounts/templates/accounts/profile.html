@@ -1,0 +1,89 @@
+{% extends 'accounts/base.html'%}
+
+{%block title%}<title>profile</title>{% endblock %}
+
+{% block body %}
+<!-- Content Section Begins -->
+<div id="main-content" class="content-box no-sidebar pad-top-big pad-bottom-big pr">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="aboutus-img">
+                  {%if user.useraccount.image%}
+                    <img src="{{user.useraccount.image.url}}" alt="images" class="w3-hover-opacity"/>
+                  {% else %}
+                   <img src="https://www.atomix.com.au/media/2015/06/atomix_user31.png" alt="images" />
+                  {%endif%}
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 ol-sm-8 col-xs-12">
+                <div class="aboutus-info">
+                    <h2>About Me</h2>
+                    {% if user == request.user %}
+                    <h5><a href="{% url 'accounts:update_profile' user.useraccount.id %}">edit info</a></h5>
+                    {% else %}
+                             {% if user.useraccount in request.user.is_following.all %}
+                              <h5>following</h5>
+                            {% endif %}
+                    <h5>{% include 'accounts/snippet/follow_form.html' with username=user.username is_following=is_following %}</h5>
+                    {% endif %}
+
+
+
+                    <p>Hello i m_{{user.first_name}} {{user.last_name}}</p>
+
+                    <p>Passage of Lorem Ipsum of passages of Lorem Ipsum available, but the majity have suffered alteration in some form by injected andomised rds which don't look even slightly believable If you are going. to use a passage of Lorem Ipsum, you need to be sure there All the Lorem Ipsum generators on the Internet tend to repeat predefined</p>
+
+                    <p>email : {{user.email}}</p>
+
+                    <p>discription : {{user.useraccount.discription}}</p>
+
+                    <p>and i am from : {{user.useraccount.city}} .</p>
+
+                    <p>user_id : {{user}}</p>
+
+                    <p>You can contact me on : {{user.useraccount.contact_no}}</p>
+                    <!--assignment Links Begins -->
+                    <p>
+                        <ul >
+                            <li>
+                                <a href="{% url 'home:my_post' user.id%}" class="btn">posts</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'assignment:my_assignment_page' user.id%}" class="btn">assignments</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'assignment:blog_site_list' user.id %}" class="btn">blog</a>
+                            </li>
+
+                        </ul>
+                    </p>
+                    <!-- assignment Links Ends -->
+                    <h3>{{user.first_name}} {{user.last_name}}</h3>
+
+                    <!-- Social Media Links Begins -->
+                    <div>
+                        <ul class="social">
+                            <li>
+                                <a href="javascript:void(0)"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fa fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Social Media Links Ends -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content Section Ends -->
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'accounts/base.html'%}
+{% block title%}<title>Add blog site</title>{% endblock %}
+{% block body %}
+
+<form enctype="multipart/form-data" method="post">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Submit</button>
+
+    </form>
+
+{% endblock %}

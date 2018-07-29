@@ -1,0 +1,36 @@
+{% extends 'accounts/base.html'%}
+
+{% block title%}<title>Assignment</title>{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% if user.blogsite_set.all %}
+
+            {% for blog_site in user.blogsite_set.all %}
+                <div class="w3-container">
+                  <div class="w3-card-4" style="width:100%">
+
+                  <a href="{% url 'assignment:blog_site' blog_site.id %}">
+                    <img src="{{blog_site.background_image.url}}" alt="Norway" style="width:100%">
+                    <div class="w3-container w3-center">
+                      <p>{{ blog_site.name }}</p>
+                    </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+
+            {% endif %}
+            {%if user == request.user%}
+            <a href="{% url 'assignment:add_blog_site' %}" class="btn" >Create Blog site</a>
+            {%endif%}
+        </div>
+
+
+    </div>
+
+</div>
+{% endblock %}

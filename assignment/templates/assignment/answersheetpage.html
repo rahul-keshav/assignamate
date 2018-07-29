@@ -1,0 +1,94 @@
+{% extends 'accounts/base.html'%}
+{% block title %} <title>answersheet</title> {% endblock %}
+
+{% block body %}
+<h1>{{assignment.title}}</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-success">your answers</li>
+                    {% for answer in answer %}
+                        {% if answer == 'z' %}
+                        <li class="list-group-item">{{forloop.counter}} Not attempted </li>
+                        {% else %}
+                        <li class="list-group-item">{{forloop.counter}} {{answer}}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+            </div>
+            <div class="col-8">
+
+                <div class="card border-success mb-3">
+                  <div class="card-header">these are the correct answer of assignment</div>
+                  <div class="card-body">
+                    <h5 class="card-title">hope you did well</h5>
+                    <p class="card-text text-success">your total marks=##</p>
+                    <p class="card-text text-success">your current rank=##</p>
+                  </div>
+                </div>
+
+                {% for question in assignment.questions_set.all%}
+                <div class="w3-card-4 bg-light mb-3">
+                          <div class="card-header">
+                              <p>{{forloop.counter}}>{{question}}</p>
+                          </div>
+                              <div class="w3-container w3-center">
+                                <h5 class="card-title">  </h5>
+                                <p class="card-text"></p>
+                                    <div class="row mb-3">
+                                        {% if question.answer == 'a' %}
+                                        <div class="col">
+                                            <button type="button" class="w3-button w3-green w3-hover-light-green w3-block">a){{question.option_a}}</button>
+                                        </div>
+
+                                        {% else %}
+                                        <div class="col">
+                                            <button type="button" class="w3-button w3-blue-grey w3-hover-light-grey w3-block">a){{question.option_a}}</button>
+                                        </div>
+                                        {% endif%}
+                                        {% if question.answer == 'b' %}
+                                        <div class="col">
+                                            <button type="button" class="w3-button w3-green w3-hover-light-green w3-block">b){{question.option_b}}</button>
+                                        </div>
+                                        {% else %}
+                                        <div class="col">
+                                            <button type="button" class="w3-button w3-blue-grey w3-hover-light-grey w3-block">b){{question.option_b}}</button>
+                                        </div>
+
+                                        {% endif%}
+                                    </div>
+                                    <div class="row mb-3">
+                                        {% if question.answer == 'c' %}
+                                        <div class="col">
+                                            <button type="button" class="w3-button w3-green w3-hover-light-green w3-block">c){{question.option_c}}</button>
+                                        </div>
+                                        {% else %}
+                                        <div class="col">
+                                            <button type="button" class="w3-button w3-blue-grey w3-hover-light-grey w3-block">c){{question.option_c}}</button>
+                                        </div>
+                                        {% endif %}
+                                        {% if question.answer == 'd' %}
+                                        <div class="col">
+                                            <button type="button" class="w3-button w3-green w3-hover-light-green w3-block">d){{question.option_d}}</button>
+                                        </div>
+                                        {% else %}
+                                        <div class="col">
+                                            <button type="button" class="w3-button w3-blue-grey w3-hover-light-grey w3-block">d){{question.option_d}}</button>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                        </div>
+                    </div>
+                <br>
+                {% endfor %}
+            </div>
+            <div class="col-2">
+
+            </div>
+            </div>
+
+    </div>
+{% endblock %}

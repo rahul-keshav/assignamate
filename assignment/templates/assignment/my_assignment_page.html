@@ -1,0 +1,28 @@
+{% extends 'accounts/base.html'%}
+{% block title%}<title>My Assignment</title>{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <ul>
+            {% for assignment in user.assignment_set.all %}
+                <li><a href="{% url 'assignment:assignment' assignment.id %}">{{ assignment.title }}</a>-
+                    {% if request.user == assignment.user%}
+                     <a href="{% url 'assignment:my_assignment_update' assignment.id %}">edit</a>
+                    {% endif %}
+                    <p>{{assignment.discription}}</p></li>
+            {% endfor %}
+            </ul>
+            <a href="{% url 'assignment:assignment_add' %}">Add Assignment</a>
+        </div>
+        <div class="col">
+            {% for studymaterial in studymaterial %}
+                <li><a href="{{studymaterial.document.url}}" target="_blank">{{studymaterial.name}}</a>-<p>{{studymaterial.discription}}</li>
+            {% endfor%}
+
+            <br>
+            <a href="{% url 'assignment:uploadfile'%}">upload study-material</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

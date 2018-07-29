@@ -1,0 +1,2517 @@
+/*------------------------------------------------------------------
+[Table of contents]
+1. HTML5 display-role reset for older browsers
+  1.1 css reset
+  1.2 global css
+2.  Header css
+3.  Banner css
+4.  Main - Content 'No Sidebar' css
+5.  Left Sidebar css
+6.  blog list css
+7.  blog list with Sidebar css
+8.  blog grid css
+9.  blog grid with sidebar css
+10. blog masonry css
+11. about page css
+12. 404 page css
+13. blog detail css
+14. blog detail with sidebar css
+15. Back To Top css
+16. header with Logo on right css
+17. header with Logo in center css
+18. header centered css
+19. header divider css
+20. full header Logo left CSS
+21. full header Logo right css
+22. full header Logo center css
+23. footer logo only css
+24. footer logo bottom css
+25. footer logo bottom right css
+26. blog grid three column css
+27. blog grid four column css
+28. image slider page css
+29. blockquote page css
+30. thumb gallery css
+31. banner slider css
+-------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+
+/* ==================================================
+    1. HTML5 display-role reset for older browsers
+===================================================== */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a,
+input,
+button,
+select,
+textarea {
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    color: #b9b9b9;
+}
+
+:-moz-placeholder {
+    color: #b9b9b9;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #b9b9b9;
+}
+
+:-ms-input-placeholder {
+    color: #b9b9b9;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: #f1868a;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+}
+
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+    color: #000000;
+}
+
+::-moz-selection {
+    color: #fff;
+    background: #f1868a;
+}
+
+::selection {
+    color: #fff;
+    background: #f1868a;
+}
+
+
+/* 1.1 css reset */
+
+.clear {
+    clear: both;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-pad-left {
+    padding-left: 0;
+}
+
+.no-pad-right {
+    padding-right: 0;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+
+/* 1.2 Global CSS */
+
+body {
+    margin: 0;
+    font-size: 14px;
+    color: #686868;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    font-family: 'Playfair Display', serif;
+    /*font-family: 'Source Sans Pro', sans-serif;*/
+}
+
+h1 {
+    font-size: 74px;
+    line-height: 84px;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 48px;
+}
+
+h3 {
+    font-size: 22px;
+    line-height: 39px;
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 27px;
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+h6 {
+    font-size: 11px;
+    line-height: 27px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: 400;
+}
+
+p {
+    font-size: 18px;
+    line-height: 29px;
+    margin: 0 0 15px;
+    color: #777777;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.mar-bottom-vsmall {
+    margin-bottom: 25px;
+}
+
+.pad-top-big {
+    padding-top: 50px;
+}
+
+.pad-bottom-big {
+    padding-bottom: 50px;
+}
+
+.pad-bottom-small {
+    padding-bottom: 40px;
+}
+
+.pr {
+    position: relative;
+}
+
+.parallax-fix {
+    position: relative;
+    background-size: cover !important;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat !important;
+    transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -webkit-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    transition-timing-function: ease-in;
+    -moz-transition-timing-function: ease-in;
+    -webkit-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    background-attachment: fixed !important
+}
+
+.parallax-fix .row {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+}
+
+.block-title {
+    color: #e75b1e;
+    margin: 0;
+    text-align: center;
+    font-family: 'Playball', cursive;
+    letter-spacing: 1.62px;
+}
+
+.title-caption {
+    letter-spacing: 0.16px;
+    padding: 20px 120px;
+}
+
+.color-white {
+    color: #fff;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+blockquote {
+    border: 1px solid #e4e4e4;
+    padding: 26px 40px;
+}
+
+blockquote p {
+    color: #b1b1b1;
+    font-size: 22px;
+    line-height: 39px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+blockquote p i {
+    font-size: 58px;
+    display: inline-block;
+    float: left;
+    position: relative;
+    left: -7px;
+    top: 12px;
+    margin-right: 5px;
+}
+
+blockquote p span {
+    display: table;
+}
+
+#site-head {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+/* ===================================
+    2. Header CSS
+====================================== */
+
+.header-block {
+    position: fixed;
+    z-index: 11;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.71);
+}
+
+.header-block.fixed {
+    background-color: #000;
+}
+
+.menuBar .navbar {
+    margin: 0;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    min-height: inherit;
+}
+
+.menuBar ul li {
+    position: relative;
+}
+
+.menuBar .navbar-default .navbar-nav>li>a {
+    /*font-size: 18px;
+    color: #cacaca;
+    font-weight: 400;
+    display: inline-block;
+    position: relative;*/
+    font-size: 14px;
+    color: #cacaca;
+    font-weight: 600;
+    display: inline-block;
+    position: relative;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.menuBar nav .navbar-nav > li > a {
+    padding: 22.5px 28px;
+}
+
+.menuBar nav .navbar-nav > li.has-children > a {
+    padding: 22.5px 38px 22.5px 28px;
+}
+
+.menuBar .navbar-default .navbar-nav>.active>a,
+.menuBar .navbar-default .navbar-nav>.active>a:focus,
+.menuBar .navbar-default .navbar-nav>.active>a:hover,
+.menuBar .navbar-default .navbar-nav>li>a:focus,
+.menuBar .navbar-default .navbar-nav>li>a:hover {
+    color: #f1868a;
+    background-color: transparent;
+}
+
+.menuBar .navbar .navbar-brand {
+    margin: 0;
+    padding: 20px 0;
+    display: inline-block;
+    max-width: 148px;
+    height: 100%;
+    float: none;
+}
+
+.menuBar .navbar .navbar-brand img {
+    display: inline-block;
+    width: 100%;
+}
+
+.menuBar ul li.has-children > a:after {
+    position: absolute;
+    height: 65px;
+    width: 10px;
+    top: 0;
+    right: 24px;
+    content: "\f107";
+    font-family: FontAwesome;
+    color: #cacaca;
+    line-height: 68px;
+}
+
+.menuBar .navbar-default .navbar-nav>.active>a:after,
+.menuBar .navbar-default .navbar-nav>.active>a:focus:after,
+.menuBar .navbar-default .navbar-nav>.active>a:hover:after,
+.menuBar .navbar-default .navbar-nav>li>a:focus:after,
+.menuBar .navbar-default .navbar-nav>li>a:hover:after {
+    color: #f1868a;
+}
+
+.search-form {
+    position: absolute;
+    z-index: 11;
+    right: 0;
+    top: 0;
+    width: 18px;
+    height: 65px;
+    -webkit-transition: width ease .2s;
+    -moz-transition: width ease .2s;
+    -o-transition: width ease .2s;
+    transition: width ease .2s;
+}
+
+.search-form .form-group {
+    position: relative;
+}
+
+.search-form .form-group .btn-form {
+    position: absolute;
+    width: 18px;
+    height: 65px;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.search-form .form-group .btn-form:after {
+    position: absolute;
+    content: "\f002";
+    font-family: FontAwesome;
+    width: 22px;
+    height: 65px;
+    line-height: 65px;
+    color: #f1868a;
+    right: 0;
+    top: 0;
+    font-size: 18px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -o-border-radius: 25px;
+    border-radius: 25px;
+    -webkit-transition: background-color ease .2s;
+    -moz-transition: background-color ease .2s;
+    -o-transition: background-color ease .2s;
+    transition: background-color ease .2s;
+    z-index: 1;
+}
+
+.search-form .form-group .form-control {
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(43, 43, 43, 0);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -o-border-radius: 25px;
+    border-radius: 0;
+    -webkit-transition: background-color ease .15s, border-color ease .15s;
+    -moz-transition: background-color ease .15s, border-color ease .15s;
+    -o-transition: background-color ease .15s, border-color ease .15s;
+    transition: background-color ease .15s, border-color ease .15s;
+    height: 45px;
+    position: relative;
+    top: 10px;
+    padding: 5px 20px 5px 12px;
+    color: #fff;
+}
+
+.search-form.toggle-search-form {
+    width: 320px;
+}
+
+.search-form.toggle-search-form .btn-form:after {
+    content: "\f00d";
+    background-color: transparent;
+}
+
+.navbar-right {
+    margin-right: 50px;
+}
+
+.toggle-search-form .form-group input.form-control {
+    background-color: #2b2b2b;
+}
+
+.container-fluid,
+#main-menu {
+    padding: 0;
+}
+
+
+/* Sub Menu */
+
+.menuBar .navbar-nav>li.menu-item-has-children {
+    margin-right: 10px;
+}
+
+#header .sub-menu li {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid rgba(187, 187, 187, 0.28);
+    position: relative;
+}
+
+#header .sub-menu li:last-of-type {
+    border-bottom: 0;
+}
+
+#header nav ul li ul {
+    width: 200px;
+    background-color: #000000;
+    margin: 0;
+    position: absolute;
+    overflow: visible;
+    visibility: hidden;
+    display: block;
+    opacity: 0;
+    padding: 0;
+    border: crimson;
+    -webkit-transition: all .25s ease-in;
+    transition: all .25s ease-in;
+    z-index: 100;
+    top: 100%;
+}
+
+#header nav ul.sub-menu li ul,
+#header.darkHeader nav ul li ul li ul {
+    position: absolute;
+    left: 100%;
+    display: none;
+    top: 0;
+}
+
+#header nav ul.sub-menu li > a {
+    padding: 10px 15px;
+    line-height: normal;
+    width: 100%;
+    text-decoration: none;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    transition: 0.3s all;
+    font-size: 14px;
+    color: #cacaca;
+    font-weight: 600;
+    display: inline-block;
+    position: relative;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;    
+    text-align: left;
+}
+
+#header nav ul li.menu-item-has-children ul li:after {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    top: 12px;
+    right: 15px;
+}
+
+#header nav ul.sub-menu li > a:hover,
+#header nav ul.sub-menu li > a:active,
+#header nav ul.sub-menu li > a:focus,
+#header .sub-menu li:hover > a:hover {
+    background-color: transparent;
+    color: #f1868a !important;
+}
+
+@media screen and (min-width: 767px) {
+    #header nav ul li:hover > ul {
+        pointer-events: inherit;
+        visibility: visible;
+        opacity: 1;
+        display: block;
+    }
+    #header nav ul.sub-menu li:hover > ul,
+    #header nav ul.sub-menu ul li:hover > ul {
+        display: block;
+        top: 0;
+    }
+}
+
+#header nav ul li.menu-item-has-children {
+    margin-right: 10px;
+}
+
+#header nav ul li.menu-item-has-children:after {
+    content: "";
+    display: inline-block;
+    content: "\f107";
+    font-family: 'FontAwesome' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #ffffff;
+    margin-left: 5px;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    transition: 0.3s all;
+    position: absolute;
+    top: 49%;
+    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    right: 0;
+    font-size: 15px;
+}
+
+#header nav ul li.menu-item-has-children:hover:after {
+    color: #fff;
+}
+
+#header.darkHeader nav ul li ul {
+    top: 76px;
+}
+
+#header .clickmenu {
+    display: none;
+}
+
+#header nav ul li.menu-item-has-children ul {
+    margin: 0;
+}
+
+.menuBar ul.sub-menu li.has-children > a:after {
+    height: 100%;
+    top: 13px;
+    line-height: normal;
+    color: #fff;
+    content: "\f105";
+    right: 10px;
+}
+
+
+/* Sub Menu */
+
+.menu-wrap {
+    display: none;
+}
+
+
+/* ===================================
+    3. Banner CSS
+====================================== */
+
+.banner {
+    padding-top: 65px;
+}
+
+.banner-static {
+    height: 595px;
+    background-image: url('../images/large-image.png');
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.banner .container {
+    height: 100%;
+}
+
+.banner .col-lg-12 {
+    height: 100%;
+}
+
+.banner-text {
+    display: table;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.banner-cell {
+    display: table-cell;
+    vertical-align: middle;
+    color: #fff;
+}
+
+.banner-sidebar:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 52px;
+    background-color: #f1868a;
+    top: 15px;
+    left: 0;
+}
+
+.banner-sidebar {
+    position: relative;
+    padding-left: 26px;
+}
+
+.banner-cell h5 {
+    text-transform: uppercase;
+    letter-spacing: 3.08px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.banner-cell h1 {
+    font-weight: 700;
+    margin: 14px 0 29px;
+}
+
+.banner-cell h1 span {
+    color: #f1868a;
+}
+
+.btn {
+    background-color: #fff;
+    border: 1px solid #eeeff3;
+    color: #161616;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1.12px;
+    text-transform: uppercase;
+    border-radius: 0;
+    padding: 13.5px 30px;    
+    font-weight: 700;
+}
+
+.btn i.fa {
+    margin-left: 4px;
+}
+
+.btn.focus,
+.btn:focus,
+.btn:hover {
+    color: #fff;
+    background-color: #f1868a;
+    border-color: #f5878b;
+}
+
+/* =============================================
+    4. Main - Content 'No Sidebar' css
+================================================ */
+
+.outer-blog-box {
+    display: inline-block;
+    width: 100%;
+}
+
+.blog-media {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.blog-img {
+    height: 0;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    padding-top: 40.8%;
+}
+
+.blog-img img {
+    position: absolute;
+    margin: auto;
+    top: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.blog-title a {
+    color: #000;
+}
+
+.blog-title a:hover {
+    color: #f1868a;
+}
+
+.below-blog-list,
+.blog-details .outer-blog-box .blog-captions ul.below-blog-list {
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    margin: 22px 0 18px;
+    list-style: none;
+}
+
+.below-blog-list li,
+.blog-details .outer-blog-box .blog-captions ul.below-blog-list li {
+    display: inline-block;
+    float: left;
+    margin-right: 40px;
+    font-size: 14px;
+    color: #b9b9b9;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    padding: 0;
+}
+
+.below-blog-list li a {
+    font-size: 14px;
+    color: #b9b9b9;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1.12px;
+}
+
+.below-blog-list li a:hover,
+.social li a:hover {
+    color: #f1868a;
+}
+
+.below-blog-list li:last-child,
+.blog-list-with-sidebar .below-blog-list li:last-child,
+.blog-grid-with-sidebar .blog_grid .below-blog-list li:last-child {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.continue-read {
+    font-size: 14px;
+    color: #161616;
+    font-weight: 700;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.12px;
+    display: inline-block;
+    float: left;
+}
+
+.continue-read:hover {
+    color: #f1868a;
+}
+
+.bottom-blog .social {
+    float: right;
+}
+
+.social {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social li {
+    display: inline-block;
+    float: left;
+    margin-left: 17px;
+}
+
+.social li a {
+    font-size: 14px;
+    color: #b9b9b9;
+}
+
+.social li:first-child {
+    margin: 0;
+}
+
+.bottom-blog {
+    display: inline-block;
+    width: 100%;
+    margin-top: 11px;
+}
+
+.outer-blog-box iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.no-sidebar .embed-responsive-16by9 {
+    padding-top: 40.8%;
+    padding-bottom: 0;
+}
+
+.blog-pagination nav {
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-left: 0;
+    border-right: 0;
+}
+
+.blog-pagination nav ul {
+    vertical-align: top;
+}
+
+.blog-pagination nav a {
+    border: 1px solid #eeeff3;
+    border-radius: 0;
+    margin-right: 10px;
+    color: #b9b9b9;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.blog-pagination .pagination>li:first-child>a,
+.blog-pagination .pagination>li:first-child>span,
+.blog-pagination .pagination>li:last-child>a,
+.blog-pagination .pagination>li:last-child>span {
+    border: 1px solid #eeeff3;
+    border-radius: 0;
+}
+
+.blog-pagination .pagination>li>a:focus,
+.blog-pagination .pagination>li>a:hover,
+.blog-pagination .pagination>li>span:focus,
+.blog-pagination .pagination>li>span:hover,
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover,
+.popular-box ul li a:hover {
+    color: #fff;
+    background-color: #f1868a;
+    border-color: #f37e82;
+}
+
+.bottom-title {
+    color: #000;
+    margin-bottom: 29px;
+}
+
+.about-img,
+.recent-img {
+    height: 143px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    width: 143px;
+    float: left;
+}
+
+.about-img img,
+.recent-img img {
+    position: absolute;
+    margin: auto;
+    top: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.about-info {
+    display: table;
+    padding-left: 30px;
+}
+
+.about-info .social {
+    display: inline-block;
+    width: 100%;
+    margin: 8px 0 18px;
+}
+
+.popular-box ul li {
+    display: inline-block;
+    float: left;
+}
+
+.popular-box {
+    display: inline-block;
+    width: 100%;
+}
+
+.popular-box ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.popular-box ul li a {
+    display: inline-block;
+    font-size: 14px;
+    color: #161616;
+    border: 1px solid #eeeff3;
+    padding: 13.5px 30px;
+    margin: 0 10px 10px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 1.12px;
+}
+
+.recent-img {
+    width: 93px;
+    height: 93px;
+}
+
+.recent-info h4 a {
+    color: #777777;
+    font-family: 'Source Sans Pro', sans-serif;
+    display: inline-block;
+    width: 100%;
+}
+
+.recent-info h4 a:hover {
+    color: #f1868a;
+}
+
+.recent-info h5 {
+    color: #b9b9b9;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.12px;
+    margin-top: 11px;
+}
+
+.recent-box {
+    display: inline-block;
+    width: 100%;
+    /*float: left;*/
+    margin-bottom: 40px;
+}
+
+.recent-box:last-of-type {
+    margin: 0;
+}
+
+.instagram-box h2 {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    color: #000;
+    margin-bottom: 38px;
+}
+
+.instagram-feed .item,
+.instagram-feed .item img {
+    position: relative;
+    z-index: 2;
+    cursor: w-resize;
+}
+
+.instagram-feed .owl-stage, 
+.instagram-feed .owl-stage-outer {
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.instagram-feed .owl-stage:after{
+    content: '';
+}
+
+.instagram-feed .owl-item:last-child{
+    display: none;
+}
+
+#footer-instagram-feed,
+#insta-post,
+#footer,
+.copyright {
+    display: inline-block;
+    width: 100%;
+    float: left;    
+    overflow: hidden;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 44px;
+}
+
+.footer .subscribe-form {
+    display: inline-block;
+}
+
+.footer .subscribe-form input {
+    border: 1px solid #e9e9e9;
+    height: 53px;
+    width: 390px;
+    display: inline-block;
+    float: left;
+    font-size: 16px;
+    color: #b9b9b9;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 5px 20px;
+}
+
+.subscribe-btn {
+    background-color: #f1868a;
+    color: #fff;
+    width: 62px;
+    height: 53px;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 53px;
+}
+
+.subscribe-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.footer h4 {
+    color: #b9b9b9;
+    margin-bottom: 34px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.footer-links {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-links li {
+    display: inline-block;
+    float: left;
+}
+
+.footer-links li a {
+    font-size: 18px;
+    color: #b9b9b9;
+    font-family: 'Source Sans Pro', sans-serif;
+    display: inline-block;
+    margin-left: 38px;
+}
+
+.footer-links li:first-child a {
+    margin-left: 0;
+}
+
+.footer-links li a:hover {
+    color: #f1868a;
+}
+
+.subscibe-box {
+    margin-bottom: 37px;
+}
+
+.footer .social {
+    display: inline-block;
+    width: 100%;
+    margin-top: 17px;
+}
+
+.footer .social li {
+    float: none;
+    margin-left: 54px;
+}
+
+.footer .social li a {
+    font-size: 20px;
+}
+
+.footer .social li:first-child {
+    margin: 0;
+}
+
+.copyright {
+    background-color: rgba(245, 249, 249, 0.63);
+}
+
+.copyright h5 {
+    font-size: 16px;
+    color: #b9b9b9;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    padding: 25.5px 0;
+}
+
+.copyright .dotstore-link {
+    color: #b9b9b9;
+}
+
+.copyright .dotstore-link:hover {
+    color: #f1868a;
+}
+
+.body-overlay {
+    top: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: visibility ease .2s, opacity ease .2s;
+    -moz-transition: visibility ease .2s, opacity ease .2s;
+    -o-transition: visibility ease .2s, opacity ease .2s;
+    transition: visibility ease .2s, opacity ease .2s;
+}
+
+.body-overlay.show-body-overlay {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 11;
+}
+
+
+/* ===================================
+    5. Left & Right Sidebar CSS
+====================================== */
+
+.sidebar {
+    padding-left: 5px;
+    margin-left: 30px;
+}
+
+.left-sidebar .sidebar {
+    padding-left: 0;
+    margin-left: 0;
+    padding-right: 5px;
+    margin-right: 30px;
+}
+
+.sidebar .widget-title {
+    color: #000000;
+    margin-bottom: 29px;
+}
+
+.sidebar .widget {
+    position: relative;
+    top: -14px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(236, 236, 236, 0.7);
+}
+
+.sidebar .widget:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sidebar input {
+    border: 1px solid #e9e9e9;
+    width: 100%;
+    height: 53px;
+    padding: 5px 45px 5px 20px;
+}
+
+.sidebar .widget_search form {
+    position: relative;
+}
+
+.sidebar .widget_search .search-submit {
+    position: absolute;
+    font-size: 20px;
+    color: #dad9d9;
+    background: transparent;
+    border: 0;
+    top: 10px;
+    right: 17px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+}
+
+.sidebar .widget_search .search-submit:hover {
+    color: #f1868a;
+}
+
+.sidebar .widget + .widget {
+    margin-top: 30px;
+}
+
+.sidebar .widget_categories ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar .widget_categories ul li {
+    padding-left: 26px;
+    position: relative;
+    padding-bottom: 26px;
+}
+
+.sidebar .widget_categories ul li a {
+    font-size: 16px;
+    color: #777777;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.sidebar .widget_categories ul li:before {
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    content: "\f105";
+    font-family: FontAwesome;
+    color: #cacaca;
+}
+
+.sidebar .widget_categories ul li a:hover {
+    color: #f1868a;
+}
+
+.sidebar .widget_categories ul li:last-child {
+    padding-bottom: 0;
+}
+
+.sidebar .widget.widget_ad_banner {
+    margin-top: 45px;
+    padding-bottom: 45px;
+}
+
+.instagram-feed .item {
+    background-color: #000;
+}
+
+.instagram-feed .item img {
+    opacity: 0.62;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.instagram-feed .item img:hover {
+    opacity: 1;
+}
+
+
+/* ===================================
+    6. Blog - list CSS
+====================================== */
+
+.blog-list .blog-media {
+    width: 422px;
+    height: 282px;
+    padding: 0;
+    display: inline-block;
+    float: left;
+}
+
+.blog-list .blog-captions {
+    display: table;
+    padding-left: 30px;
+    position: relative;
+    top: -14px;
+}
+
+
+/* ===================================
+    7. Blog - list with Sidebar CSS
+====================================== */
+
+.blog-list.blog-list-with-sidebar .blog-media {
+    width: 309px;
+    height: 246px;
+}
+
+.blog-list-with-sidebar .below-blog-list li a,
+.blog-grid-with-sidebar .blog_grid .below-blog-list li a,
+.blog-masonry-with-sidebar .blog_grid_masonry .below-blog-list li a {
+    font-size: 11px;
+}
+
+.blog-list-with-sidebar .below-blog-list li,
+.blog-grid-with-sidebar .blog_grid .below-blog-list li,
+.blog-masonry-with-sidebar .blog_grid_masonry .below-blog-list li {
+    margin-right: 9px;
+}
+
+
+/* ===================================
+    8. Blog - Grid CSS
+====================================== */
+
+.blog_grid .outer-blog-box,
+.blog_grid_masonry .outer-blog-box {
+    width: 50%;
+}
+
+.blog_grid .blog-img,
+.blog_grid_masonry .blog-img {
+    padding-top: 77.4%;
+}
+
+.blog_grid .below-blog-list,
+.blog_grid_masonry .below-blog-list {
+    margin: 22px 0 8px;
+}
+
+.blog_grid .below-blog-list li,
+.blog_grid_masonry .below-blog-list li {
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
+
+.blog_grid .col-lg-6:nth-child(even) {
+    /*padding-right: 0;*/
+}
+
+.blog_grid .col-lg-6:nth-child(odd) {
+    /*padding-left: 0;*/
+}
+
+.blog_grid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+
+/* ===================================
+    9. Blog - Grid With Sidebar CSS
+====================================== */
+
+.blog-grid-with-sidebar .blog_grid .below-blog-list li,
+.blog-masonry-with-sidebar .blog_grid_masonry .below-blog-list li {
+    /*margin-right: 7px;*/
+}
+
+.left-sidebar .blog-grid-width {
+    width: 66.66666667%;
+    float: right;
+}
+
+.blog-grid-with-sidebar .blog-pagination {
+    width: 100%;
+    display: inline-block;
+}
+
+.right-sidebar .blog-grid-width {
+    width: 66.66666667%;
+    float: left;
+}
+
+.blog-grid-with-sidebar .blog_grid {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.blog-masonry.no-sidebar .blog-pagination,
+.blog-with-grid.no-sidebar .blog-pagination {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* ===================================
+    10. Blog - Masonry CSS
+====================================== */
+
+.blog_grid_masonry .blog-img-small {
+    padding-top: 60.4%;
+}
+
+.blog_grid_masonry .blog-img-large {
+    padding-top: 86.7%;
+}
+
+
+/* ===================================
+    11. About Us Page CSS
+====================================== */
+
+.no-banner {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    min-height: 65px;
+}
+
+.no-banner .header-block {
+    background-color: #000;
+    position: static;
+}
+
+.no-banner .header-block.fixed {
+    position: fixed;
+}
+
+.aboutus-info {
+    padding: 0 10px;
+    position: relative;
+    top: -12px;
+}
+
+.aboutus-info h2 {
+    color: #161616;
+}
+
+.aboutus-info h5 {
+    color: #b9b9b9;
+    text-transform: uppercase;
+    letter-spacing: 1.12px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    margin: 6px 0 22px;
+}
+
+.aboutus-info p {
+    margin-bottom: 40px;
+}
+
+.aboutus-info h3 {
+    color: #161616;
+    padding-top: 20px;
+}
+
+.aboutus-info .social li a {
+    font-size: 20px;
+}
+
+.aboutus-info .social li {
+    margin-left: 25px;
+}
+
+.aboutus-info .social li:first-child {
+    margin: 0;
+}
+
+
+/* ===================================
+    12. 404 Page CSS
+====================================== */
+
+.error-block {
+    position: relative;
+}
+
+.error-block:before {
+    content: '';
+    display: inline-block;
+    background-image: url('../images/error-page-img.png');
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: -87px;
+    background-size: 20%;
+}
+
+.error-page h1 {
+    font-size: 230px;
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 200px;
+    font-weight: 900;
+    color: #f1868a;
+    margin-bottom: 18px;
+}
+
+.error-page h2 {
+    font-size: 39px;
+    color: #555555;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+
+.error-page h3 {
+    font-size: 24px;
+    color: #555555;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    margin: 13px 0 60px;
+}
+
+.error-bottom .home-page-link {
+    display: inline-block;
+    letter-spacing: 1.12px;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    border: 1px solid #e9e9e9;
+    padding: 15.3px 47px;
+    float: left;
+    min-width: 242px;
+}
+
+.error-bottom .home-page-link i.fa {
+    margin-left: 5px;
+}
+
+.error-bottom h5 {
+    font-size: 14px;
+    color: #161616;
+    font-weight: 700;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.12px;
+    border-radius: 50%;
+    background-color: #fff;
+    width: 53px;
+    height: 53px;
+    float: left;
+    line-height: 53px;
+    margin: 0 35px;
+    position: relative;
+    z-index: 1;
+}
+
+.error-search input {
+    font-family: 'Source Sans Pro', sans-serif;
+    border: 1px solid #e9e9e9;
+    height: 53px;
+    width: 100%;
+    color: #b9b9b9;
+    font-size: 16px;
+    padding: 0 35px 0 15px;
+}
+
+.error-search {
+    position: relative;
+    width: 242px;
+    float: left;
+}
+
+.error-search .e-search-icon {
+    position: absolute;
+    font-size: 20px;
+    color: #dad9d9;
+    right: 16px;
+    top: 11px;
+}
+
+.error-bottom h5:before {
+    content: '';
+    display: inline-block;
+    width: 85px;
+    height: 1px;
+    position: absolute;
+    background-color: #e9e9e9;
+    left: -17px;
+    top: 26.5px;
+    z-index: -1;
+}
+
+.error-search .e-search-icon:hover {
+    color: #f1868a;
+}
+
+.error-bottom {
+    display: inline-block;    
+    margin-bottom: 30px;
+}
+
+.error-bottom h5 b {
+    width: 53px;
+    height: 53px;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #e9e9e9;
+}
+
+.error-bottom .home-page-link:hover {
+    background-color: #f1868a;
+}
+
+
+/* ===================================
+    13. Blog Detail Page CSS
+====================================== */
+
+.blog-details p {
+    margin-bottom: 28px;
+}
+
+.blog-details .outer-blog-box .blog-captions ul {
+    padding: 0 0 0 18px;
+    margin: 0;
+}
+
+.blog-details .outer-blog-box .blog-captions ul li {
+    font-size: 18px;
+    color: #777777;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding-bottom: 32px;
+    padding-left: 16px;
+}
+
+.blog-details .blog-captions blockquote {
+    border: 0;
+    padding: 0;
+    margin: 0 0 44px;
+}
+
+.blog-details .blog-captions blockquote h5 {
+    color: #161616;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 1.12px;
+    display: inline-block;
+    width: 100%;
+    line-height: 30px;
+    position: relative;
+    padding-left: 59px;
+}
+
+.blog-details .blog-captions blockquote h5:before {
+    content: open-quote;
+    display: inline-block;
+    color: #fff;
+    font-size: 44px;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-color: #f1868a;
+    text-align: center;
+    line-height: 45px;
+    font-weight: 400;
+    border-radius: 50%;
+    float: left;
+    letter-spacing: 0;
+    font-family: 'Playfair Display', serif;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.blog-detail-pagination .pagination {
+    width: 100%;
+    vertical-align: top;
+}
+
+.blog-detail-pagination li.prev {
+    float: left;
+}
+
+.blog-detail-pagination li.next {
+    float: right;
+}
+
+.blog-detail-pagination .pagination>li:first-child>a,
+.blog-detail-pagination .pagination>li:first-child>span,
+.blog-detail-pagination .pagination>li:last-child>a,
+.blog-detail-pagination .pagination>li:last-child>span {
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    color: #161616;
+    text-transform: uppercase;
+    letter-spacing: 1.12px;
+    font-weight: 700;
+}
+
+.blog-detail-pagination .pagination li.prev i.fa {
+    font-size: 16px;
+    margin-right: 3px;
+}
+
+.blog-detail-pagination .pagination li.next i.fa {
+    font-size: 16px;
+    margin-left: 3px;
+}
+
+.blog-detail-pagination .pagination>li>a:focus,
+.blog-detail-pagination .pagination>li>a:hover,
+.blog-detail-pagination .pagination>li>span:focus,
+.blog-detail-pagination .pagination>li>span:hover,
+.blog-detail-pagination .pagination>.active>a,
+.blog-detail-pagination .pagination>.active>a:focus,
+.blog-detail-pagination .pagination>.active>a:hover,
+.blog-detail-pagination .pagination>.active>span,
+.blog-detail-pagination .pagination>.active>span:focus,
+.blog-detail-pagination .pagination>.active>span:hover {
+    background-color: transparent;
+    color: #f1868a;
+}
+
+.blog-detail-pagination {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.blog-detail-pagination .social {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    margin-right: -50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.blog-comments .comment-avtar {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    display: inline-block;
+    width: 69px;
+    height: 69px;
+    border-radius: 50%;
+    background-color: #c8c8c8;
+    float: left;
+}
+
+.blog-comments .comment-avtar img {
+    position: absolute;
+    margin: auto;
+    top: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.blog-comments .comment-text {
+    display: table;
+    padding: 0 0 23px 30px;
+    position: relative;
+    top: -12px;
+}
+
+.blog-comments {
+    border: 1px solid #f3f3f3;
+    padding: 28px 23px 0;
+    -webkit-box-shadow: 0px 0px 20px 0px #f6f6f6;
+    -moz-box-shadow: 0px 0px 20px 0px #f6f6f6;
+    box-shadow: 0px 0px 20px 0px #f6f6f6;
+}
+
+.blog-comment .comment-text .comment-reply i.fa {
+    margin-left: 6px;
+}
+
+.blog-comment-main > h3 {
+    color: #161616;
+    margin-bottom: 14px;
+}
+
+.comment-text h3 {
+    color: #161616;
+    margin-bottom: 7px;
+}
+
+.comment-text h5 {
+    color: #b9b9b9;
+    letter-spacing: 1.12px;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    margin-bottom: 23px;
+}
+
+.blog-comment .comment-text .comment-reply {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.blog-comment-main .blog-comment {
+    border-top: 1px solid #f2f2f2;
+    padding-top: 40px;
+}
+
+.blog-comment-main .blog-comment .blog-comment {
+    margin-left: 100px;
+}
+
+.blog-comment-main .blog-comment .blog-comment .blog-comment .blog-comment {
+    margin-left: 0px;
+}
+
+.blog-comment-main .blog-comment:first-of-type {
+    border: 0;
+    padding: 0;
+}
+
+.blog-comments .comment-text p {
+    margin-bottom: 10px;
+}
+
+.contact-form h3,
+.contact-form h2 {
+    color: #161616;
+    margin-bottom: 29px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 30px;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    width: 100%;
+    border: 1px solid #e9e9e9;
+    border-radius: 0;
+    height: 49px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #b9b9b9;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 5px 20px;
+}
+
+.contact-form .form-group textarea {
+    height: 195px;
+}
+
+.contact-form .form-group .cntct-btn {
+    display: inline-block;
+    border: 0;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #f1868a;
+    font-weight: 700;
+    letter-spacing: 1.12px;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 14.5px 39.5px;
+    text-transform: uppercase;
+}
+
+.contact-form .form-group .cntct-btn:hover {
+    background-color: black;
+}
+
+.user-loggedin {
+    color: #b9b9b9;
+    letter-spacing: 1.12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.user-loggedin a {
+    font-weight: 700;
+}
+
+.contact-form {
+    display: inline-block;
+    width: 100%;
+}
+
+
+/* ===================================
+    14. Blog Detail with Sidebar CSS
+====================================== */
+
+.blog-details-with-sidebar .detail-texts,
+.blog-details-with-sidebar blockquote {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    padding: 0 30px 0 0;
+}
+
+.blog-details-with-sidebar.blog-details .blog-captions blockquote {
+    padding: 10px 10px 10px 25px;
+}
+
+
+/* ===================================
+    15. Contact CSS
+====================================== */
+
+#map iframe {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border: 0;
+}
+
+#map {
+    height: 530px;
+    display: inline-block;
+    width: 100%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.contact-address {
+    display: inline-block;
+    max-width: 100%;
+    width: calc(100% - 30px);
+    border: 1px solid #f3f3f3;
+    -webkit-box-shadow: 0px 0px 20px 0px #f6f6f6;
+    -moz-box-shadow: 0px 0px 20px 0px #f6f6f6;
+    box-shadow: 0px 0px 20px 0px #f6f6f6;
+    margin: 0 0 0 15px;
+}
+
+.contact-address h3 {
+    color: #161616;
+    margin-bottom: 23px;
+}
+
+.contact-address .col-lg-4:first-child {
+    border: 0;
+}
+
+.contact-address .col-lg-4 {
+    border-left: 1px solid #f3f3f3;
+    padding: 25px 40px;
+}
+
+.cntct-box h4 {
+    color: #777777;
+    position: relative;
+    padding-left: 25px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.cntct-box h4 i.fa {
+    position: absolute;
+    font-size: 20px;
+    color: #b9b9b9;
+    left: 0;
+    top: 7px;
+}
+
+.cntct-box h4 a {
+    color: #777;
+    padding-left: 7px;
+}
+
+.cntct-box h4 a:hover {
+    color: #f1868a;
+}
+
+.contact-page .form-group.contactus-btn {
+    margin: 0;
+}
+
+
+/* ===================================
+    15. Back To Top CSS
+====================================== */
+
+.back-to-top {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: -30px;
+    right: 30px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #f1868a;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+    text-align: center;
+    line-height: 40px;
+}
+
+.back-to-top:hover,
+.back-to-top:focus,
+.back-to-top:active {
+    background-color: #000000;
+}
+
+.back-to-top i {
+    color: #fff;
+    font-size: 16px;
+}
+
+.back-to-top.cd-is-visible {
+    visibility: visible;
+    opacity: 1;
+    bottom: 30px;
+}
+
+.back-to-top.cd-is-visible,
+.back-to-top.cd-fade-out,
+.no-touch .back-to-top:hover {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+
+/* ===================================
+    16. header with Logo on right CSS
+====================================== */
+
+.full-header-right .home-menu {
+    display: inline-block;
+    position: relative;
+    float: left;
+}
+
+.full-header-right .navbar-header {
+    float: right;
+}
+
+
+/* ===================================
+    17. header with Logo in center CSS
+====================================== */
+
+.menuBar .site-navigation {
+    float: left;
+    width: 39.5%;
+    position: relative;
+}
+
+.menuBar #site-logo {
+    float: left;
+    width: 20.5%;
+    /* margin-left: 25px; */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.menuBar #site-logo a {
+    margin: 0;
+    padding: 20px 0;
+    display: inline-block;
+    max-width: 148px;
+    height: 100%;
+}
+
+.menuBar .site-navigation .menu-list {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.menuBar .site-navigation .menu-list .has-children {
+    position: relative;
+}
+
+.menuBar .site-navigation .menu-list > li {
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.menuBar .site-navigation .menu-list > li > a {
+    padding: 22.5px 28px;
+    font-size: 14px;
+    color: #cacaca;
+    font-weight: 600;
+    display: inline-block;
+    position: relative;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.menuBar .site-navigation.menu-right .menu-list {
+    display: inline-block;
+    float: right;
+    margin-right: 35px;
+}
+
+.menuBar .site-navigation .menu-list .has-children > a {
+    padding: 22.5px 38px 22.5px 28px;
+}
+
+.menuBar .site-navigation .menu-list > li > a:hover,
+.menuBar .site-navigation .menu-list > li.active > a {
+    color: #f1868a;
+}
+
+.menuBar .site-navigation .menu-list > li > a:hover:after,
+.menuBar .site-navigation .menu-list > li.active > a:after {
+    color: #f1868a;
+}
+
+.overlapblackbg,
+#mobile-menu,
+.menuexpandermain,
+.menu-click,
+.mobile-search-form {
+    display: none;
+}
+
+
+/* ===================================
+    18. header centered CSS
+====================================== */
+
+.header-centered {
+    left: 50%;
+    margin: 20px auto 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: auto;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.header-block.header-centered.fixed {
+    margin: 0;
+    /*width: 100%;
+    border: 0;*/
+}
+
+
+/* ===================================
+    19. header divider CSS
+====================================== */
+
+.header-divider .menuBar .navbar-default .navbar-nav>li>a {
+    border-right: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+
+/* ===================================
+    20. full header Logo left CSS
+====================================== */
+
+.full-head-logo-left .navbar-header,
+.full-head-logo-right .navbar-header,
+.full-head-logo-centered .navbar-header {
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.full-head-logo-left .home-menu,
+.full-head-logo-right .home-menu,
+.full-head-logo-centered .home-menu {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.full-head-logo-left .home-menu .navbar-collapse,
+.full-head-logo-right .home-menu .navbar-collapse,
+.full-head-logo-centered .home-menu .navbar-collapse {
+    padding-left: 0;
+}
+
+
+/* ===================================
+    21. full header Logo right CSS
+====================================== */
+
+.full-head-logo-right .menuBar .navbar .navbar-brand,
+.full-head-logo-right .home-menu {
+    float: right;
+}
+
+
+/* ===================================
+    22. full header Logo Center CSS
+====================================== */
+
+.full-head-logo-centered .menuBar .navbar .navbar-brand {
+    float: none;
+}
+
+.full-head-logo-centered {
+    text-align: center;
+}
+
+
+/* ===================================
+    23. footer logo only CSS
+====================================== */
+
+.footer-logo-only .footer-logo {
+    margin: 0;
+}
+
+
+/* ===================================
+    24. footer logo bottom CSS
+====================================== */
+
+.footer-logo-bottom .footer-logo {
+    margin: 0;
+    padding: 22px 0;
+}
+
+.footer-logo-bottom.copyright h5 {
+    text-align: right;
+}
+
+
+/* ===================================
+    25. footer logo bottom right CSS
+====================================== */
+
+.footer-logo-right h5 {
+    display: inline-block;
+    float: left;
+}
+
+.footer-logo-right .footer-logo {
+    float: right;
+}
+
+
+/* ===================================
+    26. blog grid three column CSS
+====================================== */
+
+.blog-grid-three-column .blog_grid .outer-blog-box,
+.blog-masonry-three-column .blog_grid_masonry .outer-blog-box {
+    width: 33.3334%;
+}
+
+
+/* ===================================
+    27. blog grid four column CSS
+====================================== */
+
+.blog-grid-four-column .blog_grid .outer-blog-box,
+.blog-masonry-four-column .blog_grid_masonry .outer-blog-box {
+    width: 25%;
+}
+
+
+/* ===================================
+    28. Image Slider page CSS
+====================================== */
+
+.imgSlider {
+    position: relative;
+}
+
+.image-slider-page .owl-nav .owl-prev,
+.image-slider-page .owl-nav .owl-next {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    font-size: 0;
+    border: 1px solid #f1868a;
+    background-color: #f1868a;
+    border-radius: 50px;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.image-slider-page .owl-nav .owl-next {
+    right: 30px;
+}
+
+.image-slider-page .owl-nav .owl-next:before {
+    font-family: FontAwesome;
+    content: "\f105";
+    display: inline-block;
+    font-size: 25px;
+    color: #fff;
+    position: relative;
+    left: 2px;
+}
+
+.image-slider-page .owl-nav .owl-prev {
+    left: 30px;
+}
+
+.image-slider-page .owl-nav .owl-prev:before {
+    font-family: FontAwesome;
+    content: "\f104";
+    display: inline-block;
+    font-size: 25px;
+    color: #fff;
+    position: relative;
+    left: -1px;
+}
+
+.image-slider-page .owl-controls {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    top: 50%;
+}
+
+.image-slider-page .owl-nav .owl-next:hover,
+.image-slider-page .owl-nav .owl-prev:hover {
+    background-color: #000;
+    border-color: #000;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.blog-video .embed-responsive-16by9 {
+    padding-bottom: 49%;
+}
+
+/* ===================================
+    29. Blockquote page CSS
+====================================== */
+
+.blockquote-page .blog-blockquote blockquote {
+    width: 100%;
+    padding: 26px 40px;
+}
+
+
+/* ===================================
+    30. Thumb Gallery page CSS
+====================================== */
+
+#popup-gallery {
+    display: inline-block;
+    width: 100%;
+}
+
+#popup-gallery .no-padding {
+    padding: 0 !important;
+}
+
+
+/* ===================================
+    31. Banner Slider CSS
+====================================== */
+
+.banner-slider .item {
+    position: relative;
+    height: 595px;
+}
+
+.banner-slider .item .banner-slider-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 65px;
+}
+
+.banner-slider .item .banner-slider-text .container,
+.banner-slider .item .banner-slider-text .container .row,
+.banner-slider .item .banner-slider-text .container .col-xs-12 {
+    height: 100%;
+}
+
+.banner-slider .owl-nav .owl-prev,
+.banner-slider .owl-nav .owl-next {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    font-size: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #616062;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.banner-slider .owl-nav .owl-next {
+    right: 30px;
+}
+
+.banner-slider .owl-nav .owl-next:before {
+    font-family: FontAwesome;
+    content: "\f054";
+    display: inline-block;
+    font-size: 22px;
+    color: #000;
+    line-height: 50px;
+}
+
+.banner-slider .owl-nav .owl-prev {
+    left: 30px;
+}
+
+.banner-slider .owl-nav .owl-prev:before {
+    font-family: FontAwesome;
+    content: "\f053";
+    display: inline-block;
+    font-size: 22px;
+    color: #000;
+    line-height: 50px;
+}
+
+.banner-slider .owl-nav {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    top: 50%;
+}
+
+.banner-slider .slide-1 {
+    background-image: url('../images/banner-2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.banner-slider .slide-2 {
+    background-image: url('../images/static-banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}

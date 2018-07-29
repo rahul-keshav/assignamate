@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0">
+    {% block title%}<title>Title</title>{% endblock %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'accounts/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/w3.css' %}">
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
+    {% block style %}
+    {% endblock %}
+    {% block heading %}{% endblock %}
+</head>
+<body id="mainBox" data-spy="scroll" data-target="#main-menu" data-offset="150">
+<div class="blog-main">
+
+  <div id="site-head " {% block tag_banner %}class="no-banner"{% endblock %}>
+      <!-- Header Section Begins -->
+      <header id="header" class="header-block" data-top="0" data-scroll="100">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main-menu">
+                      <div class="menuBar scrollbtn">
+                          <!-- Navigation Menu Begins -->
+                          <nav class="navbar navbar-default">
+                              <div class="navbar-header">
+                                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                                      <span class="sr-only">Toggle navigation</span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                  </button>
+                                  <!-- Site Logo Begins -->
+                                  <div class="logo">
+                                      <a class="navbar-brand" href="{% url 'home:home'%}"><img src="http://plotandscatter.com/assets/images/questions.png" style="width:50px" alt="logo" /></a>
+                                  </div>
+                                  <!-- Site Logo Ends -->
+                              </div>
+                              <div class="home-menu">
+                                  <div class="collapse navbar-collapse" id="main-menu">
+                                      <ul class="nav navbar-nav navbar-right">
+                                          <li class="active has-children"><a href="{% url 'home:home' %}">Home</a>
+                                              <ul class="sub-menu">
+                                                  <li class="has-children"> <a href="index.html">Default</a>
+                                                      <ul class="sub-menu">
+                                                          <li> <a href="index.html">Right Sidebar</a> </li>
+                                                          <li> <a href="index-left-sidebar.html">Left Sidebar</a> </li>
+                                                          <li> <a href="blog-full-width.html">Full Width</a> </li>
+                                                      </ul>
+                                                  </li>
+                                                  <li class="has-children"> <a href="blog-grid.html">Grid Layout</a>
+                                                      <ul class="sub-menu">
+                                                          <li> <a href="blog-grid.html">2 Columns</a> </li>
+                                                          <li> <a href="blog-grid-three-column.html">3 Columns</a> </li>
+                                                          <li> <a href="blog-grid-four-column.html">4 Columns</a> </li>
+                                                          <li> <a href="blog-full-width.html">Full Width</a> </li>
+                                                      </ul>
+                                                  </li>
+                                                  <li class="has-children"> <a href="blog-list.html">List Layout</a>
+                                                      <ul class="sub-menu">
+                                                          <li> <a href="blog-list-right-sidebar.html">Right Sidebar</a> </li>
+                                                          <li> <a href="blog-list-left-sidebar.html">Left Sidebar</a> </li>
+                                                          <li> <a href="blog-full-width.html">Full Width</a> </li>
+                                                      </ul>
+                                                  </li>
+                                                  <li class="has-children"> <a href="blog-masonry.html">Masonry Layout</a>
+                                                      <ul class="sub-menu">
+                                                          <li> <a href="blog-masonry.html">2 Columns</a> </li>
+                                                          <li> <a href="blog-masonry-three-column.html">3 Columns</a> </li>
+                                                          <li> <a href="blog-masonry-four-column.html">4 Columns</a> </li>
+                                                          <li> <a href="blog-full-width.html">Full Width</a> </li>
+                                                      </ul>
+                                                  </li>
+                                                  <li class="has-children"> <a href="blog-detail.html">Single Layout</a>
+                                                      <ul class="sub-menu">
+                                                          <li> <a href="blog-detail-right-sidebar.html">Right Sidebar</a> </li>
+                                                          <li> <a href="blog-detail-left-sidebar.html">Left Sidebar</a> </li>
+                                                          <li> <a href="blog-detail.html"> Full Width </a> </li>
+                                                      </ul>
+                                                  </li>
+                                              </ul>
+                                          </li>
+                                          {% if user.is_authenticated %}
+                                          <li><a href="{% url 'accounts:view_profile' %}">About</a></li>
+                                          <li class="has-children"><a href="javascript:void(0)">Post Format</a>
+                                              <ul class="sub-menu">
+                                                  <li> <a href="{% url 'assignment:assignment_page' %}">Assignments</a> </li>
+                                                  <li> <a href="{% url 'assignment:my_assignment_page' %}">my_Assignments</a> </li>
+                                                  {#<!--<li> <a href="{% url 'assignment:add_blog' %}">add blog</a> </li>-->#}
+                                                  {#<!--<li> <a href="{% url 'assignment:blog' %}">blog</a> </li>-->#}
+                                                  <li> <a href="html-video-post.html">Study_material</a> </li>
+                                                  <li> <a href="{% url 'assignment:result' %}">My result</a> </li>
+                                                  <li> <a href="{% url 'assignment:blog_site_list' %}">blog_site_list</a> </li>
+                                                  {#<!--<li> <a href="{% url 'assignment:blog_site'%}">My blog site</a> </li>-->#}
+                                              </ul>
+                                          </li>
+                                          <li class="has-children"><a href="javascript:void(0)">Dropdown</a>
+                                              <ul class="sub-menu">
+                                                  <li> <a href="{% url 'accounts:edit_profile' %}">Edit Profile</a> </li>
+                                                  <li> <a href="{% url 'accounts:logout' %}">Logout</a> </li>
+                                                  <li> <a href="{% url 'accounts:change_password' %}">ChangePassword</a> </li>
+                                                  <li> <a href="{% url 'accounts:reset-password'%}">ResetPassword</a> </li>
+                                              </ul>
+                                          </li>
+                                          <li class="has-children"><a href="javascript:void(0)">Features</a>
+                                              <ul class="sub-menu">
+                                                  <li> <a href="404.html">404!</a> </li>
+                                                  <li class="has-children"> <a href="javascript:void(0)">Side Bar</a>
+                                                      <ul class="sub-menu">
+                                                          <li> <a href="index.html">Right Sidebar</a> </li>
+                                                          <li> <a href="index-left-sidebar.html">Left Sidebar</a> </li>
+                                                          <li> <a href="blog-full-width.html">Bottom Sidebar</a> </li>
+                                                      </ul>
+                                                  </li>
+                                                  <li class="has-children"> <a href="index.html">Header</a>
+                                                      <ul class="sub-menu">
+                                                          <li> <a href="index-centered.html">Modern</a> </li>
+                                                          <li> <a href="index.html">Classic</a> </li>
+                                                          <li> <a href="index-divider.html">Plain</a> </li>
+                                                          <li> <a href="index-stack-left.html">Stack Left</a> </li>
+                                                          <li> <a href="index-stack-center.html">Stack Center</a> </li>
+                                                          <li> <a href="index-stack-right.html">Stack Right</a> </li>
+                                                      </ul>
+                                                  </li>
+                                                  <li class="has-children"> <a href="javascript:void(0)">Footer</a>
+                                                      <ul class="sub-menu">
+                                                          <li> <a href="blog-full-width.html">Default</a> </li>
+                                                          <li> <a href="index.html">Plain with links</a> </li>
+                                                          <li> <a href="index-footer-centered.html">Plain</a> </li>
+                                                          <li> <a href="index-footer-bottom.html">Logo Left</a> </li>
+                                                          <li> <a href="index-footer-logo-right.html">Logo Right</a> </li>
+                                                      </ul>
+                                                  </li>
+                                              </ul>
+                                          </li>
+                                          <li><a href="{% url 'assignment:index' %}">index</a></li>
+                                      </ul>
+                                  </div>
+                                  {% else %}
+                                  <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                                  <li><a href="{% url 'accounts:register' %}">Register</a></li>
+                                  <li><a href="{% url 'accounts:reset-password' %}">ResetPassword</a></li>
+                                  <li><a href="{% url 'accounts:view_profile' %}">About</a></li>
+                                  {% endif %}
+                                  <!-- Search Form Begins -->
+                                  <div class="search-form">
+                                      <form id="searchform" action="{% url 'assignment:search' %}" method="get" accept-charset="utf-8">
+                                          <div class="form-group">
+                                              <div class="btn-form"></div>
+                                              <input type="text" class="form-control" id="searchbox" name="q" type="search" placeholder="Search">
+                                          </div>
+                                      </form>
+                                  </div>
+                                  <!-- Search Form Ends -->
+                              </div>
+                          </nav>
+                          <!-- Navigation Menu Ends -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </header>
+      <!-- Header Section Ends -->
+      <!-- Banner Section Begins -->
+      {% block banner%}
+      <!--<section id="banner" class="banner banner-static parallax-fix parallaximg">-->
+          <!--<div class="container pr">-->
+              <!--<div class="row">-->
+                  <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+                      <!--<div class="banner-text">-->
+                          <!--<div class="banner-cell">-->
+                              <!--<div class="banner-sidebar">-->
+                                  <!--<h2> Available..! </h2>-->
+                                  <!--<h5> Majity have suffered an e injected  </h5>-->
+                              <!--</div>-->
+                              <!--<h1> Believable <span>If you....</span> </h1>-->
+                              <!--<a href="javascript:void(0)" class="btn"> Read More  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>-->
+                          <!--</div>-->
+                      <!--</div>-->
+                  <!--</div>-->
+              <!--</div>-->
+          <!--</div>-->
+      <!--</section>-->
+      {%endblock%}
+      <!-- Banner Section Ends -->
+  </div>
+
+      <div class="main">
+
+        {% block head %}
+            <h1></h1>
+        {% endblock%}
+
+
+        {% block body%}
+        {%endblock%}
+
+            <!-- footer Section Begins -->
+        <footer id="footer" class="footer pr pad-bottom-small text-align-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <a href="javascript:void(0)" class="footer-logo"><img src="http://plotandscatter.com/assets/images/questions.png" style="width:50px" alt="images" /></a>
+                        <!-- Subscribe Form Begins -->
+                        <div class="subscibe-box">
+                            <h4>Get our latest article delivered to your email box</h4>
+                            <form class="subscribe-form">
+                                <input type="text" placeholder="Enter your email here">
+                                <a href="javascript:void(0)" class="subscribe-btn"><i class="fa fa-location-arrow" aria-hidden="true"></i></a>
+                            </form>
+                        </div>
+                        <!-- Subscribe Form Ends -->
+                        <!-- Footer Links Begins -->
+                        <ul class="footer-links">
+                            <li> <a href="javascript:void(0)">Home</a> </li>
+                            <li> <a href="javascript:void(0)">About</a> </li>
+                            <li> <a href="javascript:void(0)">Post Format</a> </li>
+                            <li> <a href="javascript:void(0)">Features</a> </li>
+                            <li> <a href="javascript:void(0)">Contact Us</a> </li>
+                        </ul>
+                        <!-- Footer Links Ends -->
+                        <!-- Social Media Links Begins -->
+                        <ul class="social">
+                            <li>
+                                <a href="javascript:void(0)"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fa fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fa fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                        <!-- Social Media Links Ends -->
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer Section Ends -->
+        <!-- Copyright Section Begins -->
+        <div id="copyright" class="copyright pr text-align-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h5>&copy; 2018 <a href="{% url 'home:home'%}">assignmate</a> is powered by <a href="https://smilingrahul.com/" class="dotstore-link" target="_blank">rahul.</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Section Ends -->
+        <!-- Back to top Section Begins -->
+        <a href="javascript:void(0);" class="back-to-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
+        <!-- Back to top Section Ends -->
+
+      </div>
+
+
+
+</div>
+
+      <div class="main_menucontent overlapblackbg"></div>
+      <div class="menu-wrap"></div>
+      <!-- Mobile Menu Section Ends -->
+        {% block script %}
+        {% endblock %}
+        <!-- Jquery Js -->
+      <script type="text/javascript" src="{% static 'accounts/js/jquery.min.js' %}" ></script>
+      <!-- Bootstrap Js -->
+      <script type="text/javascript" src="{% static 'accounts/js/bootstrap.min.js'%}"></script>
+      <!-- Modernizr Js -->
+      <script type="text/javascript" src="{% static 'accounts/js/modernizr.js' %}"></script>
+      <!-- Owl Carousel Js -->
+      <script type="text/javascript" src="{% static 'accounts/js/owl.carousel.js' %}"></script>
+      <!-- Localscroll Js -->
+      <script type="text/javascript" src="{% static 'accounts/js/jquery.localscroll-1.2.7-min.js' %}"></script>
+      <!-- Imagesloaded Js -->
+      <script type="text/javascript" src="{% static 'accounts/js/imagesloaded.pkgd.min.js' %}"></script>
+      <!-- Isotope Js -->
+      <script type="text/javascript" src="{% static 'accounts/js/jquery.isotope.min.js' %}"></script>
+      <!-- Parallax Js -->
+      <script type="text/javascript" src="{% static 'accounts/js/jquery.parallax-1.1.3.js' %}"></script>
+      <!-- Magnific Popup Js -->
+      <script type="text/javascript" src="{% static 'accounts/js/jquery.magnific-popup.js' %}"></script>
+      <!-- Custom Js -->
+      <script type="text/javascript" src="{% static 'accounts/js/element.js' %}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'accounts/base.html'%}
+
+{% block style %}
+{% endblock %}
+{% block body %}
+
+indexpage
+<br>
+<div class="container">
+    <div class="row">
+        {% for assignment in list_assignment %}
+        <div class="col-md-3">
+
+            <div class="w3-card-4">
+            <header class="w3-container w3-light-grey">
+              <h3>{{ assignment }}</h3>
+            </header>
+
+            <div class="w3-container">
+              <p>uploaded by:{{assignment.user}}</p>
+              <hr>
+              <p>{{assignment.discription}}</p>
+            </div>
+            <button class="w3-button w3-block w3-dark-grey">+ Connect</button>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}
