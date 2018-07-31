@@ -1,12 +1,13 @@
 from django.shortcuts import render,redirect,reverse,get_object_or_404,render_to_response
-from django.views.generic import TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView
+from django.views.generic import TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView,View
 from .models import Assignment,Questions,Assignment_answered_by,\
-    Studymaterial,Blogsite,Blog_page
+    Studymaterial,Blogsite,Blog_page,Assignmentlikecounter
 from django.contrib.auth.models import User
 from assignment.forms import QuestionForm,DocumentForm,Blog_site_Form,BlogForm
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from itertools import chain
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -25,7 +26,8 @@ def view_list_assignment(request):
     paginator=Paginator(assignment,10)
     page=request.GET.get('page')
     assignment=paginator.get_page(page)
-    return render(request,'assignment/assignment_page.html',{'assignment':assignment})
+    user=request.user
+    return render(request,'assignment/assignment_page.html',{'assignment':assignment,'user':user})
 
 def view_list_my_assignment(request,pk=None):
     if pk:
@@ -35,6 +37,26 @@ def view_list_my_assignment(request,pk=None):
     studymaterial = Studymaterial.objects.all()
     args={'user':user,'studymaterial': studymaterial}
     return render(request,'assignment/my_assignment_page.html',args)
+
+class AssignmentLikeToggle(LoginRequiredMixin,View):
+    def post(self,request,*args,**kwargs):
+        id=request.POST.get('id')
+        assignment=Assignment.objects.get(pk=id)
+        if hasattr(assignment,'assignmentlikecounter'):
+            assignment_like_list = assignment.assignmentlikecounter
+        else:
+            assignment_like_list = Assignmentlikecounter(assignment=assignment)
+            assignment_like_list.save()
+        user=request.user
+        if user in assignment_like_list.user.all():
+            assignment_like_list.user.remove(user)
+        else:
+            assignment_like_list.user.add(user)
+        number_of_like=len(assignment_like_list.user.all())
+        assignment_like_list.number_of_like=number_of_like
+        assignment_like_list.save()
+        return redirect(reverse('assignment:assignment_page'))
+
 
 class AssignmentUpdate(UpdateView):
     model = Assignment
@@ -201,8 +223,8 @@ class SearchView(ListView):
         query = request.GET.get('q', None)
 
         if query is not None:
-            assignment_results        = Assignment.objects.search(query)
-            studymaterial_results      = Studymaterial.objects.search(query)
+            assignment_results= Assignment.objects.search(query)
+            studymaterial_results= Studymaterial.objects.search(query)
 
             # combine querysets
             queryset_chain = chain(
@@ -216,5 +238,4 @@ class SearchView(ListView):
             self.count = len(qs) # since qs is actually a list
             return qs
         return Assignment.objects.none() # just an empty queryset as default
-
 

@@ -5,7 +5,7 @@ from assignment.views import view_list_assignment,\
     studymaterial_upload,SearchView,result,\
     answersheet,blog_site_list,add_blog_site,view_blog_site,\
     add_blog,blog,QuestionUpdate,AssignmentUpdate,QuestionDelete,\
-    index
+    index,AssignmentLikeToggle
 
 
 
@@ -19,6 +19,7 @@ urlpatterns = [
     path('myassignment_update/<pk>',AssignmentUpdate.as_view(),name='my_assignment_update'),
     path('assignment/add',AssignmentCreate.as_view(),name='assignment_add'),
     path('assignment/<pk>',QuestionView.as_view(),name='assignment'),
+    path('assignment-like',AssignmentLikeToggle.as_view(),name='like'),
     path('question/add/<pk>',QuestionAdd,name='question_add'),
     path('question/update/<pk>',QuestionUpdate.as_view(),name='question_update'),
     path('question/delete/<pk>',QuestionDelete.as_view(),name='question_delete'),

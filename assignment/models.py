@@ -54,8 +54,6 @@ class Assignment(models.Model):
 
     objects = AssignmentManager()
 
-
-
     class Meta:
         ordering = ["-created"]
 
@@ -64,6 +62,15 @@ class Assignment(models.Model):
 
     def get_absolute_url(self):
         return reverse('assignment:assignment_page')
+
+class Assignmentlikecounter(models.Model):
+    assignment=models.OneToOneField(Assignment,on_delete=models.CASCADE)
+    user=models.ManyToManyField(User,blank=True)
+    number_of_like=models.IntegerField(default=0)
+    def __str__(self):
+        return self.assignment.title
+
+
 
 class Questions(models.Model,):
     assignment=models.ForeignKey(Assignment,on_delete=models.CASCADE)

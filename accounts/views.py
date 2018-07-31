@@ -95,7 +95,6 @@ def change_password(request):
 class ProfileFollowToggle(LoginRequiredMixin,View):
 
     def post(self,request,*args,**kwargs):
-
         user_to_toggle=request.POST.get('username')
         print(user_to_toggle)
         user_=User.objects.get(username__iexact=user_to_toggle)

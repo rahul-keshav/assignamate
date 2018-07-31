@@ -24,7 +24,7 @@
                     {% else %}
                              {% if user.useraccount in request.user.is_following.all %}
                               <h5>following</h5>
-                            {% endif %}
+                             {% endif %}
                     <h5>{% include 'accounts/snippet/follow_form.html' with username=user.username is_following=is_following %}</h5>
                     {% endif %}
 

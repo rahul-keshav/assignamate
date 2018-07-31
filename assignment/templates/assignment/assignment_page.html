@@ -9,6 +9,14 @@
             <ul>
             {% for assignment in assignment %}
                 <li><a href="{% url 'assignment:assignment' assignment.id %}">{{ assignment.title }}</a>
+                     <form class="form" method="POST" action="{% url 'assignment:like' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{assignment.id}}">
+                        <button class="{%if user in assignment.assignmentlikecounter.user.all%} w3-btn w3-green w3-padding-large w3-hover-red {% else %}w3-btn w3-white w3-padding-large w3-hover-red{%endif%}">{%if user in assignment.assignmentlikecounter.user.all%}Liked-({{assignment.assignmentlikecounter.number_of_like}}){%else%}Like-({{assignment.assignmentlikecounter.number_of_like}}){%endif%}</button>
+                    </form>
+                     {% for user in assignment.assignmentlikecounter.user.all %}
+                     {{user.username}}
+                     {% endfor %}
                     <p>{{assignment.discription}}
                         <br>
                         uploaded by: {{assignment.user.first_name}} {{assignment.user.last_name}}
