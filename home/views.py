@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 from home.forms import HomeForm,Assignment_discussion_form,Assignment_discussion_reply_form
-from django.shortcuts import render,redirect,reverse
+from django.shortcuts import render,redirect,reverse,get_object_or_404
 from home.models import Post,Assignment_discussion
 from assignment.models import Assignment
 from django.contrib.auth.models import User
@@ -32,7 +32,7 @@ class My_post(TemplateView):
     template_name = 'home/home.html'
     def get(self,request,pk=None):
         if pk:
-            user=User.objects.get(pk=pk)
+            user=get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
         else:
             user=request.user
         form=HomeForm()
@@ -62,14 +62,14 @@ def assignment_discussion(request,pk):
         args={'form':form}
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.assignment=Assignment.objects.get(pk=pk)
+            comment.assignment=get_object_or_404(Assignment,pk=pk)#Assignment.objects.get(pk=pk)
             comment.user = request.user
             comment.save()
             return redirect(reverse('home:assignment-discussion',args=[pk]))
         else:
             messages.warning(request, 'Please correct the error below.')
     else:
-        assignment = Assignment.objects.get(pk=pk)
+        assignment = get_object_or_404(Assignment,pk=pk)#Assignment.objects.get(pk=pk)
         comments=assignment.assignment_discussion_set.all()
         form=Assignment_discussion_form
         args={'form':form,'comments':comments,}
@@ -81,7 +81,7 @@ def assignment_discussion_reply(request,pk):
         args = {'form': form}
         if form.is_valid() :
             reply=form.save(commit=False)
-            reply.assignment_discussion=Assignment_discussion.objects.get(pk=pk)
+            reply.assignment_discussion=get_object_or_404(Assignment_discussion,pk=pk)#Assignment_discussion.objects.get(pk=pk)
             reply.user=request.user
             reply.save()
             return redirect('home:home')

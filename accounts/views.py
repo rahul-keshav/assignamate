@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from django.contrib import messages
+from django.shortcuts import get_object_or_404
 from django.views.generic import UpdateView,View
 from .models import UserAccount
 from django.urls import reverse_lazy
@@ -25,7 +25,6 @@ def register(request):
             return redirect(reverse('home:home'))
         else:
             messages.warning(request,"please correct the error below")
-
     else:
         form = RegistrationForm()
     return render(request,'accounts/reg_form.html',{'form': form,})
@@ -33,7 +32,7 @@ def register(request):
 
 def view_profile(request, pk=None):
     if pk:
-        user = User.objects.get(pk=pk)
+        user = get_object_or_404(User,pk=pk) #User.objects.get(pk=pk)
     else:
         user = request.user
     is_following=False
@@ -107,7 +106,6 @@ class ProfileFollowToggle(LoginRequiredMixin,View):
 
             profile.follower.remove(user)
         else:
-
             profile.follower.add(user)
 
         return redirect(reverse('accounts:view_profile_with_pk',args=[user_.id]))
