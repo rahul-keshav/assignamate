@@ -30,7 +30,7 @@ def view_list_assignment(request):
 
 def view_list_my_assignment(request,pk=None):
     if pk:
-        user=User.objects.get(pk=pk)
+        user=get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
     else:
         user = request.user
     studymaterial = Studymaterial.objects.all()
@@ -40,7 +40,7 @@ def view_list_my_assignment(request,pk=None):
 class AssignmentLikeToggle(LoginRequiredMixin,View):
     def post(self,request,*args,**kwargs):
         id=request.POST.get('id')
-        assignment=Assignment.objects.get(pk=id)
+        assignment=get_object_or_404(Assignment,pk=id)#Assignment.objects.get(pk=id)
         if hasattr(assignment,'assignmentlikecounter'):
             assignment_like_list = assignment.assignmentlikecounter
         else:
@@ -80,7 +80,7 @@ def QuestionAdd(request,pk):
         form = QuestionForm(request.POST,)
         if form.is_valid():
             question = form.save(commit=False)
-            question.assignment = Assignment.objects.get(pk=pk)
+            question.assignment = get_object_or_404(Assignment,pk=pk)#Assignment.objects.get(pk=pk)
             question.save()
             return redirect(reverse('assignment:assignment', args=[pk]))
     else:
@@ -96,6 +96,7 @@ class QuestionUpdate(UpdateView):
 class QuestionDelete(DeleteView):
     model = Questions
     success_url = reverse_lazy('assignment:my_assignment_page')
+
 
 def assignment_check(request,assignment_id):
     assignment=get_object_or_404(Assignment,pk=assignment_id)
@@ -136,8 +137,8 @@ def assignment_check(request,assignment_id):
     return redirect(reverse('assignment:assignment_page'))
 
 def answersheet(request,ass_id, ans_id):
-    assignment=Assignment.objects.get(pk=ass_id)
-    assignment_answered_by=Assignment_answered_by.objects.get(pk=ans_id)
+    assignment=get_object_or_404(Assignment,pk=ass_id)#Assignment.objects.get(pk=ass_id)
+    assignment_answered_by=get_object_or_404(Assignment_answered_by,pk=ans_id)#Assignment_answered_by.objects.get(pk=ans_id)
     answer= assignment_answered_by.answer_string
     list1 = []
     for i in answer:
@@ -169,26 +170,24 @@ def add_blog_site(request):
 
 def blog_site_list(request,pk=None):
     if pk:
-        user=User.objects.get(pk=pk)
+        user=get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
     else:
         user=request.user
 
     return render(request,'assignment/blog_site_list.html',{'user':user,})
 
 def view_blog_site(request,pk):
-    blog_site=Blogsite.objects.get(pk=pk)
+    blog_site=get_object_or_404(Blogsite,pk=pk)#Blogsite.objects.get(pk=pk)
     blogs=blog_site.blog_page_set.all
     return render(request,'assignment/blog_site.html',{'blog_site':blog_site,'blogs':blogs})
 
 def add_blog(request,pk):
     if request.method == 'POST':
         form = BlogForm(request.POST,request.FILES)
-
         if form.is_valid():
             blog=form.save(commit=False)
-            blog.blog_site=Blogsite.objects.get(pk=pk)
+            blog.blog_site=get_object_or_404(Blogsite,pk=pk)#Blogsite.objects.get(pk=pk)
             blog.save()
-
             return redirect(reverse('assignment:blog_site',args=[pk]))
 
     else:
@@ -196,7 +195,7 @@ def add_blog(request,pk):
         return render(request,'assignment/add_blog.html',{'form': form,})
 
 def blog(request,pk):
-    blog=Blog_page.objects.get(pk=pk)
+    blog=get_object_or_404(Blog_page,pk=pk)#Blog_page.objects.get(pk=pk)
     return render(request,'assignment/blog.html',{'blog':blog})
 
 def result(request):

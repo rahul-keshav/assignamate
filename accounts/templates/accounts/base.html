@@ -47,59 +47,24 @@
                               <div class="home-menu">
                                   <div class="collapse navbar-collapse" id="main-menu">
                                       <ul class="nav navbar-nav navbar-right">
-                                          <li class="active has-children"><a href="{% url 'home:home' %}">Home</a>
-                                              <ul class="sub-menu">
-                                                  <li class="has-children"> <a href="index.html">Default</a>
-                                                      <ul class="sub-menu">
-                                                          <li> <a href="index.html">Right Sidebar</a> </li>
-                                                          <li> <a href="index-left-sidebar.html">Left Sidebar</a> </li>
-                                                          <li> <a href="blog-full-width.html">Full Width</a> </li>
-                                                      </ul>
-                                                  </li>
-                                                  <li class="has-children"> <a href="blog-grid.html">Grid Layout</a>
-                                                      <ul class="sub-menu">
-                                                          <li> <a href="blog-grid.html">2 Columns</a> </li>
-                                                          <li> <a href="blog-grid-three-column.html">3 Columns</a> </li>
-                                                          <li> <a href="blog-grid-four-column.html">4 Columns</a> </li>
-                                                          <li> <a href="blog-full-width.html">Full Width</a> </li>
-                                                      </ul>
-                                                  </li>
-                                                  <li class="has-children"> <a href="blog-list.html">List Layout</a>
-                                                      <ul class="sub-menu">
-                                                          <li> <a href="blog-list-right-sidebar.html">Right Sidebar</a> </li>
-                                                          <li> <a href="blog-list-left-sidebar.html">Left Sidebar</a> </li>
-                                                          <li> <a href="blog-full-width.html">Full Width</a> </li>
-                                                      </ul>
-                                                  </li>
-                                                  <li class="has-children"> <a href="blog-masonry.html">Masonry Layout</a>
-                                                      <ul class="sub-menu">
-                                                          <li> <a href="blog-masonry.html">2 Columns</a> </li>
-                                                          <li> <a href="blog-masonry-three-column.html">3 Columns</a> </li>
-                                                          <li> <a href="blog-masonry-four-column.html">4 Columns</a> </li>
-                                                          <li> <a href="blog-full-width.html">Full Width</a> </li>
-                                                      </ul>
-                                                  </li>
-                                                  <li class="has-children"> <a href="blog-detail.html">Single Layout</a>
-                                                      <ul class="sub-menu">
-                                                          <li> <a href="blog-detail-right-sidebar.html">Right Sidebar</a> </li>
-                                                          <li> <a href="blog-detail-left-sidebar.html">Left Sidebar</a> </li>
-                                                          <li> <a href="blog-detail.html"> Full Width </a> </li>
-                                                      </ul>
-                                                  </li>
-                                              </ul>
-                                          </li>
+                                          <li class="active"><a href="{% url 'home:home' %}">Home </a></li>
                                           {% if user.is_authenticated %}
                                           <li><a href="{% url 'accounts:view_profile' %}">About</a></li>
-                                          <li class="has-children"><a href="javascript:void(0)">Post Format</a>
+                                          <li class="has-children"><a href="javascript:void(0)">Assignment</a>
                                               <ul class="sub-menu">
                                                   <li> <a href="{% url 'assignment:assignment_page' %}">Assignments</a> </li>
                                                   <li> <a href="{% url 'assignment:my_assignment_page' %}">my_Assignments</a> </li>
-                                                  {#<!--<li> <a href="{% url 'assignment:add_blog' %}">add blog</a> </li>-->#}
-                                                  {#<!--<li> <a href="{% url 'assignment:blog' %}">blog</a> </li>-->#}
-                                                  <li> <a href="html-video-post.html">Study_material</a> </li>
                                                   <li> <a href="{% url 'assignment:result' %}">My result</a> </li>
+                                              </ul>
+                                          </li>
+                                          <li class="has-children"><a href="javascript:void(0)">Studymaterial</a>
+                                              <ul class="sub-menu">
+                                                  <li> <a href="html-video-post.html">Study_material</a> </li>
+                                              </ul>
+                                          </li>
+                                          <li class="has-children"><a href="javascript:void(0)">Blogs</a>
+                                              <ul class="sub-menu">
                                                   <li> <a href="{% url 'assignment:blog_site_list' %}">blog_site_list</a> </li>
-                                                  {#<!--<li> <a href="{% url 'assignment:blog_site'%}">My blog site</a> </li>-->#}
                                               </ul>
                                           </li>
                                           <li class="has-children"><a href="javascript:void(0)">Dropdown</a>
