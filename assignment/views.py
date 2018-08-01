@@ -18,7 +18,6 @@ def index(request):
         print(user)
         for assignment in user.assignment_set.all():
             list_assignment.append(assignment)
-
     return render(request,'assignment/index.html',{'list_assignment':list_assignment})
 
 def view_list_assignment(request):

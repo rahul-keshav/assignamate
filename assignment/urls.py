@@ -36,13 +36,9 @@ urlpatterns = [
     # path('blog_site_list/<pk>',blog_site_list,name='blog_site'),
 
     path('blog/<pk>',blog,name='blog'),
-
-
     path('add_blog/<pk>',add_blog,name='add_blog'),
 
     path('result',result,name='result'),
     path('answersheet/<ass_id>-<ans_id>',answersheet,name='answersheet'),
     path('index',index,name='index'),
-
-
               ]

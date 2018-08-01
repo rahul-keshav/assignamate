@@ -3,6 +3,8 @@
 {% block body %}
 
 <h1>{{ assignment.title }}</h1>
+<a href="{% url 'home:assignment-discussion' assignment.id %}" class="btn">discussion</a>
+<br><br><br>
 
 
 <form action="{% url 'assignment:assignment_check' assignment.id %}" method="post">
@@ -63,12 +65,15 @@
 
 </ol>
 
-    <button type="submit">submit</button>
+    <button type="submit" class="w3-btn w3-red w3-padding-large w3-hover-black">submit</button>
         </div>
     </form>
+
+
 {% if request.user == assignment.user %}
- <a href="{% url 'assignment:question_add' assignment.id %}">Add Question </a>
+ <a href="{% url 'assignment:question_add' assignment.id %}" class="w3-btn w3-red w3-padding-large w3-hover-black">Add Question </a>
 {% endif %}
+
 
 
 {% endblock %}
