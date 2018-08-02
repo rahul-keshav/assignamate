@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,reverse,get_object_or_404,render_to_response
-from django.views.generic import TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView,View
+from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,View
 from .models import Assignment,Questions,Assignment_answered_by,\
     Studymaterial,Blogsite,Blog_page,Assignmentlikecounter
 from django.contrib.auth.models import User
@@ -201,6 +201,10 @@ def blog(request,pk):
 def result(request):
     result=request.user.assignment_answered_by_set.order_by('-submitted')
     return render(request,'assignment/result.html',{'result':result,})
+
+def studymaterial(request):
+    studymaterials=Studymaterial.objects.all()
+    return render(request,'assignment/studymaterial.html',{'studymaterial':studymaterials})
 
 ################
 # new search view

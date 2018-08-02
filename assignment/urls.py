@@ -5,7 +5,7 @@ from assignment.views import view_list_assignment,\
     studymaterial_upload,SearchView,result,\
     answersheet,blog_site_list,add_blog_site,view_blog_site,\
     add_blog,blog,QuestionUpdate,AssignmentUpdate,QuestionDelete,\
-    index,AssignmentLikeToggle
+    index,AssignmentLikeToggle,studymaterial
 
 
 
@@ -41,4 +41,6 @@ urlpatterns = [
     path('result',result,name='result'),
     path('answersheet/<ass_id>-<ans_id>',answersheet,name='answersheet'),
     path('index',index,name='index'),
+    path('studymaterial',studymaterial,name='studymaterial'),
+
               ]

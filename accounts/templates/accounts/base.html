@@ -47,25 +47,25 @@
                               <div class="home-menu">
                                   <div class="collapse navbar-collapse" id="main-menu">
                                       <ul class="nav navbar-nav navbar-right">
-                                          <li class="active"><a href="{% url 'home:home' %}">Home </a></li>
+                                          <li><a href="{% url 'home:home' %}">Home </a></li>
                                           {% if user.is_authenticated %}
                                           <li><a href="{% url 'accounts:view_profile' %}">About</a></li>
                                           <li class="has-children"><a href="javascript:void(0)">Assignment</a>
                                               <ul class="sub-menu">
                                                   <li> <a href="{% url 'assignment:assignment_page' %}">Assignments</a> </li>
-                                                  <li> <a href="{% url 'assignment:my_assignment_page' %}">my_Assignments</a> </li>
+                                                  <li> <a href="{% url 'assignment:my_assignment_page' %}">My Assignments</a> </li>
                                                   <li> <a href="{% url 'assignment:result' %}">My result</a> </li>
                                               </ul>
                                           </li>
-                                          <li class="has-children"><a href="javascript:void(0)">Studymaterial</a>
+                                          <li class="has-children"><a href="{% url 'assignment:studymaterial' %}">Studymaterial</a>
                                               <ul class="sub-menu">
-                                                  <li> <a href="html-video-post.html">Study_material</a> </li>
+                                                  <li> <a href="{% url 'assignment:studymaterial' %}">Study material</a> </li>
                                               </ul>
                                           </li>
-                                          <li class="has-children"><a href="javascript:void(0)">Blogs</a>
-                                              <ul class="sub-menu">
-                                                  <li> <a href="{% url 'assignment:blog_site_list' %}">blog_site_list</a> </li>
-                                              </ul>
+                                          <li><a href="{% url 'assignment:blog_site_list' %}">Blogs</a>
+                                              <!--<ul class="sub-menu">-->
+                                                  <!--<li> <a href="{% url 'assignment:blog_site_list' %}">blog_site_list</a> </li>-->
+                                              <!--</ul>-->
                                           </li>
                                           <li class="has-children"><a href="javascript:void(0)">Dropdown</a>
                                               <ul class="sub-menu">
@@ -233,12 +233,11 @@
 
       </div>
 
-
-
 </div>
-
+      <!-- Mobile Menu Section Begins -->
       <div class="main_menucontent overlapblackbg"></div>
-      <div class="menu-wrap"></div>
+      <div class="menu-wrap">
+      </div>
       <!-- Mobile Menu Section Ends -->
         {% block script %}
         {% endblock %}

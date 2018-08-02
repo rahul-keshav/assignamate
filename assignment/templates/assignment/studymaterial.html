@@ -1,0 +1,11 @@
+{% extends 'accounts/base.html'%}
+{% block body %}
+        <div class="col">
+            {% for studymaterial in studymaterial %}
+                <li><a href="{{studymaterial.document.url}}" target="_blank">{{studymaterial.name}}</a>-<p>{{studymaterial.discription}}</li>
+            {% endfor%}
+
+            <br>
+            <a href="{% url 'assignment:uploadfile'%}" class="btn">upload study-material</a>
+        </div>
+{% endblock %}
