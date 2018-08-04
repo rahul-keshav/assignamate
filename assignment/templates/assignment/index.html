@@ -6,21 +6,19 @@
 <div class="container">
     <div class="row">
         {% for assignment in list_assignment %}
-        <div class="col-md-3">
-
-            <div class="w3-card-4">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 w3-section">
+            <div class="w3-card-4 ">
             <header class="w3-container w3-light-grey">
-              <h3>{{ assignment }}</h3>
+              <a href="{% url 'assignment:assignment' assignment.id %}"><h3>{{ assignment|truncatechars_html:15 }}</h3></a>
             </header>
 
             <div class="w3-container">
               <p>uploaded by:{{assignment.user}}</p>
               <hr>
-              <p>{{assignment.discription}}</p>
+              <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
             </div>
-            <button class="w3-button w3-block w3-dark-grey">+ Connect</button>
+            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-dark-grey"> solve</button></a>
             </div>
-
         </div>
         {% endfor %}
     </div>
@@ -28,9 +26,12 @@
 </div>
 
 
+{% endblock %}
 
-
-
-
-
+{% block script %}
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 {% endblock %}

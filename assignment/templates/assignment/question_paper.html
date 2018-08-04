@@ -1,80 +1,93 @@
 {% extends 'accounts/base.html'%}
+{% block style %}
+<style>
+.w3-myfont {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+</style>
+{% endblock %}
 {% block heading %}<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>{% endblock %}
 {% block body %}
+<div class="container w3-card-4">
 
-<h1>{{ assignment.title }}</h1>
-<a href="{% url 'home:assignment-discussion' assignment.id %}" class="btn">discussion</a>
-<br><br><br>
+    <h1 class="w3-myfont">{{ assignment.title|title }}</h1>
 
+        {% if request.user == assignment.user %}
+            <small><a href="{% url 'assignment:question_add' assignment.id %}" > +add question</a></small>
+        {% endif %}
+    <hr/>
 
-<form action="{% url 'assignment:assignment_check' assignment.id %}" method="post">
-    {% csrf_token %}
-    <div class="w3-container">
-<ol>
+    <form action="{% url 'assignment:assignment_check' assignment.id %}" method="post">
+        {% csrf_token %}
+        <div class="w3-container">
+    <ol>
+    {% for question in assignment.questions_set.all %}
 
-{% for question in assignment.questions_set.all %}
+        <li class="w3-section">
+            <div class="w3-card-4" >
+                <header class="w3-container w3-light-grey">
+                    <h3>{{ question.question }}
+                        <p class="w3-right">
+                            {% if request.user == assignment.user%}
+                                <a href="{% url 'assignment:question_update' question.id %}">edit </a>
+                                <a href="{% url 'assignment:question_delete' question.id %}">delete </a>
+                            {% endif %}
+                        </p>
+                    </h3>
+                </header>
+                <div class="w3-container">
 
-    <li>
-        <div class="w3-card-4">
-            <header class="w3-container w3-light-grey">
-                <h3>{{ question.question }}
-            </header>
-            <div class="w3-container">
-                <p>{% if request.user == assignment.user%}
-                    <a href="{% url 'assignment:question_update' question.id %}">edit </a>
-                    <a href="{% url 'assignment:question_delete' question.id %}">delete </a>
-                {% endif %}</p>
-                <hr>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label" for="inlineRadio1{{ forloop.counter }}">a)</label>&nbsp;
+                      <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio1{{ forloop.counter }}" value="a" onclick="selectOnlyThis(this)">
+                      <label class="form-check-label" for="inlineRadio1{{ forloop.counter }}">{{question.option_a}}</label>
+                    </div>
+                    <hr>
 
-                <div class="form-check form-check-inline">
-                  <label class="form-check-label" for="inlineRadio1{{ forloop.counter }}">a)</label>&nbsp;
-                  <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio1{{ forloop.counter }}" value="a" onclick="selectOnlyThis(this)">
-                  <label class="form-check-label" for="inlineRadio1{{ forloop.counter }}">{{question.option_a}}</label>
-                </div>
-                <hr>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label" for="inlineRadio2{{ forloop.counter }}">b)</label>&nbsp;
+                      <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio2{{ forloop.counter }}" value="b" onclick="selectOnlyThis(this)">
+                      <label class="form-check-label" for="inlineRadio2{{ forloop.counter }}">{{question.option_b}}</label>
+                    </div>
+                    <hr>
 
-                <div class="form-check form-check-inline">
-                  <label class="form-check-label" for="inlineRadio2{{ forloop.counter }}">b)</label>&nbsp;
-                  <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio2{{ forloop.counter }}" value="b" onclick="selectOnlyThis(this)">
-                  <label class="form-check-label" for="inlineRadio2{{ forloop.counter }}">{{question.option_b}}</label>
-                </div>
-                <hr>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label" for="inlineRadio3{{ forloop.counter }}">c)</label>&nbsp;
+                      <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio3{{ forloop.counter }}" value="c" onclick="selectOnlyThis(this)">
+                      <label class="form-check-label" for="inlineRadio3{{ forloop.counter }}">{{question.option_c}}</label>
+                    </div>
+                    <hr>
 
-                <div class="form-check form-check-inline">
-                  <label class="form-check-label" for="inlineRadio3{{ forloop.counter }}">c)</label>&nbsp;
-                  <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio3{{ forloop.counter }}" value="c" onclick="selectOnlyThis(this)">
-                  <label class="form-check-label" for="inlineRadio3{{ forloop.counter }}">{{question.option_c}}</label>
-                </div>
-                <hr>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label" for="inlineRadio4{{ forloop.counter }}">d)</label>&nbsp;
+                      <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio4{{ forloop.counter }}" value="d" onclick="selectOnlyThis(this)">
+                      <label class="form-check-label" for="inlineRadio4{{ forloop.counter }}">{{question.option_d}}</label>
+                    </div>
 
-                <div class="form-check form-check-inline">
-                  <label class="form-check-label" for="inlineRadio4{{ forloop.counter }}">d)</label>&nbsp;
-                  <input class="form-check-input" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio4{{ forloop.counter }}" value="d" onclick="selectOnlyThis(this)">
-                  <label class="form-check-label" for="inlineRadio4{{ forloop.counter }}">{{question.option_d}}</label>
-                </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" style="display:none" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio5{{ forloop.counter }}" value="z" onclick="selectOnlyThis(this)" checked>
+                    </div>
+                    </div>
 
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" style="display:none" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio5{{ forloop.counter }}" value="z" onclick="selectOnlyThis(this)" checked>
-                </div>
-                </div>
+            </div>
+        </li>
 
+    {% endfor %}
+
+    </ol>
+            <div class="w3-center">
+                <button type="submit" class="w3-light-gray w3-hover-black w3-button">submit</button>
+            </div>
+
+        <div class="w3-container w3-card-4 w3-center">
+            <button class="w3-bar-item w3-button ">Like<span class="badge">48</span></button>
+            <a href="{% url 'home:assignment-discussion' assignment.id %}"class="w3-bar-item w3-button"> Discuss<span class="badge">12</span></a>
+            <button class="w3-bar-item w3-button ">Share<span class="badge">5</span></button>
         </div>
-    </li>
+            </div>
+        </form>
 
-{% endfor %}
-
-</ol>
-
-    <button type="submit" class="w3-btn w3-red w3-padding-large w3-hover-black">submit</button>
-        </div>
-    </form>
-
-
-{% if request.user == assignment.user %}
- <a href="{% url 'assignment:question_add' assignment.id %}" class="w3-btn w3-red w3-padding-large w3-hover-black">Add Question </a>
-{% endif %}
-
-
+</div>
 
 {% endblock %}
 

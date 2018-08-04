@@ -1,48 +1,49 @@
 {% extends 'accounts/base.html'%}
-
 {% block body %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p}}
-    <button class="btn" type="submit">Submit</button>
-</form>
-{% for comment in comments %}
-<div class="w3-container">
-  <div class="w3-card-4" style="width:70%">
-    <header class="w3-container w3-light-grey">
-      <h3>{{comment.user.username}}</h3>
-    </header>
-    <div class="w3-container">
-      <img src="{%if comment.user.useraccount.image %}{{comment.user.useraccount.image.url}}{% else %}https://www.atomix.com.au/media/2015/06/atomix_user31.png{%endif%}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-      <p>{{comment.comment}}</p><br>
-    </div>
-      <div class="w3-center">
-    <a href="{% url 'home:assignment-discussion-reply' comment.id %}" class="btn">reply</a>
+<div id="main-content" class="content-box right-sidebar pad-top-big pr">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                          <!--form-->
+                          <form method="post">
+                              {% csrf_token %}
+                              {{ form.as_p}}
+                              <button class="btn" type="submit">Submit</button>
+                          </form>
+                          <!--form end-->
+                      <!-- Blog Comments Begins -->
+                            <div class="blog-comments">
+                                <div class="blog-comment-main">
+                                    <!--<h3>4 Comments</h3>-->
+                                  {% for comment in comments %}
+                                    <div class="blog-comment">
+                                        <a class="comment-avtar"><img src="{%if comment.user.useraccount.image %}{{comment.user.useraccount.image.url}}{% else %}https://www.atomix.com.au/media/2015/06/atomix_user31.png{%endif%}" alt="image"></a>
+                                        <div class="comment-text">
+                                            <h3>{{comment.user.username}}</h3>
+                                            <h5>{{comment.date}}</h5>
+                                            <p>{{comment.comment}}</p>
+                                            <a href="{% url 'home:assignment-discussion-reply' comment.id %}" class="comment-reply"> Reply <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+                                        </div>
+                                            {% for reply in comment.assignment_discussion_reply_set.all %}
+                                              <div class="blog-comment clearfix">
+                                                  <a class="comment-avtar"><img src="{%if comment.user.useraccount.image %}{{reply.user.useraccount.image.url}}{% else %}https://www.atomix.com.au/media/2015/06/atomix_user31.png{%endif%}" alt="image"></a>
+                                                  <div class="comment-text">
+                                                      <h3>{{reply.user.username}}</h3>
+                                                      <h5>{{reply.date}}</h5>
+                                                      <p>{{reply.reply}}</p>
+                                                      <!--<a href="javascript:void(0)" class="comment-reply"> Reply <i class="fa fa-angle-right" aria-hidden="true"></i> </a>-->
+                                                  </div>
+                                              </div>
+                                            {% endfor%}
+                                    </div>
+                                  {% endfor %}
+                                </div>
+                            </div>
+                            <!-- Blog Comments Ends -->
+                          </div>
+                      </div>
+                  </div>
   </div>
-</div>
-</div>
-<!--################-->
-<!--reply part-->
-<!--################3-->
-{% for reply in comment.assignment_discussion_reply_set.all %}
-<div class="w3-container">
-  <div class="w3-card-4" style="width:70%">
-    <header class="w3-container w3-light-grey">
-      <h3>reply</h3>
-    </header>
-    <div class="w3-container">
-      <p>{{reply.user.username}}</p>
-      <hr>
-      <img src="img_avatar3.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-      <p>{{reply.reply}}</p><br>
-    </div>
-  </div>
-</div>
-{% endfor%}
-<!--################-->
-<!--reply part ended-->
-<!--############%#-->
 
-{% endfor %}
 
 {%endblock%}

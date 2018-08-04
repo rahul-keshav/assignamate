@@ -101,7 +101,7 @@ $(document).ready(function($) {
         $('body,html').animate({
             scrollTop: 0,
         }, scroll_top_duration);
-    });
+
 
     /**
      *  Menu
@@ -113,7 +113,7 @@ $(document).ready(function($) {
         main_menu: function() {
             var combined_main_menu = $('#main-menu ul.navbar-nav').clone();
             $(".menu-wrap").append('<a href="javascript:void(0)" class="close"><i class="fa fa-times"></i></a>');
-            $(".menu-wrap").append('<a href="index.html" class="menu-logo"> <img src="images/logo-footer.png" alt="images" /> </a>');
+            $(".menu-wrap").append('<a href="{%url 'home:home' %}" class="menu-logo"> <img src="images/logo-footer.png" alt="images" /> </a>');
             combined_main_menu.appendTo('.menu-wrap');
 
             var main_items = $('.overlapblackbg, .slideLeft'),
@@ -355,7 +355,7 @@ $(document).ready(function($) {
 
             secondmenu.children('li').appendTo(combinedmenu);
             $("#mobile-menu-wrap").append('<a href="javascript:void(0)" class="close"><i class="fa fa-times"></i></a>');
-            $("#mobile-menu-wrap").append('<a href="index.html" class="menu-logo"> <img src="images/logo-footer.png" alt="images" /> </a>');
+            $("#mobile-menu-wrap").append('<a href="{%url 'home:home'%}" class="menu-logo"> <img src="http://plotandscatter.com/assets/images/questions.png" alt="images" /> </a>');
             search_menu.appendTo('.mobile-search-form');
             combinedmenu.appendTo('#mobile-menu-wrap');
 
