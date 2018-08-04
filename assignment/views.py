@@ -37,24 +37,42 @@ def view_list_my_assignment(request,pk=None):
     args={'user':user,'studymaterial': studymaterial}
     return render(request,'assignment/my_assignment_page.html',args)
 
-class AssignmentLikeToggle(LoginRequiredMixin,View):
-    def post(self,request,*args,**kwargs):
-        id=request.POST.get('id')
-        assignment=get_object_or_404(Assignment,pk=id)#Assignment.objects.get(pk=id)
-        if hasattr(assignment,'assignmentlikecounter'):
-            assignment_like_list = assignment.assignmentlikecounter
-        else:
-            assignment_like_list = Assignmentlikecounter(assignment=assignment)
-            assignment_like_list.save()
-        user=request.user
-        if user in assignment_like_list.user.all():
-            assignment_like_list.user.remove(user)
-        else:
-            assignment_like_list.user.add(user)
-        number_of_like=len(assignment_like_list.user.all())
-        assignment_like_list.number_of_like=number_of_like
+# class AssignmentLikeToggle(LoginRequiredMixin,View):
+#     def post(self,request,*args,**kwargs):
+#         id=request.POST.get('id')
+#         assignment=get_object_or_404(Assignment,pk=id)#Assignment.objects.get(pk=id)
+#         if hasattr(assignment,'assignmentlikecounter'):
+#             assignment_like_list = assignment.assignmentlikecounter
+#         else:
+#             assignment_like_list = Assignmentlikecounter(assignment=assignment)
+#             assignment_like_list.save()
+#         user=request.user
+#         if user in assignment_like_list.user.all():
+#             assignment_like_list.user.remove(user)
+#         else:
+#             assignment_like_list.user.add(user)
+#         number_of_like=len(assignment_like_list.user.all())
+#         assignment_like_list.number_of_like=number_of_like
+#         assignment_like_list.save()
+#         return redirect(reverse('assignment:assignment',args=[id]))
+
+
+def AssignmentLikeToggle(request,id):
+    assignment = get_object_or_404(Assignment, pk=id)  # Assignment.objects.get(pk=id)
+    if hasattr(assignment, 'assignmentlikecounter'):
+        assignment_like_list = assignment.assignmentlikecounter
+    else:
+        assignment_like_list = Assignmentlikecounter(assignment=assignment)
         assignment_like_list.save()
-        return redirect(reverse('assignment:assignment_page'))
+    user = request.user
+    if user in assignment_like_list.user.all():
+        assignment_like_list.user.remove(user)
+    else:
+        assignment_like_list.user.add(user)
+    number_of_like = len(assignment_like_list.user.all())
+    assignment_like_list.number_of_like = number_of_like
+    assignment_like_list.save()
+    return redirect(reverse('assignment:assignment', args=[id]))
 
 
 class AssignmentUpdate(UpdateView):

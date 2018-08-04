@@ -17,7 +17,7 @@
               <hr>
               <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
             </div>
-            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-dark-grey"> solve</button></a>
+            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>
             </div>
         </div>
         {% endfor %}

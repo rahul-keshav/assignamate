@@ -68,24 +68,26 @@
                       <input class="form-check-input" style="display:none" type="checkbox" name="inlineRadioOptions{{ forloop.counter }}" id="inlineRadio5{{ forloop.counter }}" value="z" onclick="selectOnlyThis(this)" checked>
                     </div>
                     </div>
-
             </div>
         </li>
-
     {% endfor %}
-
     </ol>
             <div class="w3-center">
                 <button type="submit" class="w3-light-gray w3-hover-black w3-button">submit</button>
             </div>
-
-        <div class="w3-container w3-card-4 w3-center">
-            <button class="w3-bar-item w3-button ">Like<span class="badge">48</span></button>
-            <a href="{% url 'home:assignment-discussion' assignment.id %}"class="w3-bar-item w3-button"> Discuss<span class="badge">12</span></a>
+        </div>
+    </form>
+    <div class="w3-container w3-card-4 w3-center">
+        <div class="btn-group">
+            {%if user in assignment.assignmentlikecounter.user.all%}
+            <a href="{%url 'assignment:like' assignment.id %}" ><button class="w3-bar-item w3-button w3-light-gray ">Liked<span class="badge">{{assignment.assignmentlikecounter.number_of_like}}</span></button></a>
+            {% else %}
+            <a href="{%url 'assignment:like' assignment.id %}" ><button class="w3-bar-item w3-button">Like<span class="badge">{{assignment.assignmentlikecounter.number_of_like}}</span></button></a>
+            {%endif%}
+            <a href="{% url 'home:assignment-discussion' assignment.id %}"class="w3-bar-item w3-button"> Discuss<span class="badge">{{assignment.assignment_discussion_set.all|length}}</span></a>
             <button class="w3-bar-item w3-button ">Share<span class="badge">5</span></button>
         </div>
-            </div>
-        </form>
+    </div>
 
 </div>
 

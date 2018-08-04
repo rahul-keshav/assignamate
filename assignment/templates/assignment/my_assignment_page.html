@@ -3,18 +3,28 @@
 {% block body %}
 <div class="container">
     <div class="row">
-        <div class="col">
-            <ul>
-            {% for assignment in user.assignment_set.all %}
-                <li><a href="{% url 'assignment:assignment' assignment.id %}">{{ assignment.title }}</a>-
-                    {% if request.user == assignment.user%}
-                     <a href="{% url 'assignment:my_assignment_update' assignment.id %}">edit</a>
+        {% for assignment in user.assignment_set.all %}
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 w3-section">
+            <div class="w3-card-4 ">
+            <header class="w3-container w3-light-grey">
+              <h3><a href="{% url 'assignment:assignment' assignment.id %}" data-toggle="tooltip" data-placement="top" title="{{assignment}}">{{ assignment|truncatechars_html:15 }}</a>
+                  {% if request.user == assignment.user%}
+                     <small><a href="{% url 'assignment:my_assignment_update' assignment.id %}">edit</a></small>
                     {% endif %}
-                    <p>{{assignment.discription}}</p></li>
-            {% endfor %}
-            </ul>
-            <a href="{% url 'assignment:assignment_add' %}">Add Assignment</a>
+              </h3>
+            </header>
+            <div class="w3-container">
+              <p>uploaded by:{{assignment.user}}</p>
+              <hr>
+              <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
+            </div>
+            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>
+            </div>
         </div>
+        {% endfor %}
     </div>
+</div>
+<div class="container">
+     <a href="{% url 'assignment:assignment_add' %}" class="btn">+Add Assignment</a>
 </div>
 {% endblock %}

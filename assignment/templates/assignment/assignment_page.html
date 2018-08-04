@@ -1,39 +1,35 @@
 {% extends 'accounts/base.html'%}
 
 {% block title%}<title>Assignment</title>{% endblock %}
-
 {% block body %}
 <div class="container">
     <div class="row">
-        <div class="col">
-            <ul>
-            {% for assignment in assignment %}
-                <li><a href="{% url 'assignment:assignment' assignment.id %}">{{ assignment.title }}</a>
-                     <form class="form" method="POST" action="{% url 'assignment:like' %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="id" value="{{assignment.id}}">
-                        <button class="{%if user in assignment.assignmentlikecounter.user.all%} w3-btn w3-green w3-padding-large w3-hover-red {% else %}w3-btn w3-white w3-padding-large w3-hover-red{%endif%}">{%if user in assignment.assignmentlikecounter.user.all%}Liked-({{assignment.assignmentlikecounter.number_of_like}}){%else%}Like-({{assignment.assignmentlikecounter.number_of_like}}){%endif%}</button>
-                    </form>
-                     {% for user in assignment.assignmentlikecounter.user.all %}
-                     {{user.username}}
-                     {% endfor %}
-                    <p>{{assignment.discription}}
-                        <br>
-                        uploaded by: {{assignment.user.first_name}} {{assignment.user.last_name}}
-                        username:{{assignment.user}}
-                    </p>
-                </li>
-            {% endfor %}
-            </ul>
-
-            <a href="{% url 'assignment:assignment_add' %}">Add Assignment</a>
+        {% for assignment in assignment %}
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 w3-section">
+            <div class="w3-card-4 ">
+            <header class="w3-container w3-light-grey">
+              <a href="{% url 'assignment:assignment' assignment.id %}"><h3>{{ assignment.title|truncatechars_html:15 }}</h3></a>
+            </header>
+            <div class="w3-container">
+              <p>uploaded by:{{assignment.user}}</p>
+              <hr>
+              <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
+            </div>
+            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>
+            </div>
         </div>
-
-        <div class="col">
-            <a href="{% url 'assignment:uploadfile'%}">upload study-material</a>
-
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 w3-section">
+            <a href="{% url 'assignment:assignment_add' %}" class="btn">+add Assignment</a>
+            <hr/>
+            <a href="{% url 'assignment:uploadfile'%}"class="btn">+add study-material</a>
         </div>
     </div>
+    <!--##############-->
+
+
     <div class="row">
             <div class="pagination">
                 <span class="step-links">
