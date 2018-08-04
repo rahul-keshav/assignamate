@@ -57,7 +57,7 @@
                             </ul>
                             <p>{{blog.text|truncatewords:100}} </p>
                             <div class="bottom-blog">
-                                <a href="javascript:void(0)" class="continue-read"> Continue Reading <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+                                <a href="{% url 'assignment:blog' blog.id %}" class="continue-read"> Continue Reading <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
                                 <ul class="social">
                                     <li>
                                         <a href="javascript:void(0)"> <i class="fa fa-facebook"></i> </a>
