@@ -11,7 +11,7 @@
                   <form method="post">
                     {% csrf_token %}
                 <!--messages-->
-                {% if error_messages %}
+                    {% if error_messages %}
                     <ul class="messages">
                         {% for message in messages %}
                         <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
@@ -20,52 +20,12 @@
                     {% endif %}
                 <!--end of maessages-->
                     <div class="form-group ">
-                    {{ form.post }}
-                        <br>
-                    <button class="btn" type="submit">Submit</button>
-                        </div>
-                    </form>
+                        {{ form.post }}
+                            <br>
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
+                  </form>
                 <!--form post-->
-
-                <!--thumbnails of assigners-->
-                <!--<div class="container-fluid">-->
-                    <!--<div class="row">-->
-                        <!--<div class="col-lg-4 col-md-9 col-sm-9 col-lg-12">-->
-                            <!--<div class="w3-container">-->
-                                  <!--<div class="w3-card-4" style="width:100%">-->
-                                    <!--<img src="https://www.wallpaperup.com/uploads/wallpapers/2013/12/30/210466/4415006f42c2dfa1c5bce76a5a34952f-700.jpg" alt="Norway" style="width:100%">-->
-                                    <!--<div class="w3-container w3-center">-->
-                                      <!--<p>The Troll's tongue in Hardanger, Norway</p>-->
-                                    <!--</div>-->
-                                  <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="col-lg-4 col-md-9 col-sm-9 col-lg-12">-->
-                            <!--<div class="w3-container">-->
-                                  <!--<div class="w3-card-4" style="width:100%">-->
-                                    <!--<img src="https://www.wallpaperup.com/uploads/wallpapers/2013/12/30/210466/4415006f42c2dfa1c5bce76a5a34952f-700.jpg" alt="Norway" style="width:100%">-->
-                                    <!--<div class="w3-container w3-center">-->
-                                      <!--<p>The Troll's tongue in Hardanger, Norway</p>-->
-                                    <!--</div>-->
-                                  <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="col-lg-4 col-md-9 col-sm-9 col-lg-12">-->
-                            <!--<div class="w3-container">-->
-                                  <!--<div class="w3-card-4" style="width:100%">-->
-                                    <!--<img src="https://www.wallpaperup.com/uploads/wallpapers/2013/12/30/210466/4415006f42c2dfa1c5bce76a5a34952f-700.jpg" alt="Norway" style="width:100%">-->
-                                    <!--<div class="w3-container w3-center">-->
-                                      <!--<p>The Troll's tongue in Hardanger, Norway</p>-->
-                                    <!--</div>-->
-                                  <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                    <!--</div>-->
-
-                <!--</div>-->
-
-                <!--end of thumbnail-->
 
                 <!--Blog Post Begin-->
 
@@ -75,82 +35,45 @@
                     <!--<div class="blog-img blog-media"><img src="images/large-image-1.png" alt="images" /></div>-->
                     <div class="blog-captions w3-panel w3-card ">
                         <div class="container-fluid">
-                        <!--<h2 class="blog-title"> <a href="blog-detail-right-sidebar.html">{{post.post}} </a> </h2>-->
-                        <ul class="below-blog-list">
-                            <li>
-                                <a href="javascript:void(0)"> <i class="fa fa-user-o" aria-hidden="true"></i>{{post.user.get_full_name}} </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"> <i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}} </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"> <i class="fa fa-comment-o" aria-hidden="true"></i> 3 Comment </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"> <i class="fa fa-heart-o" aria-hidden="true"></i> Lifestyle </a>
-                            </li>
-                        </ul>
-                        <p>{{post.post}} </p>
-                        <div class="bottom-blog">
-                            <a href="javascript:void(0)" class="continue-read"> Continue Reading <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
-                            <ul class="social">
+                            <!--<h2 class="blog-title"> <a href="blog-detail-right-sidebar.html">{{post.post}} </a> </h2>-->
+                            <ul class="below-blog-list">
                                 <li>
-                                    <a href="javascript:void(0)"> <i class="fa fa-facebook"></i> </a>
+                                    <a href="javascript:void(0)"> <i class="fa fa-user-o" aria-hidden="true"></i>{{post.user.get_full_name}} </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"> <i class="fa fa-twitter"></i> </a>
+                                    <a href="javascript:void(0)"> <i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}} </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"> <i class="fa fa-google-plus"></i> </a>
+                                    <a href="javascript:void(0)"> <i class="fa fa-comment-o" aria-hidden="true"></i> 3 Comment </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"> <i class="fa fa-linkedin"></i> </a>
+                                    <a href="javascript:void(0)"> <i class="fa fa-heart-o" aria-hidden="true"></i> Lifestyle </a>
                                 </li>
                             </ul>
+                            <p>{{post.post}} </p>
+                            <div class="bottom-blog">
+                                <a href="javascript:void(0)" class="continue-read"> Continue Reading <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+                                <ul class="social">
+                                    <li>
+                                        <a href="javascript:void(0)"> <i class="fa fa-facebook"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"> <i class="fa fa-twitter"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"> <i class="fa fa-google-plus"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"> <i class="fa fa-linkedin"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                        </div>
-
-                    <!--##############-->
-                    <!--<div class="w3-container">-->
-                      <!--&lt;!&ndash;<h2>Card Example</h2>&ndash;&gt;-->
-                      <!--<div class="w3-card-4">-->
-                        <!--<header class="w3-container w3-light-grey">-->
-                          <!--<h3>{{post.user.get_full_name}}</h3>-->
-                          <!--<a href="javascript:void(0)"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{post.date}}</a>-->
-                        <!--</header>-->
-                        <!--<div class="w3-container">-->
-                          <!--<p>{{post.post|truncatechars:200}}</p>-->
-                            <!--<hr>-->
-                        <!--</div>-->
-                          <!--<div class="container bottom-blog">-->
-                              <!--{% if post.post|length > 200 %}-->
-                            <!--<a href="javascript:void(0)" class="continue-read"> Continue Reading <i class="fa fa-angle-right" aria-hidden="true"></i> </a>-->
-                              <!--{% endif %}-->
-                            <!--<ul class="social">-->
-                                <!--<li>-->
-                                    <!--<a href="javascript:void(0)"> <i class="fa fa-facebook"></i> </a>-->
-                                <!--</li>-->
-                                <!--<li>-->
-                                    <!--<a href="javascript:void(0)"> <i class="fa fa-twitter"></i> </a>-->
-                                <!--</li>-->
-                                <!--<li>-->
-                                    <!--<a href="javascript:void(0)"> <i class="fa fa-google-plus"></i> </a>-->
-                                <!--</li>-->
-                                <!--<li>-->
-                                    <!--<a href="javascript:void(0)"> <i class="fa fa-linkedin"></i> </a>-->
-                                <!--</li>-->
-                            <!--</ul>-->
-                        <!--</div>-->
-
-
-                        <!--<button class="w3-button w3-block w3-dark-grey">reply</button>-->
-                      <!--</div>-->
-                    <!--</div>-->
-                    <!--##############-->
                 </article>
+              {% endfor %}
                 <!-- Blog Post Ends -->
-                {% endfor %}
+
                 <!-- Blog Pagination Begins -->
                 <div class="blog-pagination pad-bottom-small">
                     <nav aria-label="Page navigation">
@@ -166,7 +89,11 @@
                     </nav>
                 </div>
                 <!-- Blog Pagination Ends -->
+
+
               </div>
+
+
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                   <div class="sidebar pad-bottom-small">
                       <!-- Search Form Widget Begins -->

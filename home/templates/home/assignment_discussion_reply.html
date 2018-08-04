@@ -1,8 +1,16 @@
 {% extends 'accounts/base.html'%}
 {% block body %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p}}
-    <button class="btn" type="submit">Submit</button>
-</form>
+<div id="main-content" class="content-box right-sidebar pad-top-big pr">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p}}
+                    <button class="btn" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {%endblock%}

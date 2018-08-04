@@ -18,7 +18,7 @@
                                   {% for comment in comments %}
                                     <div class="blog-comment">
                                         <a class="comment-avtar"><img src="{%if comment.user.useraccount.image %}{{comment.user.useraccount.image.url}}{% else %}https://www.atomix.com.au/media/2015/06/atomix_user31.png{%endif%}" alt="image"></a>
-                                        <div class="comment-text">
+                                        <div class="comment-text w3-Modern-Antiqua">
                                             <h3>{{comment.user.username}}</h3>
                                             <h5>{{comment.date}}</h5>
                                             <p>{{comment.comment}}</p>
