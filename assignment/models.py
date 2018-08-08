@@ -112,6 +112,7 @@ class Assignment_answered_by(models.Model):
 
 class Studymaterial(models.Model):
     name=models.CharField(max_length=30)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     subject=models.CharField(max_length=20)
     discription=models.CharField(max_length=500)
     document=models.FileField(upload_to='documents//%Y/%m/%d/')

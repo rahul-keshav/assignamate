@@ -150,7 +150,9 @@ def studymaterial_upload(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            study_material=form.save(commit=False)
+            study_material.user=request.user
+            study_material.save()
             return redirect(reverse('assignment:my_assignment_page'))
     else:
         form = DocumentForm()

@@ -2,15 +2,87 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4612ab9-7f70-4675-bddf-49f8b416ec8d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/forms.py" afterPath="$PROJECT_DIR$/assignment/forms.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0002_useraccount_image.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0003_auto_20180302_1019.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0004_auto_20180618_1613.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts/migrations/0005_auto_20180619_0728.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0002_auto_20180313_1619.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0003_auto_20180313_1622.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0004_assignment_answered_by.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0005_studymaterial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0006_blog_blogimage.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0007_remove_blog_image.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0008_auto_20180525_1303.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0009_blog.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0010_auto_20180525_1522.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0011_auto_20180530_1736.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0012_assignment_answered_by.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0013_auto_20180531_1039.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0014_assignment_answered_by.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0015_auto_20180605_1503.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0016_blogsite.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0017_blog_page.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0018_assignment_created.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0019_auto_20180615_1810.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0020_auto_20180615_1822.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0021_auto_20180615_1849.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0022_auto_20180615_1849.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0023_auto_20180615_1849.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0024_auto_20180615_1852.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0025_auto_20180615_1852.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0026_auto_20180615_1853.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0027_auto_20180618_1613.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0028_assignment_answered_by_name_of_teacher.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0029_assignment_answered_by_assigner_username.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0030_auto_20180729_0615.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0031_assignment_answered_by_like.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0032_auto_20180731_0609.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0033_assignment_number_of_like.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0034_assignmentlikecounter.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0035_auto_20180731_1710.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0036_auto_20180731_1730.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0037_auto_20180808_1221.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assignment/migrations/0038_auto_20180808_1341.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/home/migrations/0002_post_date.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/home/migrations/0003_auto_20180302_1127.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/home/migrations/0004_friends.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/home/migrations/0005_assignment_discussion.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/home/migrations/0006_auto_20180801_0518.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/home/migrations/0007_assignment_discussion_reply.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/notes/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/notes/migrations/0002_auto_20180315_1704.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/profile_image/rahul.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/artificial_intelligence_machine_learning_network_thinkstock_671750598-100724432-large.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/artificial_intelligence_machine_learning_network_thinkstock_671750598-1007244_L4qFJ4S.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/artificial_intelligence_machine_learning_network_thinkstock_671750598-1007244_Om4PwTx.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/artificial_intelligence_machine_learning_network_thinkstock_671750598-1007244_rUZ3snl.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/b673259748184baf997215eee7a3f015.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/dailywriting.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/digital_love_by_nerkin.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/download.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/download_PhDKzwx.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/icecremo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/inspirational-love-quotes-sayings-21-1024x1024.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blog_image/tumblr_obziyw3tzc1smiv11o1_500.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blogger_image/anime_girl_blond_wing_sadness_darkness-742018.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blogger_image/digital_love_2_0_by_sihonorio-d3a6jtj.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/blogger_image/true_love.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/documents/2018/05/12/020-02.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/documents/2018/05/12/11_-_Strengthening_Mechanisms.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/profile_image/MYPIC.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/profile_image/WHDQ-511977390.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/profile_image/WHDQ-512159509.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/profile_image/WHDQ-512159673.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/profile_image/rahul.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/question_image/2018/08/08/true_love.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/question_image/2018/08/08/true_love_4Sn0rXX.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial/media/question_image/true_love.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/models.py" afterPath="$PROJECT_DIR$/assignment/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/templates/assignment/add_question_form.html" afterPath="$PROJECT_DIR$/assignment/templates/assignment/add_question_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/templates/assignment/blog_site_list.html" afterPath="$PROJECT_DIR$/assignment/templates/assignment/blog_site_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/templates/assignment/question_paper.html" afterPath="$PROJECT_DIR$/assignment/templates/assignment/question_paper.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/templates/assignment/questions_form.html" afterPath="$PROJECT_DIR$/assignment/templates/assignment/questions_form.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/views.py" afterPath="$PROJECT_DIR$/assignment/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
     </list>
     <ignored path="tutorial.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,27 +102,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assignment/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="77" column="79" selection-start-line="77" selection-start-column="79" selection-end-line="77" selection-end-column="79" />
+            <state relative-caret-position="895">
+              <caret line="114" column="57" selection-start-line="114" selection-start-column="57" selection-end-line="114" selection-end-column="57" />
               <folding>
+                <element signature="e#240#569#0" expanded="false" />
                 <element signature="e#616#790#0" expanded="false" />
-                <element signature="e#895#1239#0" expanded="false" />
-                <element signature="e#1558#1996#0" expanded="false" />
-                <element signature="e#2045#2272#0" expanded="false" />
+                <element signature="e#857#1239#0" expanded="false" />
+                <element signature="e#1288#1465#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -58,48 +120,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assignment/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2249">
-              <caret line="151" column="27" selection-start-line="151" selection-start-column="27" selection-end-line="151" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_question_form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/add_question_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="question_paper.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/question_paper.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/profile.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_blog.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/add_blog.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="139">
+              <caret line="154" column="33" selection-start-line="154" selection-start-column="33" selection-end-line="154" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -167,18 +189,19 @@
         <option value="$PROJECT_DIR$/assignment/templates/assignment/blog_site.html" />
         <option value="$PROJECT_DIR$/assignment/templates/assignment/blog_site_list.html" />
         <option value="$PROJECT_DIR$/assignment/templates/assignment/questions_form.html" />
-        <option value="$PROJECT_DIR$/assignment/models.py" />
         <option value="$PROJECT_DIR$/assignment/forms.py" />
         <option value="$PROJECT_DIR$/assignment/templates/assignment/add_question_form.html" />
-        <option value="$PROJECT_DIR$/assignment/views.py" />
         <option value="$PROJECT_DIR$/assignment/templates/assignment/question_paper.html" />
+        <option value="$PROJECT_DIR$/assignment/views.py" />
+        <option value="$PROJECT_DIR$/assignment/models.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="width" value="1351" />
-    <option name="height" value="775" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -222,42 +245,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assignamate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignamate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignamate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignamate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignamate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,16 +421,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="0" width="1351" height="775" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23153085" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22619048" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2265861" sideWeight="0.47267357" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18068536" sideWeight="0.52732646" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47158217" sideWeight="0.52732646" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -754,18 +741,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/add_blog.html">
+    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/questions_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/forms.py">
+    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/question_paper.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+        <state relative-caret-position="-68">
+          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -778,10 +765,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/questions_form.html">
+    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/add_blog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -794,32 +781,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/models.py">
+    <entry file="file://$PROJECT_DIR$/assignment/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="77" column="79" selection-start-line="77" selection-start-column="79" selection-end-line="77" selection-end-column="79" />
-          <folding>
-            <element signature="e#616#790#0" expanded="false" />
-            <element signature="e#895#1239#0" expanded="false" />
-            <element signature="e#1558#1996#0" expanded="false" />
-            <element signature="e#2045#2272#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assignment/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2249">
-          <caret line="151" column="27" selection-start-line="151" selection-start-column="27" selection-end-line="151" selection-end-column="27" />
+        <state relative-caret-position="139">
+          <caret line="154" column="33" selection-start-line="154" selection-start-column="33" selection-end-line="154" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/question_paper.html">
+    <entry file="file://$PROJECT_DIR$/assignment/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="895">
+          <caret line="114" column="57" selection-start-line="114" selection-start-column="57" selection-end-line="114" selection-end-column="57" />
+          <folding>
+            <element signature="e#240#569#0" expanded="false" />
+            <element signature="e#616#790#0" expanded="false" />
+            <element signature="e#857#1239#0" expanded="false" />
+            <element signature="e#1288#1465#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
