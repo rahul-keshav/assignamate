@@ -73,19 +73,20 @@ class Assignmentlikecounter(models.Model):
 
 
 class Questions(models.Model,):
-    assignment=models.ForeignKey(Assignment,on_delete=models.CASCADE)
-    question=models.CharField(max_length=500)
-    answer=models.CharField(max_length=500)
-    option_a=models.CharField(max_length=200,default=0)
-    option_b=models.CharField(max_length=200,default=0)
-    option_c=models.CharField(max_length=200,default=0)
-    option_d=models.CharField(max_length=200,default=0)
-    number_of_right_answered=models.IntegerField(default=0)
-    number_of_wrong_answered=models.IntegerField(default=0)
-    positive_marks=models.IntegerField(default=0)
-    negative_marks=models.IntegerField(default=0)
-    hint=models.CharField(max_length=500)
-    tags=models.CharField(max_length=45)
+    assignment= models.ForeignKey(Assignment,on_delete=models.CASCADE)
+    question= models.CharField(max_length=500)
+    image= models.ImageField(upload_to='question_image//%Y/%m/%d/',blank=True,)
+    answer= models.CharField(max_length=500)
+    option_a =models.CharField(max_length=200,default=0)
+    option_b =models.CharField(max_length=200,default=0)
+    option_c =models.CharField(max_length=200,default=0)
+    option_d =models.CharField(max_length=200,default=0)
+    number_of_right_answered =models.IntegerField(default=0)
+    number_of_wrong_answered =models.IntegerField(default=0)
+    positive_marks =models.IntegerField(default=0)
+    negative_marks =models.IntegerField(default=0)
+    hint =models.CharField(max_length=500,blank=True)
+    tags=models.CharField(max_length=45,blank=True)
 
 
     def __str__(self):

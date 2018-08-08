@@ -43,12 +43,7 @@ class QuestionForm(forms.ModelForm):
     CHOICES = (('a', 'Option a'), ('b', 'Option b'),('c', 'Option c'), ('d', 'Option d'),)
     answer = forms.ChoiceField(widget=forms.RadioSelect,choices=CHOICES)
 
-    # answer = forms.CharField(widget=forms.TextInput(
-    #     attrs={
-    #         'class': 'form-control',
-    #         'placeholder': 'Write your answer...'
-    #     }
-    # ))
+
     positive_marks=forms.CharField(widget=forms.TextInput(
         attrs = {
         'class': 'form-control',
@@ -69,18 +64,22 @@ class QuestionForm(forms.ModelForm):
             'class': 'form-control',
             'placeholder': 'Write your hint...'
         }
-    ))
+    ),required=False)
 
     tags = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'form-control',
             'placeholder': 'Write your tags...'
         }
-    ))
+    ),required=False)
+
+    image=forms.ImageField(required=False)
 
     class Meta:
         model = Questions
-        fields = ('question','option_a','option_b','option_c','option_d','answer','positive_marks','negative_marks','hint','tags',)
+        fields = ('question','image','option_a','option_b',
+                  'option_c','option_d','answer','positive_marks',
+                  'negative_marks','hint','tags',)
 
 
 

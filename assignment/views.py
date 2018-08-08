@@ -37,25 +37,6 @@ def view_list_my_assignment(request,pk=None):
     args={'user':user,'studymaterial': studymaterial}
     return render(request,'assignment/my_assignment_page.html',args)
 
-# class AssignmentLikeToggle(LoginRequiredMixin,View):
-#     def post(self,request,*args,**kwargs):
-#         id=request.POST.get('id')
-#         assignment=get_object_or_404(Assignment,pk=id)#Assignment.objects.get(pk=id)
-#         if hasattr(assignment,'assignmentlikecounter'):
-#             assignment_like_list = assignment.assignmentlikecounter
-#         else:
-#             assignment_like_list = Assignmentlikecounter(assignment=assignment)
-#             assignment_like_list.save()
-#         user=request.user
-#         if user in assignment_like_list.user.all():
-#             assignment_like_list.user.remove(user)
-#         else:
-#             assignment_like_list.user.add(user)
-#         number_of_like=len(assignment_like_list.user.all())
-#         assignment_like_list.number_of_like=number_of_like
-#         assignment_like_list.save()
-#         return redirect(reverse('assignment:assignment',args=[id]))
-
 
 def AssignmentLikeToggle(request,id):
     assignment = get_object_or_404(Assignment, pk=id)  # Assignment.objects.get(pk=id)
@@ -93,21 +74,23 @@ class QuestionView(DetailView):
     template_name = 'assignment/question_paper.html'
     model = Assignment
 
+
 def QuestionAdd(request,pk):
     if request.method == 'POST':
-        form = QuestionForm(request.POST,)
+        form = QuestionForm(request.POST, request.FILES)
         if form.is_valid():
             question = form.save(commit=False)
             question.assignment = get_object_or_404(Assignment,pk=pk)#Assignment.objects.get(pk=pk)
             question.save()
             return redirect(reverse('assignment:assignment', args=[pk]))
+
     else:
         form = QuestionForm
     return render(request,'assignment/add_question_form.html',{'form': form})
 
 class QuestionUpdate(UpdateView):
     model = Questions
-    fields = ['question','answer','option_a','option_b','option_c','option_d','positive_marks','negative_marks']
+    fields = ['question','image','answer','option_a','option_b','option_c','option_d','positive_marks','negative_marks']
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('assignment:my_assignment_page')
 
