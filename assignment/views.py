@@ -153,10 +153,11 @@ def studymaterial_upload(request):
             study_material=form.save(commit=False)
             study_material.user=request.user
             study_material.save()
-            return redirect(reverse('assignment:my_assignment_page'))
+            return redirect(reverse('assignment:my-studymaterial'))
     else:
         form = DocumentForm()
     return render(request, 'assignment/studymaterial_upload.html',{'form': form})
+
 
 def add_blog_site(request):
     if request.method=='POST':
@@ -208,6 +209,12 @@ def result(request):
 def studymaterial(request):
     studymaterials=Studymaterial.objects.all()
     return render(request,'assignment/studymaterial.html',{'studymaterial':studymaterials})
+
+def my_studymaterial(request):
+    user=request.user
+    studymaterials=user.studymaterial_set.all()
+    return render(request,'assignment/studymaterial.html',{'studymaterial':studymaterials})
+
 
 ################
 # new search view

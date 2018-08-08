@@ -69,6 +69,7 @@
                                           <li class="has-children"><a href="{% url 'assignment:studymaterial' %}">Studymaterial</a>
                                               <ul class="sub-menu">
                                                   <li> <a href="{% url 'assignment:studymaterial' %}">Study material</a> </li>
+                                                  <li> <a href="{% url 'assignment:my-studymaterial' %}">My Study material</a> </li>
                                               </ul>
                                           </li>
                                           <li><a href="{% url 'assignment:blog_site_list' %}">Blogs</a>
@@ -95,7 +96,7 @@
                                       <form id="searchform" action="{% url 'assignment:search' %}" method="get" accept-charset="utf-8">
                                           <div class="form-group">
                                               <div class="btn-form"></div>
-                                              <input type="text" class="form-control" id="searchbox" name="q" type="search" placeholder="Search">
+                                              <input class="form-control" id="searchbox" name="q" type="search" placeholder="Search">
                                           </div>
                                       </form>
                                   </div>
