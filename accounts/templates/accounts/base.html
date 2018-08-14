@@ -59,7 +59,6 @@
                                       <ul class="nav navbar-nav navbar-right">
                                           <li><a href="{% url 'home:home' %}">Home </a></li>
                                           {% if user.is_authenticated %}
-                                          <li><a href="{% url 'accounts:view_profile' %}">About</a></li>
                                           <li class="has-children"><a href="javascript:void(0)">Assignment</a>
                                               <ul class="sub-menu">
                                                   <li> <a href="{% url 'assignment:assignment_page' %}">Assignments</a> </li>

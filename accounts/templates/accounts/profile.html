@@ -28,15 +28,11 @@
                     <h5>{% include 'accounts/snippet/follow_form.html' with username=user.username is_following=is_following %}</h5>
                     {% endif %}
 
-
-
                     <p>Hello i m_{{user.first_name}} {{user.last_name}}</p>
 
-                    <p>Passage of Lorem Ipsum of passages of Lorem Ipsum available, but the majity have suffered alteration in some form by injected andomised rds which don't look even slightly believable If you are going. to use a passage of Lorem Ipsum, you need to be sure there All the Lorem Ipsum generators on the Internet tend to repeat predefined</p>
+                    <p>discription : {{user.useraccount.discription}}</p>
 
                     <p>email : {{user.email}}</p>
-
-                    <p>discription : {{user.useraccount.discription}}</p>
 
                     <p>and i am from : {{user.useraccount.city}} .</p>
 
@@ -64,18 +60,31 @@
                     <!-- Social Media Links Begins -->
                     <div>
                         <ul class="social">
+                            {%if user.useraccount.facebook%}
                             <li>
-                                <a href="javascript:void(0)"><i class="fa fa-facebook"></i></a>
+                                <a href="{{user.useraccount.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
+                            {% endif %}
+                            {%if user.useraccount.instagram%}
                             <li>
-                                <a href="javascript:void(0)"><i class="fa fa-twitter"></i></a>
+                                <a href="{{user.useraccount.instagram}}" target="_blank"><i class="fa fa-instagram"></i></a>
                             </li>
+                            {% endif %}
+                            {%if user.useraccount.twitter%}
                             <li>
-                                <a href="javascript:void(0)"><i class="fa fa-google-plus"></i></a>
+                                <a href="{{user.useraccount.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
                             </li>
+                            {% endif %}
+                            {%if user.useraccount.google_plus%}
                             <li>
-                                <a href="javascript:void(0)"><i class="fa fa-linkedin"></i></a>
+                                <a href="{{user.useraccount.google_plus}}" target="_blank"><i class="fa fa-google-plus"></i></a>
                             </li>
+                            {% endif %}
+                            {%if user.useraccount.linkedin%}
+                            <li>
+                                <a href="{{user.useraccount.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                            {% endif %}
                         </ul>
                     </div>
                     <!-- Social Media Links Ends -->

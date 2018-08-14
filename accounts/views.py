@@ -43,7 +43,7 @@ def view_profile(request, pk=None):
 
 class UseraccountUpdate(UpdateView):
     model = UserAccount
-    fields = ['discription','contact_no','city','website','image']
+    fields = ['discription','contact_no','city','website','image','facebook','twitter','google_plus','linkedin']
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('accounts:view_profile')
 

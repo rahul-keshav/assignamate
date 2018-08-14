@@ -14,7 +14,11 @@ class UserAccount(models.Model):
     image=models.ImageField(upload_to='profile_image',blank=True)
     follower=models.ManyToManyField(User,related_name='is_following',blank=True)
     facebook=models.CharField(max_length=50,blank=True)
-    instagram=models.CharField(max_length=50,blank=True)
+    instagram = models.CharField(max_length=50, blank=True)
+    twitter=models.CharField(max_length=50,blank=True)
+    google_plus = models.CharField(max_length=50, blank=True)
+    linkedin = models.CharField(max_length=50, blank=True)
+
 
     def __str__(self):
         return self.user.username
