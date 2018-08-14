@@ -117,24 +117,34 @@
                                   {%endif%}
                               </div>
                               <div class="about-info">
-                                  <p>Suffered alteration in some passage of Lorem.</p>
+                                  <p>{{user.useraccount.discription|truncatewords:10}}</p>
                                   <ul class="social">
-                                      <li>
-                                          <a href="javascript:void(0)"> <i class="fa fa-facebook"></i> </a>
-                                      </li>
-                                      <li>
-                                          <a href="javascript:void(0)"> <i class="fa fa-twitter"></i> </a>
-                                      </li>
-                                      <li>
-                                          <a href="javascript:void(0)"> <i class="fa fa-google-plus"></i> </a>
-                                      </li>
-                                      <li>
-                                          <a href="javascript:void(0)"> <i class="fa fa-linkedin"></i> </a>
-                                      </li>
-                                      <li>
-                                          <a href="javascript:void(0)"> <i class="fa fa-youtube"></i> </a>
-                                      </li>
-                                  </ul>
+                                        {%if user.useraccount.facebook%}
+                                        <li>
+                                            <a href="{{user.useraccount.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        {% endif %}
+                                        {%if user.useraccount.instagram%}
+                                        <li>
+                                            <a href="{{user.useraccount.instagram}}" target="_blank"><i class="fa fa-instagram"></i></a>
+                                        </li>
+                                        {% endif %}
+                                        {%if user.useraccount.twitter%}
+                                        <li>
+                                            <a href="{{user.useraccount.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        {% endif %}
+                                        {%if user.useraccount.google_plus%}
+                                        <li>
+                                            <a href="{{user.useraccount.google_plus}}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                        </li>
+                                        {% endif %}
+                                        {%if user.useraccount.linkedin%}
+                                        <li>
+                                            <a href="{{user.useraccount.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                        </li>
+                                        {% endif %}
+                                    </ul>
                                   <a href="{% url 'accounts:view_profile' %}" class="continue-read">Read More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                               </div>
                           </div>
