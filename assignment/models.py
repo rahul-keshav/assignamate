@@ -124,18 +124,19 @@ class Studymaterial(models.Model):
         return self.name
 
 class Blogsite(models.Model):
-    name=models.CharField(max_length=30)
+    name=models.CharField(max_length=50)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    quotes=models.CharField(max_length=100)
-    discription = models.CharField(max_length=500)
+    quotes=models.CharField(max_length=100,blank=True)
+    discription = models.CharField(max_length=500,blank=True)
     background_image=models.ImageField(upload_to='blogger_image/')
     def __str__(self):
         return self.name
 
 class Blog_page(models.Model):
-    title=models.CharField(max_length=40)
+    title=models.CharField(max_length=50)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     blog_site=models.ForeignKey(Blogsite,on_delete=models.CASCADE)
     text=models.TextField()
-    image = models.ImageField(upload_to='blog_image/')
+    image = models.ImageField(upload_to='blog_image/',blank=True)
     def __str__(self):
         return self.title

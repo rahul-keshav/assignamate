@@ -8,7 +8,7 @@
 
 
       {% block banner%}
-      <section id="banner" class="banner banner-static parallax-fix parallaximg" style="background-image:url({{ blog.image.url }})">
+      <section id="banner" class="banner banner-static parallax-fix parallaximg" {% if blog.image %}style="background-image:url({{ blog.image.url }})"{% endif %}>
           <div class="container pr">
               <div class="row">
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -38,12 +38,14 @@
 
                     <!-- Blog Post Begins -->
                     <article class="outer-blog-box pr pad-bottom-small">
+                        {% if blog.image %}
                         <div class="blog-img blog-media"><img src="{{ blog.image.url }}" alt="images" /></div>
+                        {% endif%}
                         <div class="blog-captions">
                             <h2 class="blog-title"> <a href="javascript:void(0)">{{blog.title}}</a> </h2>
                             <ul class="below-blog-list">
                                 <li>
-                                    <a href="javascript:void(0)"> <i class="fa fa-user-o" aria-hidden="true"></i> Dany Saha </a>
+                                    <a href="javascript:void(0)"> <i class="fa fa-user-o" aria-hidden="true"></i>{{blog.blogsite.user.first_name}}</a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0)"> <i class="fa fa-calendar-o" aria-hidden="true"></i> January 10, 2017 </a>
@@ -57,7 +59,6 @@
                             </ul>
                             <p>{{blog.text}} </p>
                             <div class="bottom-blog">
-                                <a href="javascript:void(0)" class="continue-read"> Continue Reading <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
                                 <ul class="social">
                                     <li>
                                         <a href="javascript:void(0)"> <i class="fa fa-facebook"></i> </a>

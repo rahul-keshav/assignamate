@@ -8,7 +8,7 @@
 
 
       {% block banner%}
-      <section id="banner" class="banner banner-static parallax-fix parallaximg" style="background-image:url({{blog_site.background_image.url}})">
+      <section id="banner" class="banner banner-static parallax-fix parallaximg" {% if blog_site.background_image %}style="background-image:url({{blog_site.background_image.url}})"{%endif%}>
           <div class="container pr">
               <div class="row">
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -38,7 +38,9 @@
                   {% for blog in blogs %}
                     <!-- Blog Post Begins -->
                     <article class="outer-blog-box pr pad-bottom-small">
+                        {%if blog.image%}
                         <div class="blog-img blog-media"><img src="{{ blog.image.url }}" alt="images" /></div>
+                        {% endif %}
                         <div class="blog-captions">
                             <h2 class="blog-title"> <a href="{% url 'assignment:blog' blog.id %}">{{blog.title}}</a> </h2>
                             <ul class="below-blog-list">
@@ -112,34 +114,50 @@
                           </div>
                           <!-- Search Form Widget Ends -->
                           <!-- About Widget Begins -->
-                          <div class="widget widget_about">
-                              <h2 class="widget-title">About Me</h2>
-                              <div class="about-box">
-                                  <div class="about-img"> <img src="images/about-img.jpg" alt="images"> </div>
-                                  <div class="about-info">
-                                      <p>Suffered alteration in some passage of Lorem.</p>
-                                      <ul class="social">
-                                          <li>
-                                              <a href="javascript:void(0)"> <i class="fa fa-facebook"></i> </a>
-                                          </li>
-                                          <li>
-                                              <a href="javascript:void(0)"> <i class="fa fa-twitter"></i> </a>
-                                          </li>
-                                          <li>
-                                              <a href="javascript:void(0)"> <i class="fa fa-google-plus"></i> </a>
-                                          </li>
-                                          <li>
-                                              <a href="javascript:void(0)"> <i class="fa fa-linkedin"></i> </a>
-                                          </li>
-                                          <li>
-                                              <a href="javascript:void(0)"> <i class="fa fa-youtube"></i> </a>
-                                          </li>
-                                      </ul>
-                                      <a href="javascript:void(0)" class="continue-read">Read More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                                  </div>
+                      <div class="widget widget_about">
+                          <h2 class="widget-title"><a href="{% url 'accounts:view_profile' %}">About Me</a></h2>
+                          <div class="about-box">
+                              <div class="about-img">
+                                  {%if user.useraccount.image%}
+                                    <img src="{{user.useraccount.image.url}}" alt="images" />
+                                  {% else %}
+                                    <img src="https://www.atomix.com.au/media/2015/06/atomix_user31.png" alt="images" />
+                                  {%endif%}
+                              </div>
+                              <div class="about-info">
+                                  <p>{{user.useraccount.discription|truncatewords:10}}</p>
+                                  <ul class="social">
+                                        {%if user.useraccount.facebook%}
+                                        <li>
+                                            <a href="{{user.useraccount.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        {% endif %}
+                                        {%if user.useraccount.instagram%}
+                                        <li>
+                                            <a href="{{user.useraccount.instagram}}" target="_blank"><i class="fa fa-instagram"></i></a>
+                                        </li>
+                                        {% endif %}
+                                        {%if user.useraccount.twitter%}
+                                        <li>
+                                            <a href="{{user.useraccount.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        {% endif %}
+                                        {%if user.useraccount.google_plus%}
+                                        <li>
+                                            <a href="{{user.useraccount.google_plus}}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                        </li>
+                                        {% endif %}
+                                        {%if user.useraccount.linkedin%}
+                                        <li>
+                                            <a href="{{user.useraccount.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                        </li>
+                                        {% endif %}
+                                    </ul>
+                                  <a href="{% url 'accounts:view_profile' %}" class="continue-read">Read More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                               </div>
                           </div>
-                          <!-- About Widget Ends -->
+                      </div>
+                      <!-- About Widget Ends -->
                           <!-- Recent Entry Widget Begins -->
                           <div class="widget widget_recent_entries">
                               <h2 class="widget-title">Recent Posts</h2>

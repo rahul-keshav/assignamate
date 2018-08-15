@@ -158,7 +158,6 @@ def studymaterial_upload(request):
         form = DocumentForm()
     return render(request, 'assignment/studymaterial_upload.html',{'form': form})
 
-
 def add_blog_site(request):
     if request.method=='POST':
         form=Blog_site_Form(request.POST,request.FILES)
@@ -190,6 +189,7 @@ def add_blog(request,pk):
         if form.is_valid():
             blog=form.save(commit=False)
             blog.blog_site=get_object_or_404(Blogsite,pk=pk)#Blogsite.objects.get(pk=pk)
+            blog.user = request.user
             blog.save()
             return redirect(reverse('assignment:blog_site',args=[pk]))
     else:

@@ -123,14 +123,14 @@ class Blog_site_Form(forms.ModelForm):
             'class': 'form-control',
             'placeholder': 'Write your title...'
         }
-    ))
+    ),required=False)
 
     discription = forms.CharField(widget=forms.Textarea(
         attrs={
             'class': 'form-control',
             'placeholder': 'Write your text...'
         }
-    ))
+    ),required=False)
 
     class Meta:
         model=Blogsite
