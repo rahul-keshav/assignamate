@@ -19,21 +19,21 @@
       {% if klass == 'Assignment' %}
            <div class='row'>
              <div class='col-12 col-lg-8 offset-lg-4'>
-                Assignment: <a href="{% url 'assignment:assignment' object.id %}">{{ object.title }}</a>
+                Assignment: <a href="{% url 'assignment:assignment' object.id %}"target="_blank">{{ object.title }}</a>
             </div>
           </div>
 
       {% elif klass == 'Studymaterial' %}
            <div class='row'>
              <div class='col-12 col-lg-8 offset-lg-4'>
-                Stydymaterial Item: <a href='{{object.document.url}}'>{{ object.name }}</a>
+                Stydymaterial Item: <a href='{{object.document.url}}' target="_blank">{{ object.name }}</a>
               </div>
             </div>
 
       {% elif klass == 'Profile' %}
            <div class='row'>
                 <div class='col-12 col-lg-8 offset-lg-4'>
-                   Profile Item: <a href=''>{{ object.title }}</a>
+                   Profile Item: <a href='' target="_blank">{{ object.title }}</a>
                 </div>
             </div>
       {% else %}
