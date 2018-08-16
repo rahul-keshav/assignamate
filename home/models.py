@@ -21,3 +21,16 @@ class Assignment_discussion_reply(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     reply=models.TextField()
     date=models.DateTimeField(auto_now=True)
+
+
+class Blog_discussion(models.Model):
+    blog=models.ForeignKey(Assignment,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    date=models.DateTimeField(auto_now=True)
+    comment=models.TextField()
+
+class Blog_discussion_reply(models.Model):
+    blog_discussion=models.ForeignKey(Assignment_discussion,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    reply=models.TextField()
+    date=models.DateTimeField(auto_now=True)

@@ -129,6 +129,7 @@ class Blogsite(models.Model):
     quotes=models.CharField(max_length=100,blank=True)
     discription = models.CharField(max_length=500,blank=True)
     background_image=models.ImageField(upload_to='blogger_image/')
+    submitted = models.DateTimeField(default=now)
     def __str__(self):
         return self.name
 
@@ -138,5 +139,6 @@ class Blog_page(models.Model):
     blog_site=models.ForeignKey(Blogsite,on_delete=models.CASCADE)
     text=models.TextField()
     image = models.ImageField(upload_to='blog_image/',blank=True)
+    submitted = models.DateTimeField(default=now)
     def __str__(self):
         return self.title
