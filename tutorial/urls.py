@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('',login_redirect,name='login_redirect'),
+    path('',include('home.urls')),
+    # path('',login_redirect,name='login_redirect'),
     path('admin/', admin.site.urls),
     path('accounts/',include('accounts.urls')),
     path('home/',include('home.urls')),
