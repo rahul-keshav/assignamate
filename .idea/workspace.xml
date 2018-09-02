@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4612ab9-7f70-4675-bddf-49f8b416ec8d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/base.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/templates/assignment/studymaterial.html" afterPath="$PROJECT_DIR$/assignment/templates/assignment/studymaterial.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/urls.py" afterPath="$PROJECT_DIR$/assignment/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/views.py" afterPath="$PROJECT_DIR$/assignment/views.py" />
     </list>
     <ignored path="tutorial.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,29 +28,61 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
+            <state relative-caret-position="252">
+              <caret line="161" column="108" selection-start-line="161" selection-start-column="108" selection-end-line="161" selection-end-column="108" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/templates/home/home.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assignment/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+            <state relative-caret-position="340">
+              <caret line="29" column="95" selection-start-line="29" selection-start-column="95" selection-end-line="29" selection-end-column="95" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blog.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/blog.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2278">
-              <caret line="134" column="16" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="16" />
+            <state relative-caret-position="119">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="studymaterial.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/studymaterial.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assignment/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="666">
+              <caret line="139" column="27" selection-start-line="139" selection-start-column="27" selection-end-line="139" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assignment/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="46" column="79" selection-start-line="46" selection-start-column="79" selection-end-line="46" selection-end-column="79" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +125,6 @@
         <option value="$PROJECT_DIR$/home/admin.py" />
         <option value="$PROJECT_DIR$/home/urls.py" />
         <option value="$PROJECT_DIR$/home/views.py" />
-        <option value="$PROJECT_DIR$/assignment/templates/assignment/studymaterial.html" />
         <option value="$PROJECT_DIR$/accounts/static/accounts/css/media_ver_1.1.css" />
         <option value="$PROJECT_DIR$/accounts/static/accounts/js/element.js" />
         <option value="$PROJECT_DIR$/home/templates/home/assignment_discussion_reply.html" />
@@ -100,13 +132,11 @@
         <option value="$PROJECT_DIR$/assignment/templates/assignment/my_assignment_page.html" />
         <option value="$PROJECT_DIR$/assignment/templates/assignment/questions_form.html" />
         <option value="$PROJECT_DIR$/assignment/templates/assignment/add_question_form.html" />
-        <option value="$PROJECT_DIR$/assignment/urls.py" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/profile.html" />
         <option value="$PROJECT_DIR$/accounts/views.py" />
         <option value="$PROJECT_DIR$/assignment/forms.py" />
         <option value="$PROJECT_DIR$/assignment/templates/assignment/blog_site.html" />
-        <option value="$PROJECT_DIR$/assignment/views.py" />
         <option value="$PROJECT_DIR$/assignment/models.py" />
         <option value="$PROJECT_DIR$/home/models.py" />
         <option value="$PROJECT_DIR$/assignment/templates/assignment/blog.html" />
@@ -120,6 +150,9 @@
         <option value="$PROJECT_DIR$/assignment/templates/assignment/index.html" />
         <option value="$PROJECT_DIR$/assignment/templates/assignment/question_paper.html" />
         <option value="$PROJECT_DIR$/assignment/templates/assignment/result.html" />
+        <option value="$PROJECT_DIR$/assignment/urls.py" />
+        <option value="$PROJECT_DIR$/assignment/views.py" />
+        <option value="$PROJECT_DIR$/assignment/templates/assignment/studymaterial.html" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/base.html" />
       </list>
     </option>
@@ -184,7 +217,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
+              <option name="myItemId" value="assignment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -198,55 +231,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accounts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignamate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignamate" />
+              <option name="myItemId" value="assignment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="accounts" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accounts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignamate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assignamate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accounts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accounts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="assignment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -412,7 +405,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28199404" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -590,13 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/studymaterial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -608,13 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="125" column="21" selection-start-line="125" selection-start-column="21" selection-end-line="125" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="211" column="21" selection-start-line="211" selection-start-column="21" selection-end-line="211" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -639,25 +618,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="141" column="13" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -732,14 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/question_paper.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -780,26 +736,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/blog_site_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/blog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2278">
-          <caret line="134" column="16" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -812,10 +752,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/blog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2278">
+          <caret line="134" column="16" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="139" column="27" selection-start-line="139" selection-start-column="27" selection-end-line="139" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="46" column="79" selection-start-line="46" selection-start-column="79" selection-end-line="46" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment/templates/assignment/studymaterial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="95" selection-start-line="29" selection-start-column="95" selection-end-line="29" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
+        <state relative-caret-position="252">
+          <caret line="161" column="108" selection-start-line="161" selection-start-column="108" selection-end-line="161" selection-end-column="108" />
           <folding />
         </state>
       </provider>

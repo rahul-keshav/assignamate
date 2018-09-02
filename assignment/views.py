@@ -20,6 +20,15 @@ def index(request):
             list_assignment.append(assignment)
     return render(request,'assignment/index.html',{'list_assignment':list_assignment})
 
+def index_studymaterial(request):
+    list_studymaterial=[]
+    for useraccount in request.user.is_following.all():
+        user=useraccount.user
+        print(user)
+        for studymaterial in user.studymaterial_set.all():
+            list_studymaterial.append(studymaterial)
+    return render(request,'assignment/studymaterial.html',{'studymaterial':list_studymaterial})
+
 def view_list_assignment(request):
     assignment=Assignment.objects.all()
     paginator=Paginator(assignment,10)
