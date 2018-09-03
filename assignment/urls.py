@@ -44,6 +44,7 @@ urlpatterns = [
     path('index',index,name='index'),
     path('studymaterial',studymaterial,name='studymaterial'),
     path('my-studymaterial',my_studymaterial,name='my-studymaterial'),
+    path('my-studymaterial/<pk>',my_studymaterial,name='my-studymaterial'),
     path('index-studymaterial',index_studymaterial,name='index_studymaterial'),
 
               ]

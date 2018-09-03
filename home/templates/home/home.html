@@ -9,6 +9,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <!--form post-->
+                {%if user.is_authenticated%}
                   <form method="post">
                     {% csrf_token %}
                 <!--messages-->
@@ -26,6 +27,7 @@
                         <button class="btn" type="submit">Submit</button>
                     </div>
                   </form>
+                {% endif %}
                 <!--form post-->
 
                 <!--Blog Post Begin-->
@@ -91,7 +93,6 @@
                 </div>
                 <!-- Blog Pagination Ends -->
 
-
               </div>
 
 
@@ -152,23 +153,23 @@
                       </div>
                       <!-- About Widget Ends -->
                       <!-- Recent Entry Widget Begins -->
-                      <div class="widget widget_recent_entries">
-                          <h2 class="widget-title">Recent Posts</h2>
-                          <div class="recent-box">
-                              <div class="recent-img"> <img src="images/recent-img-1.png" alt="images"> </div>
-                              <div class="about-info recent-info">
-                                  <h4> <a href="javascript:void(0)">Passage of Lorem Ipsum of passages Lorem Ipsum available.</a> </h4>
-                                  <h5>January 10, 2017</h5>
-                              </div>
-                          </div>
-                          <div class="recent-box">
-                              <div class="recent-img"> <img src="images/recent-img-2.png" alt="images"> </div>
-                              <div class="about-info recent-info">
-                                  <h4> <a href="javascript:void(0)">Passage of Lorem Ipsum of passages Lorem Ipsum available.</a> </h4>
-                                  <h5>January 10, 2017</h5>
-                              </div>
-                          </div>
-                      </div>
+                      <!--<div class="widget widget_recent_entries">-->
+                          <!--<h2 class="widget-title">Recent Posts</h2>-->
+                          <!--<div class="recent-box">-->
+                              <!--<div class="recent-img"> <img src="images/recent-img-1.png" alt="images"> </div>-->
+                              <!--<div class="about-info recent-info">-->
+                                  <!--<h4> <a href="javascript:void(0)">Passage of Lorem Ipsum of passages Lorem Ipsum available.</a> </h4>-->
+                                  <!--<h5>January 10, 2017</h5>-->
+                              <!--</div>-->
+                          <!--</div>-->
+                          <!--<div class="recent-box">-->
+                              <!--<div class="recent-img"> <img src="images/recent-img-2.png" alt="images"> </div>-->
+                              <!--<div class="about-info recent-info">-->
+                                  <!--<h4> <a href="javascript:void(0)">Passage of Lorem Ipsum of passages Lorem Ipsum available.</a> </h4>-->
+                                  <!--<h5>January 10, 2017</h5>-->
+                              <!--</div>-->
+                          <!--</div>-->
+                      <!--</div>-->
                       <!-- Recent Entry Widget Ends -->
                       <!-- other users Widget Begins -->
                       <div class="widget widget_categories">

@@ -217,8 +217,11 @@ def studymaterial(request):
     studymaterials=Studymaterial.objects.all()
     return render(request,'assignment/studymaterial.html',{'studymaterial':studymaterials})
 
-def my_studymaterial(request):
-    user=request.user
+def my_studymaterial(request,pk=None):
+    if pk:
+        user=get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
+    else:
+        user = request.user
     studymaterials=user.studymaterial_set.all()
     return render(request,'assignment/studymaterial.html',{'studymaterial':studymaterials})
 
