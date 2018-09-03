@@ -13,12 +13,31 @@ class AssignmentQuerySet(models.QuerySet):
                          )
             qs = qs.filter(or_lookup).distinct()  # distinct() is often necessary with Q lookups
         return qs
+    def jee_main(self):
+        return self.filter(category='jee_main')
+    def jee_adv(self):
+        return self.filter(category='jee_advance')
+    def ssc(self):
+        return self.filter(category='ssc')
+    def others(self):
+        return self.filter(category='others')
+
 
 class AssignmentManager(models.Manager):
     def get_queryset(self):
         return AssignmentQuerySet(self.model,using=self._db)
+
     def search(self,query=None):
         return self.get_queryset().search(query=query)
+
+    def jee_main(self):
+        return self.get_queryset().jee_main()
+    def jee_adv(self):
+        return self.get_queryset().jee_adv()
+    def ssc(self):
+        return self.get_queryset().ssc()
+    def others(self):
+        return self.get_queryset().others()
 
 ################
 class StudymaterialQuerySet(models.QuerySet):
@@ -42,14 +61,12 @@ class StudymaterialManager(models.Manager):
 
 
 
-
-
-
 # Create your models here.
 class Assignment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title=models.CharField(max_length=30,default='assignment')
     discription=models.CharField(max_length=500)
+    category=models.CharField(max_length=30,blank=True)
     created = models.DateTimeField(auto_now=True)
 
     objects = AssignmentManager()

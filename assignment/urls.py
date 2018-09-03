@@ -1,12 +1,12 @@
 from django.urls import path,include
 from assignment.views import view_list_assignment,\
-    QuestionView,AssignmentCreate,QuestionAdd,\
+    QuestionView,assignmentCreate,QuestionAdd,\
     view_list_my_assignment,assignment_check,\
     studymaterial_upload,SearchView,result,\
     answersheet,blog_site_list,add_blog_site,view_blog_site,\
     add_blog,blog,QuestionUpdate,AssignmentUpdate,QuestionDelete,\
     index,AssignmentLikeToggle,studymaterial,my_studymaterial,\
-    index_studymaterial
+    index_studymaterial,index_jee
 
 
 
@@ -18,7 +18,7 @@ urlpatterns = [
     path('myassignment',view_list_my_assignment,name='my_assignment_page'),
     path('myassignment/<pk>',view_list_my_assignment,name='my_assignment_page'),
     path('myassignment_update/<pk>',AssignmentUpdate.as_view(),name='my_assignment_update'),
-    path('assignment/add',AssignmentCreate.as_view(),name='assignment_add'),
+    path('assignment/add',assignmentCreate,name='assignment_add'),
     path('assignment/<pk>',QuestionView.as_view(),name='assignment'),
     path('assignment-like/<id>',AssignmentLikeToggle,name='like'),
     path('question/add/<pk>',QuestionAdd,name='question_add'),
@@ -42,6 +42,7 @@ urlpatterns = [
     path('result',result,name='result'),
     path('answersheet/<ass_id>-<ans_id>',answersheet,name='answersheet'),
     path('index',index,name='index'),
+    path('index-jee',index_jee,name='index_jee'),
     path('studymaterial',studymaterial,name='studymaterial'),
     path('my-studymaterial',my_studymaterial,name='my-studymaterial'),
     path('my-studymaterial/<pk>',my_studymaterial,name='my-studymaterial'),

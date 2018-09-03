@@ -4,6 +4,32 @@ from .models import Assignment,Questions,Studymaterial,Blogsite,Blog_page
 
 from django.contrib.auth.models import User
 
+class AssignmentForm(forms.ModelForm):
+    title = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Write a question...'
+        }
+    ))
+    discription = forms.CharField(widget=forms.Textarea(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Write description...'
+        }
+    ),required=False)
+    CATEGORY_CHOICES = (
+        ('jee_main', 'JEE-Main'),
+        ('jee-advance', 'JEE-ADVANCE'),
+        ('ssc', 'SSC'),
+        ('other','OTHERS')
+    )
+    category = forms.ChoiceField(widget=forms.Select,choices=CATEGORY_CHOICES)
+
+    class Meta:
+        model=Assignment
+        fields = ('title', 'discription', 'category')
+
+
 class QuestionForm(forms.ModelForm):
     question=forms.CharField(widget=forms.TextInput(
         attrs={

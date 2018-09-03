@@ -3,7 +3,7 @@ from django.views.generic import ListView,DetailView,CreateView,UpdateView,Delet
 from .models import Assignment,Questions,Assignment_answered_by,\
     Studymaterial,Blogsite,Blog_page,Assignmentlikecounter
 from django.contrib.auth.models import User
-from assignment.forms import QuestionForm,DocumentForm,Blog_site_Form,BlogForm
+from assignment.forms import QuestionForm,DocumentForm,Blog_site_Form,BlogForm,AssignmentForm
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from itertools import chain
@@ -12,13 +12,17 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 def index(request):
+    list_jee=Assignment.objects.jee_main()
     list_assignment=[]
     for useraccount in request.user.is_following.all():
         user=useraccount.user
         print(user)
         for assignment in user.assignment_set.all():
             list_assignment.append(assignment)
-    return render(request,'assignment/index.html',{'list_assignment':list_assignment})
+    return render(request,'assignment/index.html',{'list_assignment':list_assignment,'list_jee':list_jee})
+def index_jee(request,):
+    list_jee = Assignment.objects.jee_main()
+    return render(request, 'assignment/index_jee.html', {'list_jee': list_jee})
 
 def index_studymaterial(request):
     list_studymaterial=[]
@@ -71,13 +75,24 @@ class AssignmentUpdate(UpdateView):
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('assignment:my_assignment_page')
 
-class AssignmentCreate(CreateView):
-    model = Assignment
-    fields = ['title','discription']
+def assignmentCreate(request):
+    if request.method=='POST':
+        form=AssignmentForm(request.POST)
+        if form.is_valid():
+            assignment=form.save(commit=False)
+            assignment.user=request.user
+            assignment.save()
+            return redirect(reverse('assignment:my_assignment_page'))
+    else:
+        form=AssignmentForm
+    return render(request,'assignment/assignment_form.html',{'form': form})
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
+
+
+
+    # def form_valid(self, form):
+    #     form.instance.user = self.request.user
+    #     return super().form_valid(form)
 
 class QuestionView(DetailView):
     template_name = 'assignment/question_paper.html'
