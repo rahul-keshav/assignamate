@@ -20,6 +20,12 @@ class AssignmentForm(forms.ModelForm):
     CATEGORY_CHOICES = (
         ('jee_main', 'JEE-Main'),
         ('jee-advance', 'JEE-ADVANCE'),
+        ('gate-cs', 'GATE-computer Science and IT'),
+        ('gate-me', 'GATE-Mechanical Engineering'),
+        ('gate-ee', 'GATE-Electrical Engineering'),
+        ('gate-ece', 'GATE-electronics Engineering'),
+        ('gate-ce', 'GATE-Civil Engineering'),
+        ('gate-mt', 'GATE-Metallurgical and Materials Engineering'),
         ('ssc', 'SSC'),
         ('other','OTHERS')
     )

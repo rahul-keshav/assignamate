@@ -13,6 +13,7 @@ class AssignmentQuerySet(models.QuerySet):
                          )
             qs = qs.filter(or_lookup).distinct()  # distinct() is often necessary with Q lookups
         return qs
+
     def jee_main(self):
         return self.filter(category='jee_main')
     def jee_adv(self):

@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from itertools import chain
 from django.contrib.auth.mixins import LoginRequiredMixin
+from accounts.models import UserAccount
 
 # Create your views here.
 
@@ -20,9 +21,19 @@ def index(request):
         for assignment in user.assignment_set.all():
             list_assignment.append(assignment)
     return render(request,'assignment/index.html',{'list_assignment':list_assignment,'list_jee':list_jee})
-def index_jee(request,):
-    list_jee = Assignment.objects.jee_main()
-    return render(request, 'assignment/index_jee.html', {'list_jee': list_jee})
+
+def index_jee_main(request):
+    list = Assignment.objects.jee_main().order_by('-created')
+    return render(request, 'assignment/index_exam.html', {'list': list})
+def index_jee_adv(request):
+    list = Assignment.objects.jee_adv().order_by('-created')
+    return render(request, 'assignment/index_exam.html', {'list': list})
+def index_ssc(request):
+    list = Assignment.objects.ssc().order_by('-created')
+    return render(request, 'assignment/index_exam.html', {'list': list})
+def index_others(request):
+    list = Assignment.objects.others().order_by('-created')
+    return render(request, 'assignment/index_exam.html', {'list': list})
 
 def index_studymaterial(request):
     list_studymaterial=[]
@@ -262,11 +273,13 @@ class SearchView(ListView):
         if query is not None:
             assignment_results= Assignment.objects.search(query)
             studymaterial_results= Studymaterial.objects.search(query)
+            useraccount_results=UserAccount.objects.search(query)
 
             # combine querysets
             queryset_chain = chain(
                 assignment_results,
                 studymaterial_results,
+                useraccount_results
 
             )
             qs = sorted(queryset_chain,
