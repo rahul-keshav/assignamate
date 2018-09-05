@@ -13,27 +13,38 @@ from accounts.models import UserAccount
 # Create your views here.
 
 def index(request):
-    list_jee=Assignment.objects.jee_main()
-    list_assignment=[]
-    for useraccount in request.user.is_following.all():
-        user=useraccount.user
-        print(user)
-        for assignment in user.assignment_set.all():
-            list_assignment.append(assignment)
-    return render(request,'assignment/index.html',{'list_assignment':list_assignment,'list_jee':list_jee})
+    if request.user.is_authenticated:
+        list_assignment = []
+        for useraccount in request.user.is_following.all():
+            user=useraccount.user
+            print(user)
+            for assignment in user.assignment_set.all():
+                list_assignment.append(assignment)
+        return render(request,'assignment/index.html',{'list_assignment':list_assignment,})
+    else:
+        list_jee = Assignment.objects.jee_main().order_by('-created')
+        list_jee_adv = Assignment.objects.jee_adv().order_by('-created')
+        list_ssc = Assignment.objects.ssc().order_by('-created')
+        list = [list_jee, list_jee_adv,list_ssc]
+
+        return render(request, 'assignment/index2.html', {'list': list})
 
 def index_jee_main(request):
+    heading='Jee-Main'
     list = Assignment.objects.jee_main().order_by('-created')
-    return render(request, 'assignment/index_exam.html', {'list': list})
+    return render(request, 'assignment/index_exam.html', {'heading':heading,'list': list})
 def index_jee_adv(request):
+    heading='Jee-Adv'
     list = Assignment.objects.jee_adv().order_by('-created')
-    return render(request, 'assignment/index_exam.html', {'list': list})
+    return render(request, 'assignment/index_exam.html', {'heading':heading,'list': list})
 def index_ssc(request):
+    heading = 'SSC'
     list = Assignment.objects.ssc().order_by('-created')
-    return render(request, 'assignment/index_exam.html', {'list': list})
+    return render(request, 'assignment/index_exam.html', {'heading':heading,'list': list})
 def index_others(request):
+    heading = 'Others'
     list = Assignment.objects.others().order_by('-created')
-    return render(request, 'assignment/index_exam.html', {'list': list})
+    return render(request, 'assignment/index_exam.html', {'heading':heading,'list': list})
 
 def index_studymaterial(request):
     list_studymaterial=[]

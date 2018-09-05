@@ -126,7 +126,7 @@ STATIC_URL = '/static/'
 MEDIA_URL='/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR,'tutorial/media')
 
-LOGIN_REDIRECT_URL='/'
+LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = '/accounts/login/'
 
@@ -140,12 +140,19 @@ LOGIN_EXEMPT_URLS=(
 )
 
 PREVIEW_URLS = (
+    #assignment url
     r'^$',
-    r'^mypost/(?P<pk>\d+)$',
-    r'^assignment/$',
-    r'^assignment/assignment/(?P<pk>\d+)$',
-    r'^assignment/(?:search?(?P<slug>[\w+]))$',
-    r'^assignment/studymaterial',
+    r'^index_jee_main$',
+    r'^index_jee_adv$',
+    r'^index_ssc$',
+    r'^index_others$',
+    r'^assignment/(?P<pk>\d+)$',
+    r'^(?:search?(?P<slug>[\w+]))$',
+    r'^studymaterial',
+    # home url
+    r'home/^$',
+    r'^home/mypost/(?P<pk>\d+)$',
+    # media url
     r'^media/(?P<path>.*)$',
 )
 

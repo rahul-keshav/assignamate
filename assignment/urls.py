@@ -13,8 +13,13 @@ from assignment.views import view_list_assignment,\
 app_name='assignment'
 
 urlpatterns = [
-    #path('',AssignmentView.as_view(),name='assignment_page'),
-    path('',view_list_assignment,name='assignment_page'),
+    path('',index,name='index'),
+    path('index_jee_main',index_jee_main,name='index_jee_main'),
+    path('index_jee_adv',index_jee_adv,name='index_jee_adv'),
+    path('index_ssc',index_ssc,name='index_ssc'),
+    path('index_others',index_others,name='index_others'),
+
+    path('all-assignment',view_list_assignment,name='assignment_page'),
     path('myassignment',view_list_my_assignment,name='my_assignment_page'),
     path('myassignment/<pk>',view_list_my_assignment,name='my_assignment_page'),
     path('myassignment_update/<pk>',AssignmentUpdate.as_view(),name='my_assignment_update'),
@@ -47,10 +52,6 @@ urlpatterns = [
     path('my-studymaterial/<pk>',my_studymaterial,name='my-studymaterial'),
     path('index-studymaterial',index_studymaterial,name='index_studymaterial'),
 
-    path('index',index,name='index'),
-    path('index_jee_main',index_jee_main,name='index_jee_main'),
-    path('index_jee_adv',index_jee_adv,name='index_jee_adv'),
-    path('index_ssc',index_ssc,name='index_ssc'),
-    path('index_others',index_ssc,name='index_others'),
+
 
               ]
