@@ -1,52 +1,60 @@
 {% extends 'accounts/base.html'%}
 {% load class_name %}
 {% block title%}
-<title>result</title>
+<title>Search result</title>
 {% endblock %}
-
-
 {% block body %}
-
-<div class='row title-row my-5'>
-    <div class='col-12 py-0'>
-        <h3 class='my-0 py-0'> results for <b></b></h3>
-    </div>
-</div>
-
-
-{% for object in object_list %}
-    {% with object|class_name as klass %}
-      {% if klass == 'Assignment' %}
-           <div class='row'>
-             <div class='col-12 col-lg-8 offset-lg-4'>
-                Assignment: <a href="{% url 'assignment:assignment' object.id %}"target="_blank">{{ object.title }}</a>
-            </div>
-          </div>
-
-      {% elif klass == 'Studymaterial' %}
-           <div class='row'>
-             <div class='col-12 col-lg-8 offset-lg-4'>
-                Stydymaterial Item: <a href='{{object.document.url}}' target="_blank">{{ object.name }}</a>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="widget widget_categories">
+                  <h3 class="widget-title">results for <b>{{query}}</b></h3>
+                  <ul>
+                      {% for object in object_list %}
+                            {% with object|class_name as klass %}
+                              {% if klass == 'Assignment' %}
+                                  <li>
+                                      Assignment: <a href="{% url 'assignment:assignment' object.id %}"target="_blank">{{ object.title }} </a>
+                                  </li>
+                              {% elif klass == 'Studymaterial' %}
+                                    <li>
+                                      Stydymaterial: <a href='{{object.document.url}}' target="_blank">{{ object.name }} </a>
+                                    </li>
+                              {% elif klass == 'UserAccount' %}
+                                    <li>
+                                      Profile: <a href="{% url 'accounts:view_profile_with_pk' object.id %}" target="_blank">{{object}} </a>
+                                    </li>
+                              {% else %}
+                                      <li>
+                                          <a href=''>{{ object }} | {{ object|class_name }}</a>
+                                      </li>
+                                {% endif %}
+                            {% endwith %}
+                        {% empty %}
+                        {% endfor %}
+                  </ul>
               </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="widget widget_tag_cloud">
+                  <h2 class="widget-title">Popular Tag</h2>
+                  <div class="popular-box">
+                      <ul>
+                          <li> <a href="{% url 'assignment:index_jee_main' %}">jee-main</a> </li>
+                          <li> <a href="{% url 'assignment:index_jee_adv' %}">jee-adv</a> </li>
+                          <li> <a href="{% url 'assignment:index_ssc' %}">ssc</a> </li>
+                          <li> <a href="{% url 'assignment:index_others' %}">GATE-CS</a> </li>
+                          <li> <a href="{% url 'assignment:index_others' %}">GATE-Civil</a> </li>
+                          <li> <a href="{% url 'assignment:index_others' %}">GATE-EE</a> </li>
+                          <li> <a href="{% url 'assignment:index_others' %}">GATE-ECE</a> </li>
+                          <li> <a href="{% url 'assignment:index_others' %}">GATE-ME</a> </li>
+                          <li> <a href="{% url 'assignment:index_others' %}">GATE-MT</a> </li>
+                          <li> <a href="{% url 'assignment:index_others' %}">banking</a> </li>
+                          <li> <a href="{% url 'assignment:index_others' %}">others</a> </li>
+                      </ul>
+                  </div>
             </div>
-
-      {% elif klass == 'Profile' %}
-           <div class='row'>
-                <div class='col-12 col-lg-8 offset-lg-4'>
-                   Profile Item: <a href='' target="_blank">{{ object.title }}</a>
-                </div>
-            </div>
-      {% else %}
-           <div class='row'>
-             <div class='col-12 col-lg-8 offset-lg-4'>
-                <a href=''>{{ object }} | {{ object|class_name }}</a>
-            </div>
-           </div>
-        {% endif %}
-
-    {% endwith %}
-
-{% empty %}
-{% endfor %}
-
+        </div>
+     </div>
+</div>
 {% endblock %}

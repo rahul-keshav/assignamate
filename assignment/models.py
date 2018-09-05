@@ -8,7 +8,9 @@ class AssignmentQuerySet(models.QuerySet):
     def search(self, query=None):
         qs = self
         if query is not None:
-            or_lookup = (Q(title__icontains=query) |
+            or_lookup = (Q(user__first_name__icontains=query) |
+                         Q(title__icontains=query) |
+                         Q(category__icontains=query) |
                          Q(discription__icontains=query)
                          )
             qs = qs.filter(or_lookup).distinct()  # distinct() is often necessary with Q lookups
@@ -45,7 +47,8 @@ class StudymaterialQuerySet(models.QuerySet):
     def search(self, query=None):
         qs = self
         if query is not None:
-            or_lookup = (Q(name__icontains=query) |
+            or_lookup = (Q(user__first_name__icontains=query) |
+                         Q(name__icontains=query) |
                          Q(discription__icontains=query)|
                          Q(subject__icontains=query)
                          )
@@ -135,7 +138,6 @@ class Studymaterial(models.Model):
     discription=models.CharField(max_length=500)
     document=models.FileField(upload_to='documents//%Y/%m/%d/')
     uploaded_at=models.DateField(auto_now=True)
-
     objects = StudymaterialManager()
 
     def __str__(self):

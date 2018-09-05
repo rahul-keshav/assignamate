@@ -9,22 +9,41 @@ from django.contrib import messages
 # Create your views here.
 
 def post(request):
-    if request.method == 'POST':
-        form = HomeForm(request.POST,)
-        args={'form':form}
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.user = request.user
-            post.save()
-            return redirect('home:home')
+    if request.user.is_authenticated :
+        if request.method == 'POST':
+            form = HomeForm(request.POST,)
+            args={'form':form}
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.user = request.user
+                post.save()
+                return redirect('home:home')
+            else:
+                messages.warning(request, 'Please correct the error below.')
         else:
-            messages.warning(request, 'Please correct the error below.')
+            posts = Post.objects.all().order_by('-date')
+            users = User.objects.exclude(id=request.user.id)
+            form=HomeForm
+            args={'form':form,'posts':posts,'users':users}
+        return render(request,'home/home.html',args)
     else:
-        posts = Post.objects.all().order_by('-date')
-        users = User.objects.exclude(id=request.user.id)
-        form=HomeForm
-        args={'form':form,'posts':posts,'users':users}
-    return render(request,'home/home.html',args)
+        if request.method == 'POST':
+            form = HomeForm(request.POST,)
+            args={'form':form}
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.user = request.user
+                post.save()
+                return redirect('home:home')
+            else:
+                messages.warning(request, 'Please correct the error below.')
+        else:
+            posts = Post.objects.all().order_by('-date')
+            users = User.objects.exclude(id=request.user.id)
+            form=HomeForm
+            args={'form':form,'posts':posts,'users':users}
+        return render(request,'home/home.html',args)
+
 
 
 
