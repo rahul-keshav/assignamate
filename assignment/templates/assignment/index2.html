@@ -7,7 +7,8 @@
     <div class="row">
         <div class="col-lg-8">
                 <div class="container-fluid">
-                {% for list in list %}
+                {% for name,list in dictionary.items %}
+                    <h3>{{name}}</h3>
                     <div class="row">
                         {% for assignment in list %}
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 w3-section">

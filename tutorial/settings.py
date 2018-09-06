@@ -150,7 +150,7 @@ PREVIEW_URLS = (
     r'^(?:search?(?P<slug>[\w+]))$',
     r'^studymaterial',
     # home url
-    r'home/^$',
+    r'^home/$',
     r'^home/mypost/(?P<pk>\d+)$',
     # media url
     r'^media/(?P<path>.*)$',

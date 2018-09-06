@@ -25,9 +25,8 @@ def index(request):
         list_jee = Assignment.objects.jee_main().order_by('-created')
         list_jee_adv = Assignment.objects.jee_adv().order_by('-created')
         list_ssc = Assignment.objects.ssc().order_by('-created')
-        list = [list_jee, list_jee_adv,list_ssc]
-
-        return render(request, 'assignment/index2.html', {'list': list})
+        dictionary = {'JEE-Mains':list_jee,'JEE-Adv':list_jee_adv,'SSC':list_ssc}
+        return render(request, 'assignment/index2.html', {'dictionary':dictionary})
 
 def index_jee_main(request):
     heading='Jee-Main'
