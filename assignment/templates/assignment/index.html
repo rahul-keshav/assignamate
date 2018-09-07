@@ -8,25 +8,26 @@
         <div class="col-lg-8">
             <div class="container-fluid">
                 {% for username,list_assignment in dictionary.items %}
-                <h3>{{username}}</h3>
-                <div class="row">
-                    {% for assignment in list_assignment %}
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 w3-section">
-                        <div class="w3-card-4 ">
-                        <header class="w3-container w3-light-grey">
-                          <a href="{% url 'assignment:assignment' assignment.id %}"><h3>{{ assignment|truncatechars_html:15 }}</h3></a>
-                        </header>
-
-                        <div class="w3-container">
-                          <p>uploaded by:{{assignment.user}}</p>
-                          <hr>
-                          <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
+                    {%if list_assignment %}
+                    <h3>{{username}}</h3>
+                    <div class="row">
+                        {% for assignment in list_assignment %}
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 w3-section">
+                            <div class="w3-card-4 ">
+                            <header class="w3-container w3-light-grey">
+                              <a href="{% url 'assignment:assignment' assignment.id %}"><h3>{{ assignment|truncatechars_html:15 }}</h3></a>
+                            </header>
+                            <div class="w3-container">
+                              <p>uploaded by:{{assignment.user}}</p>
+                              <hr>
+                              <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
+                            </div>
+                            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>
+                            </div>
                         </div>
-                        <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>
-                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>

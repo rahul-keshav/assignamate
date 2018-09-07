@@ -9,9 +9,7 @@ from django.urls import reverse_lazy
 from itertools import chain
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import UserAccount
-
 # Create your views here.
-
 def index(request):
     if request.user.is_authenticated:
         dictionary={}
