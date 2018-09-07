@@ -14,13 +14,13 @@ from accounts.models import UserAccount
 
 def index(request):
     if request.user.is_authenticated:
-        list_assignment = []
+        dictionary={}
         for useraccount in request.user.is_following.all():
             user=useraccount.user
-            print(user)
-            for assignment in user.assignment_set.all():
-                list_assignment.append(assignment)
-        return render(request,'assignment/index.html',{'list_assignment':list_assignment,})
+            name=user.username
+            list_assignment=user.assignment_set.all()
+            dictionary[name]=list_assignment
+        return render(request,'assignment/index.html',{'dictionary':dictionary})
     else:
         list_jee = Assignment.objects.jee_main().order_by('-created')
         list_jee_adv = Assignment.objects.jee_adv().order_by('-created')
