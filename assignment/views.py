@@ -7,7 +7,6 @@ from assignment.forms import QuestionForm,DocumentForm,Blog_site_Form,BlogForm,A
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from itertools import chain
-from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import UserAccount
 # Create your views here.
 def index(request):
@@ -26,31 +25,41 @@ def index(request):
         dictionary = {'JEE-Mains':list_jee,'JEE-Adv':list_jee_adv,'SSC':list_ssc}
         return render(request, 'assignment/index2.html', {'dictionary':dictionary})
 
+
 def index_jee_main(request):
     heading='Jee-Main'
     list = Assignment.objects.jee_main().order_by('-created')
     return render(request, 'assignment/index_exam.html', {'heading':heading,'list': list})
+
+
 def index_jee_adv(request):
     heading='Jee-Adv'
     list = Assignment.objects.jee_adv().order_by('-created')
     return render(request, 'assignment/index_exam.html', {'heading':heading,'list': list})
+
+
 def index_ssc(request):
     heading = 'SSC'
     list = Assignment.objects.ssc().order_by('-created')
     return render(request, 'assignment/index_exam.html', {'heading':heading,'list': list})
+
+
 def index_others(request):
     heading = 'Others'
     list = Assignment.objects.others().order_by('-created')
     return render(request, 'assignment/index_exam.html', {'heading':heading,'list': list})
 
+
 def index_studymaterial(request):
     list_studymaterial=[]
     for useraccount in request.user.is_following.all():
         user=useraccount.user
-        print(user)
+        # print(user)
         for studymaterial in user.studymaterial_set.all():
             list_studymaterial.append(studymaterial)
+
     return render(request,'assignment/studymaterial.html',{'studymaterial':list_studymaterial})
+
 
 def view_list_assignment(request):
     assignment=Assignment.objects.all()
@@ -106,12 +115,13 @@ def assignmentCreate(request):
         form=AssignmentForm
     return render(request,'assignment/assignment_form.html',{'form': form})
 
-
-
-
     # def form_valid(self, form):
     #     form.instance.user = self.request.user
     #     return super().form_valid(form)
+def show_submission(request,pk):
+    assignment = get_object_or_404(Assignment, pk=pk)
+
+
 
 class QuestionView(DetailView):
     template_name = 'assignment/question_paper.html'
@@ -144,10 +154,10 @@ class QuestionDelete(DeleteView):
 
 def assignment_check(request,assignment_id):
     assignment=get_object_or_404(Assignment,pk=assignment_id)
-    marks=0
+    marks = 0
     total_marks=0
     forloopcounter = 1
-    answersting=''
+    answersting =''
     for question in assignment.questions_set.all():
 
         post_input='inlineRadioOptions'+str(forloopcounter)
@@ -156,7 +166,7 @@ def assignment_check(request,assignment_id):
 
         if request.POST[post_input]=='z':
          forloopcounter = forloopcounter + 1
-         total_marks=total_marks+question.positive_marks
+         total_marks = total_marks+question.positive_marks
 
         elif question.answer==request.POST[post_input]:
          marks=marks+question.positive_marks
@@ -167,9 +177,8 @@ def assignment_check(request,assignment_id):
          marks = marks - question.negative_marks
          total_marks = total_marks + question.positive_marks
          forloopcounter = forloopcounter+1
-
-    print(answersting)
-    print(marks)
+    # print(answersting)
+    # print(marks)
 
     p = Assignment_answered_by(name_of_assignment=assignment.title,assignment_id=assignment.id,
                                name_of_teacher=assignment.user.first_name+" "+assignment.user.last_name,
@@ -187,7 +196,7 @@ def answersheet(request,ass_id, ans_id):
     list1 = []
     for i in answer:
         list1.append(i)
-    return render(request,'assignment/answersheetpage.html',{'assignment':assignment,'answer':list1})
+    return render(request,'assignment/answersheetpage.html', {'assignment':assignment,'answer':list1})
 
 def studymaterial_upload(request):
     if request.method == 'POST':
@@ -199,7 +208,7 @@ def studymaterial_upload(request):
             return redirect(reverse('assignment:my-studymaterial'))
     else:
         form = DocumentForm()
-    return render(request, 'assignment/studymaterial_upload.html',{'form': form})
+    return render(request, 'assignment/studymaterial_upload.html', {'form': form})
 
 def add_blog_site(request):
     if request.method=='POST':
@@ -248,12 +257,12 @@ def result(request):
     return render(request,'assignment/result.html',{'result':result,})
 
 def studymaterial(request):
-    studymaterials=Studymaterial.objects.all()
+    studymaterials = Studymaterial.objects.all()
     return render(request,'assignment/studymaterial.html',{'studymaterial':studymaterials})
 
 def my_studymaterial(request,pk=None):
     if pk:
-        user=get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
+        user = get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
     else:
         user = request.user
     studymaterials=user.studymaterial_set.all()

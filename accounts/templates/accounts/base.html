@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0">
     {% block title%}<title>Title</title>{% endblock %}
     {% load staticfiles %}
-    <!--<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/bootstrap.min.css' %}">-->
-    <!--<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/owl.carousel.css' %}">-->
-    <!--<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/font-awesome.css' %}">-->
-    <!--<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/magnific-popup.css' %}">-->
-    <!--<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/style.css' %}">-->
-    <!--<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/media.css' %}">-->
-    <!--<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/w3.css' %}">-->
-     <!-- Bootstrap css -->
-    <link type="text/css" rel="stylesheet" href="http://scribbler.projectsmd.in/html/css/bootstrap.min.css">
-    <!-- Owl Carousel css -->
-    <link type="text/css" rel="stylesheet" href="http://scribbler.projectsmd.in/html/css/owl.carousel.min.css">
-    <!-- Font Awesome css -->
-    <link type="text/css" rel="stylesheet" href="http://scribbler.projectsmd.in/html/css/font-awesome.css">
-    <!-- Magnific Popup css -->
-    <link type="text/css" href="http://scribbler.projectsmd.in/html/css/magnific-popup.css" rel="stylesheet">
-    <!-- Custom css -->
-    <link type="text/css" href="http://scribbler.projectsmd.in/html/css/style.css" rel="stylesheet">
-    <!-- Custom Media Query css -->
-    <link type="text/css" href="http://scribbler.projectsmd.in/html/css/media.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/bootstrap.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/owl.carousel.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/font-awesome.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/magnific-popup.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/media.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/w3.css' %}">
+     <!-- Bootstrap css -->
+    <!--<link type="text/css" rel="stylesheet" href="http://scribbler.projectsmd.in/html/css/bootstrap.min.css">-->
+    <!-- Owl Carousel css -->
+    <!--<link type="text/css" rel="stylesheet" href="http://scribbler.projectsmd.in/html/css/owl.carousel.min.css">-->
+    <!-- Font Awesome css -->
+    <!--<link type="text/css" rel="stylesheet" href="http://scribbler.projectsmd.in/html/css/font-awesome.css">-->
+    <!-- Magnific Popup css -->
+    <!--<link type="text/css" href="http://scribbler.projectsmd.in/html/css/magnific-popup.css" rel="stylesheet">-->
+    <!-- Custom css -->
+    <!--<link type="text/css" href="http://scribbler.projectsmd.in/html/css/style.css" rel="stylesheet">-->
+    <!-- Custom Media Query css -->
+    <!--<link type="text/css" href="http://scribbler.projectsmd.in/html/css/media.css" rel="stylesheet">-->
+    <!--<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/w3.css' %}">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--########-->
     <style>
@@ -189,6 +189,7 @@
                                               </ul>
                                           </li>
                                           {% else %}
+                                          <li><a href="{% url 'assignment:index' %}">Assignments </a></li>
                                           <li><a href="{% url 'accounts:login' %}">Login</a></li>
                                           <li><a href="{% url 'accounts:register' %}">Register</a></li>
                                           <li><a href="{% url 'accounts:reset-password' %}">ResetPassword</a></li>

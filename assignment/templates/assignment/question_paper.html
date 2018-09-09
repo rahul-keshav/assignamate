@@ -15,6 +15,7 @@
 
         {% if request.user == assignment.user %}
             <small><a href="{% url 'assignment:question_add' assignment.id %}" > +add question</a></small>
+            <small><a href="{% url 'assignment:question_add' assignment.id %}" > >>show all submission</a></small>
         {% endif %}
     <hr/>
 
