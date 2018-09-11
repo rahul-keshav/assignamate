@@ -1,4 +1,39 @@
 {% extends 'accounts/base.html'%}
 {% block body %}
+<div class="container">
+        <div class="w3-card">
+            <header class="w3-container w3-light-gray">
+              <h3 class="w3-left">{{assignment.title}}</h3>
+              <h2 class="w3-right text-capitalize">{{assignment.user.first_name}} {{assignment.user.last_name}}</h2>
+            </header>
+        </div>
+        <div class="w3-card-4">
+            <div class="w3-container">
+                <div class="w3-responsive">
+                    <table class="w3-table w3-bordered">
+                        <tr>
+                            <th>Name Of the User</th>
+                            <th>Username</th>
+                            <th>Marks</th>
+                            <th>Total Marks</th>
+                            <th>Date & Time</th>
+                            <th>Name Of the Assignment</th>
+                        </tr>
+                        {% for submission in submissions %}
+                            <tr>
+                                <td class="text-capitalize">{{ submission.user.first_name}} {{ submission.user.last_name}}</td>
+                                <td>{{ submission.user.username }}</td>
+                                <td>{{ submission.marks }}</td>
+                                <td>{{ submission.total_marks }}</td>
+                                <td>{{ submission.submitted }}</td>
+                                <td>{{ submission.name_of_assignment }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
 
+
+</div>
 {% endblock %}

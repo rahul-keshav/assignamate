@@ -19,11 +19,13 @@ class UserAccountQuerySet(models.QuerySet):
             qs = qs.filter(or_lookup).distinct()  # distinct() is often necessary with Q lookups
         return qs
 
+
 class UserAccountManager(models.Manager):
     def get_queryset(self):
         return UserAccountQuerySet(self.model,using=self._db)
     def search(self,query=None):
         return self.get_queryset().search(query=query)
+
 
 class UserAccount(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
@@ -43,6 +45,7 @@ class UserAccount(models.Model):
 
     def __str__(self):
         return self.user.username
+
 
 def create_profile(sender, **kwargs):
     if kwargs['created']:

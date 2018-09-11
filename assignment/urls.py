@@ -6,7 +6,9 @@ from assignment.views import view_list_assignment,\
     answersheet,blog_site_list,add_blog_site,view_blog_site,\
     add_blog,blog,QuestionUpdate,AssignmentUpdate,QuestionDelete,\
     index,AssignmentLikeToggle,studymaterial,my_studymaterial,\
-    index_studymaterial,index_jee_main,index_jee_adv,index_ssc,index_others
+    index_studymaterial,index_jee_main,index_jee_adv,index_ssc,index_others,\
+    show_submission
+
 
 
 
@@ -46,6 +48,7 @@ urlpatterns = [
 
     path('result',result,name='result'),
     path('answersheet/<ass_id>-<ans_id>',answersheet,name='answersheet'),
+    path('submissions/<pk>',show_submission,name='show_submission'),
 
     path('studymaterial',studymaterial,name='studymaterial'),
     path('my-studymaterial',my_studymaterial,name='my-studymaterial'),

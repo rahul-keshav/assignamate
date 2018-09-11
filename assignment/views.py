@@ -118,8 +118,12 @@ def assignmentCreate(request):
     # def form_valid(self, form):
     #     form.instance.user = self.request.user
     #     return super().form_valid(form)
+
+
 def show_submission(request,pk):
-    assignment = get_object_or_404(Assignment, pk=pk)
+    assignment = get_object_or_404(Assignment,pk=pk)
+    submissions=Assignment_answered_by.objects.show_submission(pk).order_by('-marks')
+    return render(request, 'assignment/show_submission.html', {'submissions': submissions,'assignment':assignment})
 
 
 
