@@ -7,22 +7,22 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-            <div class="widget widget_categories">
+            <div class="w3-container">
                   <h3 class="widget-title">results for <b>{{query}}</b></h3>
-                  <ul>
+                  <ul class="w3-ul w3-card">
                       {% for object in object_list %}
                             {% with object|class_name as klass %}
                               {% if klass == 'Assignment' %}
-                                  <li>
-                                      Assignment: <a href="{% url 'assignment:assignment' object.id %}"target="_blank">{{ object.title }} </a>
-                                  </li>
+                              <li>
+                                  <a href="{% url 'assignment:assignment' object.id %}"target="_blank">Assignment: {{ object.title }}</a>
+                              </li>
                               {% elif klass == 'Studymaterial' %}
-                                    <li>
-                                      Stydymaterial: <a href='{{object.document.url}}' target="_blank">{{ object.name }} </a>
-                                    </li>
+                                <li>
+                                  <a href='{{object.document.url}}' target="_blank">Stydymaterial: {{ object.name }} </a>
+                                </li>
                               {% elif klass == 'UserAccount' %}
                                     <li>
-                                      Profile: <a href="{% url 'accounts:view_profile_with_pk' object.id %}" target="_blank">{{object}} </a>
+                                      Profile: <a href="{% url 'accounts:view_profile_with_pk' object.id %}" target="_blank">Profile: {{object}} </a>
                                     </li>
                               {% else %}
                                       <li>
