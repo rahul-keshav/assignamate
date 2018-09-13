@@ -153,7 +153,7 @@ class Blog_site_Form(forms.ModelForm):
     quotes = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'Write your title...'
+            'placeholder': 'Write your quotes...'
         }
     ),required=False)
 
