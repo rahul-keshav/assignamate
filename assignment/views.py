@@ -1,29 +1,55 @@
 from django.shortcuts import render,redirect,reverse,get_object_or_404,render_to_response
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,View
 from .models import Assignment,Questions,Assignment_answered_by,\
-    Studymaterial,Blogsite,Blog_page,Assignmentlikecounter
+    Studymaterial,Blogsite,Blog_page,Assignmentlikecounter,Intrests
 from django.contrib.auth.models import User
-from assignment.forms import QuestionForm,DocumentForm,Blog_site_Form,BlogForm,AssignmentForm
+from assignment.forms import QuestionForm,DocumentForm,Blog_site_Form,BlogForm,AssignmentForm,Intrest_form
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from itertools import chain
 from accounts.models import UserAccount
+
+from .filters import AssignmentFilter
+
 # Create your views here.
 def index(request):
     if request.user.is_authenticated:
+        dictionary2={}
+        list2=[]
+        for intrest in request.user.intrests_set.all():
+            list_of_assignment=list(Assignment.objects.intrests(intrest))
+            dictionary2[intrest]=list_of_assignment
+        intrests=request.user.intrests_set.all()
         dictionary={}
         for useraccount in request.user.is_following.all():
             user=useraccount.user
             name=user.username
             list_assignment=user.assignment_set.all()
             dictionary[name]=list_assignment
-        return render(request,'assignment/index.html',{'dictionary':dictionary})
+        return render(request,'assignment/index.html',{'dictionary':dictionary,'intrests':intrests,'dictionary2':dictionary2})
     else:
         list_jee = Assignment.objects.jee_main().order_by('-created')
         list_jee_adv = Assignment.objects.jee_adv().order_by('-created')
         list_ssc = Assignment.objects.ssc().order_by('-created')
         dictionary = {'JEE-Mains':list_jee,'JEE-Adv':list_jee_adv,'SSC':list_ssc}
         return render(request, 'assignment/index2.html', {'dictionary':dictionary})
+
+def add_intrest(request):
+    if request.method=='POST':
+        form=Intrest_form(request.POST)
+        if form.is_valid():
+            intrest=form.save(commit=False)
+            intrest.user=request.user
+            intrest.save()
+            return redirect(reverse('assignment:index'))
+    else:
+        form=Intrest_form
+    return render(request,'assignment/add_intrest_form.html',{'form': form})
+
+class IntrestDelete(DeleteView):
+    model = Intrests
+    success_url = reverse_lazy('assignment:index')
+
 
 
 def index_jee_main(request):
@@ -271,7 +297,14 @@ def my_studymaterial(request,pk=None):
         user = request.user
     studymaterials=user.studymaterial_set.all()
     return render(request,'assignment/studymaterial.html',{'studymaterial':studymaterials})
+################
+# filter
+###############
 
+def filter_search(request):
+    assignment_list = Assignment.objects.all()
+    assignment_filter = AssignmentFilter(request.GET, queryset=assignment_list)
+    return render(request,'assignment/user_list.html', {'filter': assignment_filter})
 
 ################
 # new search view

@@ -1,0 +1,12 @@
+{% extends 'accounts/base.html'%}
+{% block body %}
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+ <ul>
+  {% for assignment in filter.qs %}
+    <li>{{ assignment }} - {{ assignment.user }}</li>
+  {% endfor %}
+  </ul>
+{% endblock %}

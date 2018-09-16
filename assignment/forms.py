@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Assignment,Questions,Studymaterial,Blogsite,Blog_page
+from .models import Assignment,Questions,Studymaterial,Blogsite,Blog_page,Intrests
 
 from django.contrib.auth.models import User
 
@@ -167,6 +167,12 @@ class Blog_site_Form(forms.ModelForm):
     class Meta:
         model=Blogsite
         fields=('name','quotes','discription','background_image')
+
+class Intrest_form(forms.ModelForm):
+    class Meta:
+        model =Intrests
+        fields=('intrest',)
+
 
 
 

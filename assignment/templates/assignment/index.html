@@ -4,8 +4,50 @@
 {% endblock %}
 {% block body %}
 <div class="container">
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+      <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+          <a href="{% url 'assignment:add_intrest' %}" class="w3-bar-item w3-button">add intrests</a>
+            <ul>
+            {% for intrest in intrests %}
+                <li><a href="#" class="w3-bar-item w3-button">{{intrest}}</a><a href="{% url 'assignment:delete_intrest' intrest.id %}">del</a></li>
+            {% endfor %}
+            </ul>
+    </div>
+    <!--Sidebar ends-->
+    <!-- Page Content -->
+    <div class="w3-black">
+        <p class="w3-text-white">
+        <button class="w3-button w3-black" onclick="w3_open()">Intrest</button><b><-Select your intrest to get better result</b></p>
+    </div>
     <div class="row">
         <div class="col-lg-8">
+            <!--intrest section-->
+            <div class="container-fluid">
+                {% for username,list_assignment in dictionary2.items %}
+                    {%if list_assignment %}
+                    <h3>{{username}}</h3>
+                    <div class="row">
+                        {% for assignment in list_assignment %}
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 w3-section">
+                            <div class="w3-card-4 ">
+                            <header class="w3-container w3-light-grey">
+                              <a href="{% url 'assignment:assignment' assignment.id %}"><h3>{{ assignment|truncatechars_html:15 }}</h3></a>
+                            </header>
+                            <div class="w3-container">
+                              <p>uploaded by:{{assignment.user}}</p>
+                              <hr>
+                              <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
+                            </div>
+                            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <!--follower section-->
             <div class="container-fluid">
                 {% for username,list_assignment in dictionary.items %}
                     {%if list_assignment %}
@@ -62,5 +104,13 @@
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
+</script>
+<script>
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
 </script>
 {% endblock %}

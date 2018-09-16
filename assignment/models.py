@@ -18,6 +18,17 @@ class AssignmentQuerySet(models.QuerySet):
             qs = qs.filter(or_lookup).distinct()  # distinct() is often necessary with Q lookups
         return qs
 
+    def intrests(self,intrest):
+        qs = self
+        if intrest is not None:
+            or_lookup = (Q(user__first_name__icontains=intrest) |
+                         Q(user__username__icontains=intrest) |
+                         Q(title__icontains=intrest) |
+                         Q(category__icontains=intrest)
+                         )
+            qs = qs.filter(or_lookup).distinct()  # distinct() is often necessary with Q lookups
+        return qs
+
     def jee_main(self):
         return self.filter(category='jee_main')
 
@@ -38,6 +49,9 @@ class AssignmentManager(models.Manager):
 
     def search(self,query=None):
         return self.get_queryset().search(query=query)
+
+    def intrests(self,intrest):
+        return self.get_queryset().intrests(intrest=intrest)
 
     def jee_main(self):
         return self.get_queryset().jee_main()
@@ -71,7 +85,6 @@ class StudymaterialManager(models.Manager):
 
 
 class Assignment_answerd_byQuerySet(models.QuerySet):
-
     def show_submission(self,pk):
         return self.filter(assignment_id=pk)
 
@@ -92,9 +105,7 @@ class Assignment(models.Model):
     discription=models.CharField(max_length=500)
     category=models.CharField(max_length=30,blank=True)
     created = models.DateTimeField(auto_now=True)
-
     objects = AssignmentManager()
-
     class Meta:
         ordering = ["-created"]
 
@@ -154,6 +165,13 @@ class Assignment_answered_by(models.Model):
     def __str__(self):
         return self.user.first_name+' '+self.user.last_name
 
+class Intrests(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    intrest=models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.intrest
+
 
 class Studymaterial(models.Model):
     name=models.CharField(max_length=30)
@@ -187,3 +205,5 @@ class Blog_page(models.Model):
     submitted = models.DateTimeField(default=now)
     def __str__(self):
         return self.title
+
+
