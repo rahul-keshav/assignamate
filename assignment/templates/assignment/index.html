@@ -10,7 +10,7 @@
           <a href="{% url 'assignment:add_intrest' %}" class="w3-bar-item w3-button">add intrests</a>
             <ul>
             {% for intrest in intrests %}
-                <li><a href="#" class="w3-bar-item w3-button">{{intrest}}</a><a href="{% url 'assignment:delete_intrest' intrest.id %}">del</a></li>
+                <li>{{intrest}} <a class="w3-tag w3-white w3-border w3-border-red w3-round" href="{% url 'assignment:delete_intrest' intrest.id %}">del</a></li>
             {% endfor %}
             </ul>
     </div>

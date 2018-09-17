@@ -14,19 +14,17 @@ from .filters import AssignmentFilter
 # Create your views here.
 def index(request):
     if request.user.is_authenticated:
-        dictionary2={}
-        list2=[]
+        dictionary2 = {}
         for intrest in request.user.intrests_set.all():
             list_of_assignment=list(Assignment.objects.intrests(intrest))
             dictionary2[intrest]=list_of_assignment
-        intrests=request.user.intrests_set.all()
-        dictionary={}
+        intrests = request.user.intrests_set.all()
         for useraccount in request.user.is_following.all():
             user=useraccount.user
             name=user.username
             list_assignment=user.assignment_set.all()
-            dictionary[name]=list_assignment
-        return render(request,'assignment/index.html',{'dictionary':dictionary,'intrests':intrests,'dictionary2':dictionary2})
+            dictionary2[name]=list_assignment
+        return render(request,'assignment/index.html',{'intrests':intrests,'dictionary2':dictionary2})
     else:
         list_jee = Assignment.objects.jee_main().order_by('-created')
         list_jee_adv = Assignment.objects.jee_adv().order_by('-created')
