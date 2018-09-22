@@ -77,15 +77,6 @@ def index_others(request):
     return render(request, 'assignment/index_exam.html', {'heading':heading,'list': list})
 
 
-def index_booklet(request):
-    list_studymaterial=[]
-    for useraccount in request.user.is_following.all():
-        user=useraccount.user
-        # print(user)
-        for studymaterial in user.studymaterial_set.all():
-            list_studymaterial.append(studymaterial)
-
-    return render(request,'assignment/studymaterial.html',{'studymaterial':list_studymaterial})
 
 
 def view_list_assignment(request):
@@ -101,8 +92,8 @@ def view_list_my_assignment(request,pk=None):
         user=get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
     else:
         user = request.user
-    studymaterial = Studymaterial.objects.all()
-    args={'user':user,'studymaterial': studymaterial}
+    booklet = Booklet.objects.all()
+    args={'user':user,'booklet': booklet}
     return render(request,'assignment/my_assignment_page.html',args)
 
 
@@ -278,22 +269,33 @@ def result(request):
     return render(request,'assignment/result.html',{'result':result,})
 
 
+def index_booklet(request):
+    list_booklet = []
+    for useraccount in request.user.is_following.all():
+        user=useraccount.user
+        # print(user)
+        for booklet in user.booklet_set.all():
+            list_booklet.append(booklet)
+
+    return render(request,'assignment/booklet.html',{'booklet':list_booklet})
+
+
 def booklet(request):
     booklet = Booklet.objects.all()
-    return render(request,'assignment/studymaterial.html',{'booklet':booklet})
+    return render(request,'assignment/booklet.html',{'booklet':booklet})
 
 
-def studymaterial_upload(request):
+def booklet_upload(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            study_material=form.save(commit=False)
-            study_material.user=request.user
-            study_material.save()
+            booklet=form.save(commit=False)
+            booklet.user=request.user
+            booklet.save()
             return redirect(reverse('assignment:my-booklet'))
     else:
         form = DocumentForm()
-    return render(request, 'assignment/studymaterial_upload.html', {'form': form})
+    return render(request, 'assignment/booklet_upload.html', {'form': form})
 
 
 def my_booklet(request,pk=None):
@@ -302,7 +304,7 @@ def my_booklet(request,pk=None):
     else:
         user = request.user
     booklet=user.booklet_set.all()
-    return render(request,'assignment/studymaterial.html',{'booklet':booklet})
+    return render(request,'assignment/booklet.html',{'booklet':booklet})
 ################
 # filter
 ###############

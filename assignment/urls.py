@@ -2,8 +2,8 @@ from django.urls import path,include
 from django.conf.urls import url
 from assignment.views import view_list_assignment,\
     QuestionView,assignmentCreate,QuestionAdd,\
-    view_list_my_assignment,assignment_check,\
-    studymaterial_upload,SearchView,result,\
+    view_list_my_assignment,assignment_check, \
+    booklet_upload,SearchView,result,\
     answersheet,blog_site_list,add_blog_site,view_blog_site,\
     add_blog,blog,QuestionUpdate,AssignmentUpdate,QuestionDelete,\
     index,AssignmentLikeToggle,booklet,my_booklet,\
@@ -34,7 +34,7 @@ urlpatterns = [
     path('question/update/<pk>',QuestionUpdate.as_view(),name='question_update'),
     path('question/delete/<pk>',QuestionDelete.as_view(),name='question_delete'),
     path('assignment_check/<int:assignment_id>',assignment_check,name='assignment_check'),
-    path('uploadfile/',studymaterial_upload,name='uploadfile'),
+    path('uploadfile/',booklet_upload,name='uploadfile'),
 
 
     path('search',SearchView.as_view(),name='search'),
