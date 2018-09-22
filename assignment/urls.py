@@ -8,7 +8,7 @@ from assignment.views import view_list_assignment,\
     add_blog,blog,QuestionUpdate,AssignmentUpdate,QuestionDelete,\
     index,AssignmentLikeToggle,booklet,my_booklet,\
     index_booklet,index_jee_main,index_jee_adv,index_ssc,index_others,\
-    show_submission,filter_search,add_intrest,IntrestDelete,home
+    show_submission,filter_search,add_intrest,InterestDelete,home
 
 
 app_name='assignment'
@@ -39,7 +39,7 @@ urlpatterns = [
 
     path('search',SearchView.as_view(),name='search'),
     path('filter',filter_search,name='filter'),
-    path('delete_intrest/<pk>',IntrestDelete.as_view(),name='delete_intrest'),
+    path('delete_interest/<pk>',InterestDelete.as_view(),name='delete_interest'),
 
 
 

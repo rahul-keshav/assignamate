@@ -166,7 +166,7 @@ class Assignment_answered_by(models.Model):
     def __str__(self):
         return self.user.first_name+' '+self.user.last_name
 
-class Intrests(models.Model):
+class Interests(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     intrest=models.CharField(max_length=30)
 

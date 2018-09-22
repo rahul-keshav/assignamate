@@ -10,7 +10,7 @@
           <a href="{% url 'assignment:add_intrest' %}" class="w3-bar-item w3-button">add intrests</a>
             <ul>
             {% for intrest in intrests %}
-                <li>{{intrest}} <a class="w3-tag w3-white w3-border w3-border-red w3-round" href="{% url 'assignment:delete_intrest' intrest.id %}">del</a></li>
+                <li>{{intrest}} <a class="w3-tag w3-white w3-border w3-border-red w3-round" href="{% url 'assignment:delete_interest' intrest.id %}">del</a></li>
             {% endfor %}
             </ul>
     </div>
@@ -18,7 +18,7 @@
     <!-- Page Content -->
     <div class="w3-black">
         <p class="w3-text-white">
-        <button class="w3-button w3-black" onclick="w3_open()">Intrest</button><b><-Select your intrest to get better result</b></p>
+        <button class="w3-button w3-black" onclick="w3_open()">Interest</button><b><-Select your interest to get better result</b></p>
     </div>
     <div class="row">
         <div class="col-lg-8">

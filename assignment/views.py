@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect,reverse,get_object_or_404,render_to_response
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,View
 from .models import Assignment,Questions,Assignment_answered_by, \
-    Booklet,Blogsite,Blog_page,Assignmentlikecounter,Intrests
+    Booklet,Blogsite,Blog_page,Assignmentlikecounter,Interests
 from django.contrib.auth.models import User
-from assignment.forms import QuestionForm,DocumentForm,Blog_site_Form,BlogForm,AssignmentForm,Intrest_form
+from assignment.forms import QuestionForm,DocumentForm,Blog_site_Form,BlogForm,AssignmentForm,Interest_form
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from itertools import chain
@@ -37,18 +37,18 @@ def index(request):
 
 def add_intrest(request):
     if request.method=='POST':
-        form=Intrest_form(request.POST)
+        form=Interest_form(request.POST)
         if form.is_valid():
             intrest=form.save(commit=False)
             intrest.user=request.user
             intrest.save()
             return redirect(reverse('assignment:index'))
     else:
-        form=Intrest_form
+        form=Interest_form
     return render(request,'assignment/add_intrest_form.html',{'form': form})
 
-class IntrestDelete(DeleteView):
-    model = Intrests
+class InterestDelete(DeleteView):
+    model = Interests
     success_url = reverse_lazy('assignment:index')
 
 
@@ -219,7 +219,6 @@ def answersheet(request,ass_id, ans_id):
     for i in answer:
         list1.append(i)
     return render(request,'assignment/answersheetpage.html', {'assignment':assignment,'answer':list1})
-
 
 
 def add_blog_site(request):
