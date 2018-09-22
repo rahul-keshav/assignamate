@@ -8,7 +8,7 @@ from django.contrib import messages
 
 # Create your views here.
 
-def post(request):
+def notifications(request):
     if request.user.is_authenticated :
         if request.method == 'POST':
             form = HomeForm(request.POST,)

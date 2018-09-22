@@ -64,7 +64,7 @@ class AssignmentManager(models.Manager):
 
 
 ################
-class StudymaterialQuerySet(models.QuerySet):
+class BookletQuerySet(models.QuerySet):
     def search(self, query=None):
         qs = self
         if query is not None:
@@ -75,9 +75,10 @@ class StudymaterialQuerySet(models.QuerySet):
                          )
             qs = qs.filter(or_lookup).distinct()  # distinct() is often necessary with Q lookups
         return qs
-class StudymaterialManager(models.Manager):
+class BookletManager(models.Manager):
     def get_queryset(self):
-        return StudymaterialQuerySet(self.model,using=self._db)
+        return BookletQuerySet(self.model,using=self._db)
+
     def search(self,query=None):
         return self.get_queryset().search(query=query)
 
@@ -173,7 +174,7 @@ class Intrests(models.Model):
         return self.intrest
 
 
-class Studymaterial(models.Model):
+class Booklet(models.Model):
     name=models.CharField(max_length=30)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     subject=models.CharField(max_length=20)
@@ -181,7 +182,7 @@ class Studymaterial(models.Model):
     document=models.FileField(upload_to='documents//%Y/%m/%d/')
     uploaded_at=models.DateField(auto_now=True)
 
-    objects = StudymaterialManager()
+    objects = BookletManager()
 
     def __str__(self):
         return self.name

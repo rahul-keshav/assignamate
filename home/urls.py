@@ -1,11 +1,11 @@
 from django.urls import path,include
 from django.conf.urls import url
-from .views import post,My_post,assignment_discussion,assignment_discussion_reply
+from .views import notifications,My_post,assignment_discussion,assignment_discussion_reply
 
 app_name='home'
 
 urlpatterns = [
-    path('',post,name='home'),
+    path('notifications',notifications,name='notifications'),
     path('mypost',My_post.as_view(),name='my_post'),
     path('mypost/<pk>',My_post.as_view(),name='my_post'),
     path('assignment-discussion/<pk>',assignment_discussion,name='assignment-discussion'),

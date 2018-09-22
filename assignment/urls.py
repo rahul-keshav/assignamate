@@ -6,17 +6,16 @@ from assignment.views import view_list_assignment,\
     studymaterial_upload,SearchView,result,\
     answersheet,blog_site_list,add_blog_site,view_blog_site,\
     add_blog,blog,QuestionUpdate,AssignmentUpdate,QuestionDelete,\
-    index,AssignmentLikeToggle,studymaterial,my_studymaterial,\
-    index_studymaterial,index_jee_main,index_jee_adv,index_ssc,index_others,\
-    show_submission,filter_search,add_intrest,IntrestDelete
-
-
+    index,AssignmentLikeToggle,booklet,my_booklet,\
+    index_booklet,index_jee_main,index_jee_adv,index_ssc,index_others,\
+    show_submission,filter_search,add_intrest,IntrestDelete,home
 
 
 app_name='assignment'
 
 urlpatterns = [
-    path('',index,name='index'),
+    path('',home,name='home'),
+    path('index',index,name='index'),
     path('index_jee_main',index_jee_main,name='index_jee_main'),
     path('index_jee_adv',index_jee_adv,name='index_jee_adv'),
     path('index_ssc',index_ssc,name='index_ssc'),
@@ -60,10 +59,10 @@ urlpatterns = [
     path('answersheet/<ass_id>-<ans_id>',answersheet,name='answersheet'),
     path('submissions/<pk>',show_submission,name='show_submission'),
 
-    path('studymaterial',studymaterial,name='studymaterial'),
-    path('my-studymaterial',my_studymaterial,name='my-studymaterial'),
-    path('my-studymaterial/<pk>',my_studymaterial,name='my-studymaterial'),
-    path('index-studymaterial',index_studymaterial,name='index_studymaterial'),
+    path('booklet',booklet,name='booklet'),
+    path('my-booklet',my_booklet,name='my-booklet'),
+    path('my-booklet/<pk>',my_booklet,name='my-booklet'),
+    path('index-booklet',index_booklet,name='index_booklet'),
 
 
 

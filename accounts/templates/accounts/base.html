@@ -154,14 +154,14 @@
                                   </button>
                                   <!-- Site Logo Begins -->
                                   <div class="logo">
-                                      <a class="navbar-brand" href="{% url 'home:home'%}"><img src="http://plotandscatter.com/assets/images/questions.png" style="width:50px" alt="logo" /></a>
+                                      <a class="navbar-brand" href="{% url 'assignment:home'%}"><img src="http://plotandscatter.com/assets/images/questions.png" style="width:50px" alt="logo" /></a>
                                   </div>
                                   <!-- Site Logo Ends -->
                               </div>
                               <div class="home-menu">
                                   <div class="collapse navbar-collapse" id="main-menu">
                                       <ul class="nav navbar-nav navbar-right">
-                                          <li><a href="{% url 'home:home' %}">Home </a></li>
+                                          <li><a href="{% url 'assignment:home' %}">Home </a></li>
                                           {% if user.is_authenticated %}
                                           <li class="has-children"><a href="javascript:void(0)">Assignment</a>
                                               <ul class="sub-menu">
@@ -172,14 +172,15 @@
                                                   <li> <a href="{% url 'assignment:result' %}">My result</a> </li>
                                               </ul>
                                           </li>
-                                          <li class="has-children"><a href="{% url 'assignment:studymaterial' %}">Studymaterial</a>
+                                          <li class="has-children"><a href="{% url 'assignment:booklet' %}">Booklet</a>
                                               <ul class="sub-menu">
-                                                  <li> <a href="{% url 'assignment:index_studymaterial' %}">Study material</a> </li>
-                                                  <li> <a href="{% url 'assignment:studymaterial' %}">All Study material</a> </li>
-                                                  <li> <a href="{% url 'assignment:my-studymaterial' %}">My Study material</a> </li>
+                                                  <li> <a href="{% url 'assignment:index_booklet' %}">Booklet</a> </li>
+                                                  <li> <a href="{% url 'assignment:booklet' %}">All Booklet</a> </li>
+                                                  <li> <a href="{% url 'assignment:my-booklet' %}">My Booklet</a> </li>
                                               </ul>
                                           </li>
                                           <li><a href="{% url 'assignment:blog_site_list' %}">Blogs</a>
+                                          <li><a href="{% url 'home:notifications' %}">Notifications</a>
                                           </li>
                                           <li class="has-children"><a href="javascript:void(0)">Dropdown</a>
                                               <ul class="sub-menu">
@@ -241,7 +242,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <h5>&copy; 2018 <a href="{% url 'home:home'%}">assignmate</a> is powered by <a href="https://smilingrahul.com/" class="dotstore-link" target="_blank">rahul.</a></h5>
+                        <h5>&copy; 2018 <a href="{% url 'assignment:home'%}">assignmate</a> is powered by <a href="https://smilingrahul.com/" class="dotstore-link" target="_blank">rahul.</a></h5>
                     </div>
                 </div>
             </div>

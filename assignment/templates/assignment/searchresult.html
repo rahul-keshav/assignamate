@@ -16,9 +16,9 @@
                               <li>
                                   <a href="{% url 'assignment:assignment' object.id %}"target="_blank">Assignment: {{ object.title }}</a>
                               </li>
-                              {% elif klass == 'Studymaterial' %}
+                              {% elif klass == 'Booklet' %}
                                 <li>
-                                  <a href='{{object.document.url}}' target="_blank">Stydymaterial: {{ object.name }} </a>
+                                  <a href='{{object.document.url}}' target="_blank">Booklet: {{ object.name }} </a>
                                 </li>
                               {% elif klass == 'UserAccount' %}
                                     <li>

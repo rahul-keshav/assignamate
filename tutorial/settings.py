@@ -154,7 +154,7 @@ PREVIEW_URLS = (
     r'^index_others$',
     r'^assignment/(?P<pk>\d+)$',
     r'^(?:search?(?P<slug>[\w+]))$',
-    r'^studymaterial',
+    r'^booklet',
     # home url
     r'^home/$',
     r'^home/mypost/(?P<pk>\d+)$',

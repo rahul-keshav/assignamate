@@ -1,17 +1,20 @@
 from django.shortcuts import render,redirect,reverse,get_object_or_404,render_to_response
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,View
-from .models import Assignment,Questions,Assignment_answered_by,\
-    Studymaterial,Blogsite,Blog_page,Assignmentlikecounter,Intrests
+from .models import Assignment,Questions,Assignment_answered_by, \
+    Booklet,Blogsite,Blog_page,Assignmentlikecounter,Intrests
 from django.contrib.auth.models import User
 from assignment.forms import QuestionForm,DocumentForm,Blog_site_Form,BlogForm,AssignmentForm,Intrest_form
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from itertools import chain
 from accounts.models import UserAccount
-
 from .filters import AssignmentFilter
 
 # Create your views here.
+
+def home(request):
+    return render(request, 'assignment/home.html',)
+
 def index(request):
     if request.user.is_authenticated:
         dictionary2 = {}
@@ -74,7 +77,7 @@ def index_others(request):
     return render(request, 'assignment/index_exam.html', {'heading':heading,'list': list})
 
 
-def index_studymaterial(request):
+def index_booklet(request):
     list_studymaterial=[]
     for useraccount in request.user.is_following.all():
         user=useraccount.user
@@ -226,17 +229,7 @@ def answersheet(request,ass_id, ans_id):
         list1.append(i)
     return render(request,'assignment/answersheetpage.html', {'assignment':assignment,'answer':list1})
 
-def studymaterial_upload(request):
-    if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            study_material=form.save(commit=False)
-            study_material.user=request.user
-            study_material.save()
-            return redirect(reverse('assignment:my-studymaterial'))
-    else:
-        form = DocumentForm()
-    return render(request, 'assignment/studymaterial_upload.html', {'form': form})
+
 
 def add_blog_site(request):
     if request.method=='POST':
@@ -284,17 +277,32 @@ def result(request):
     result=request.user.assignment_answered_by_set.order_by('-submitted')
     return render(request,'assignment/result.html',{'result':result,})
 
-def studymaterial(request):
-    studymaterials = Studymaterial.objects.all()
-    return render(request,'assignment/studymaterial.html',{'studymaterial':studymaterials})
 
-def my_studymaterial(request,pk=None):
+def booklet(request):
+    booklet = Booklet.objects.all()
+    return render(request,'assignment/studymaterial.html',{'booklet':booklet})
+
+
+def studymaterial_upload(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            study_material=form.save(commit=False)
+            study_material.user=request.user
+            study_material.save()
+            return redirect(reverse('assignment:my-booklet'))
+    else:
+        form = DocumentForm()
+    return render(request, 'assignment/studymaterial_upload.html', {'form': form})
+
+
+def my_booklet(request,pk=None):
     if pk:
         user = get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
     else:
         user = request.user
-    studymaterials=user.studymaterial_set.all()
-    return render(request,'assignment/studymaterial.html',{'studymaterial':studymaterials})
+    booklet=user.booklet_set.all()
+    return render(request,'assignment/studymaterial.html',{'booklet':booklet})
 ################
 # filter
 ###############
@@ -324,13 +332,13 @@ class SearchView(ListView):
 
         if query is not None:
             assignment_results= Assignment.objects.search(query)
-            studymaterial_results= Studymaterial.objects.search(query)
+            booklet_results= Booklet.objects.search(query)
             useraccount_results=UserAccount.objects.search(query)
 
             # combine querysets
             queryset_chain = chain(
                 assignment_results,
-                studymaterial_results,
+                booklet_results,
                 useraccount_results
 
             )

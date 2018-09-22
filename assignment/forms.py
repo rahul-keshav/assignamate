@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Assignment,Questions,Studymaterial,Blogsite,Blog_page,Intrests
+from .models import Assignment,Questions,Booklet,Blogsite,Blog_page,Intrests
 
 from django.contrib.auth.models import User
 
@@ -119,7 +119,7 @@ class QuestionForm(forms.ModelForm):
 
 class DocumentForm(forms.ModelForm):
     class Meta:
-        model = Studymaterial
+        model = Booklet
         fields = ('name', 'subject','discription', 'document', )
 
 
