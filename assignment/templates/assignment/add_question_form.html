@@ -1,7 +1,8 @@
 {% extends 'accounts/base.html'%}
-{% block title%}<title>Add Question</title>{% endblock %}
+{% block title%}Add Question{% endblock %}
 {% block body %}
-
+<section class="white-bg">
+    <div class="container">
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
@@ -10,6 +11,6 @@
     <button type="submit">Submit</button>
 
     </form>
-
-
+</div>
+    </section>
 {% endblock %}

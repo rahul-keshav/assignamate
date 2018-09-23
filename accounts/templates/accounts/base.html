@@ -1,310 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0">
-    {% block title%}<title>Title</title>{% endblock %}
-    {% load staticfiles %}
-    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/bootstrap.min.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/owl.carousel.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/font-awesome.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/magnific-popup.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/media.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'accounts/css/w3.css' %}">
-     <!-- Bootstrap css -->
-    <!--<link type="text/css" rel="stylesheet" href="http://scribbler.projectsmd.in/html/css/bootstrap.min.css">-->
-    <!-- Owl Carousel css -->
-    <!--<link type="text/css" rel="stylesheet" href="http://scribbler.projectsmd.in/html/css/owl.carousel.min.css">-->
-    <!-- Font Awesome css -->
-    <!--<link type="text/css" rel="stylesheet" href="http://scribbler.projectsmd.in/html/css/font-awesome.css">-->
-    <!-- Magnific Popup css -->
-    <!--<link type="text/css" href="http://scribbler.projectsmd.in/html/css/magnific-popup.css" rel="stylesheet">-->
-    <!-- Custom css -->
-    <!--<link type="text/css" href="http://scribbler.projectsmd.in/html/css/style.css" rel="stylesheet">-->
-    <!-- Custom Media Query css -->
-    <!--<link type="text/css" href="http://scribbler.projectsmd.in/html/css/media.css" rel="stylesheet">-->
-    <!--<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/w3.css' %}">-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--########-->
-    <style>
-* {
-    box-sizing: border-box;
-}
-
-.openBtn {
-    background-color: transparent;
-    position: absolute;
-    width: 18px;
-    height: 65px;
-    right: 0;
-    top: 0;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.openBtn:hover {
-    color:#f1868a;
-}
-
-.overlay {
-    height: 100%;
-    width: 100%;
-    display: none;
-    position: fixed;
-    z-index: 15;
-    top: 0;
-    left: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
-}
-
-.overlay-content {
-    position: relative;
-    top: 46%;
-    width: 80%;
-    text-align: center;
-    margin-top: 30px;
-    margin: auto;
-}
-
-.overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-    cursor: pointer;
-    color: white;
-}
-
-.overlay .closebtn:hover {
-    color: #ccc;
-}
-
-.overlay input[type=text] {
-    padding: 15px;
-    font-size: 17px;
-    border: none;
-    float: left;
-    width: 80%;
-    background: white;
-}
-
-.overlay input[type=text]:hover {
-    background: #f1f1f1;
-}
-
-.overlay button {
-    color:white;
-    float: left;
-    width: 20%;
-    padding: 15px;
-    background: black;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-}
-
-.overlay button:hover {
-    color:#f1868a;
-    background: black;
-}
-</style>
-    <!--###########-->
-    {% block style %}
-    {% endblock %}
-    {% block heading %}{% endblock %}
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-3084742303998261",
-        enable_page_level_ads: true
-      });
-    </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{% block title%}Assignmate{% endblock %}</title>
+<meta name="description" content="Onepage Parallax HTML5 Template" />
+<meta name="keywords" content="design lab, chaos, business, user interface" />
+{% load staticfiles %}
+<link rel="shortcut icon" href="{% static 'accounts/assets/images/favicon.ico' %} ">
+<link rel="stylesheet" href="{% static 'accounts/assets/css/master.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/assets/css/responsive.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/assets/css/w3.css' %}">
+ <!--==costume styling starts==-->
+{% block style %}
+{% endblock %}
+<!--==costume styling ends==-->
 </head>
-<body id="mainBox" data-spy="scroll" data-target="#main-menu" data-offset="150" data-gr-c-s-loaded="true">
-<!--##################-->
-<div id="myOverlay" class="overlay">
-  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
-  <div class="overlay-content">
-    <form action="{% url 'assignment:search' %}" method="get" accept-charset="utf-8">
-      <input id="searchbox" name="q" type="text" placeholder="Search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+<body>
+
+<!--=== Loader Start ======-->
+<div id="loader-overlay">
+  <div class="loader">
+    <div class="loader-inner"></div>
   </div>
 </div>
-<!--#################-->
-<div class="blog-main">
-  <div id="site-head " {% block tag_banner %}class="no-banner"{% endblock %}>
-      <!-- Header Section Begins -->
-      <header id="header" class="header-block" data-top="0" data-scroll="100">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main-menu">
-                      <div class="menuBar scrollbtn">
-                          <!-- Navigation Menu Begins -->
-                          <nav class="navbar navbar-default">
-                              <div class="navbar-header">
-                                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
-                                      <span class="sr-only">Toggle navigation</span>
-                                      <span class="icon-bar"></span>
-                                      <span class="icon-bar"></span>
-                                      <span class="icon-bar"></span>
-                                  </button>
-                                  <!-- Site Logo Begins -->
-                                  <div class="logo">
-                                      <a class="navbar-brand" href="{% url 'assignment:home'%}"><img src="http://plotandscatter.com/assets/images/questions.png" style="width:50px" alt="logo" /></a>
-                                  </div>
-                                  <!-- Site Logo Ends -->
-                              </div>
-                              <div class="home-menu">
-                                  <div class="collapse navbar-collapse" id="main-menu">
-                                      <ul class="nav navbar-nav navbar-right">
-                                          <li><a href="{% url 'assignment:home' %}">Home </a></li>
-                                          {% if user.is_authenticated %}
-                                          <li class="has-children"><a href="javascript:void(0)">Assignment</a>
-                                              <ul class="sub-menu">
-                                                  <li><a href="{% url 'assignment:index' %}">Assignments</a></li>
-                                                  <li> <a href="{% url 'assignment:assignment_page' %}">all Assignments</a> </li>
-                                                  <li> <a href="{% url 'assignment:my_assignment_page' %}">My Assignments</a> </li>
-                                                  <li> <a href="{% url 'assignment:filter' %}">Filter Assignment</a> </li>
-                                                  <li> <a href="{% url 'assignment:result' %}">My result</a> </li>
-                                              </ul>
-                                          </li>
-                                          <li class="has-children"><a href="{% url 'assignment:booklet' %}">Booklet</a>
-                                              <ul class="sub-menu">
-                                                  <li> <a href="{% url 'assignment:index_booklet' %}">Booklet</a> </li>
-                                                  <li> <a href="{% url 'assignment:booklet' %}">All Booklet</a> </li>
-                                                  <li> <a href="{% url 'assignment:my-booklet' %}">My Booklet</a> </li>
-                                              </ul>
-                                          </li>
-                                          <li><a href="{% url 'assignment:blog_site_list' %}">Blogs</a>
-                                          <li><a href="{% url 'home:notifications' %}">Notifications</a>
-                                          </li>
-                                          <li class="has-children"><a href="javascript:void(0)">Dropdown</a>
-                                              <ul class="sub-menu">
-                                                  <li> <a href="{% url 'accounts:edit_profile' %}">Edit Profile</a> </li>
-                                                  <li> <a href="{% url 'accounts:logout' %}">Logout</a> </li>
-                                                  <li> <a href="{% url 'accounts:change_password' %}">ChangePassword</a> </li>
-                                                  <li> <a href="{% url 'accounts:reset-password'%}">ResetPassword</a> </li>
-                                              </ul>
-                                          </li>
-                                          {% else %}
-                                          <li><a href="{% url 'assignment:index' %}">Assignments </a></li>
-                                          <li><a href="{% url 'accounts:login' %}">Login</a></li>
-                                          <li><a href="{% url 'accounts:register' %}">Register</a></li>
-                                          <li><a href="{% url 'accounts:reset-password' %}">ResetPassword</a></li>
-                                          <!--<li><span class="openBtn" onclick="openSearch()"><i class="fa fa-search"></i></span></li>-->
-                                            {% endif %}
-                                      </ul>
-                                  </div>
+<!--=== Loader End ======-->
 
-                                  <!-- Search Form Begins -->
-                                  <div class="search-form">
-                                      <!--<form id="searchform" action="{% url 'assignment:search' %}" method="get" accept-charset="utf-8">-->
-                                          <!--<div class="form-group">-->
-                                              <!--<div class="btn-form"></div>-->
-                                              <!--<input class="form-control" id="searchbox" name="q" type="search" placeholder="Search">-->
-                                          <!--</div>-->
-                                      <!--</form>-->
-                                      <button class="openBtn" onclick="openSearch()"><i class="fa fa-search"></i></button>
-                                  </div>
+<!--=== Wrapper Start ===-->
+<div class="wrapper">
+  <!--=== Header Start ===-->
+  <nav class="navbar navbar-default navbar-fixed navbar-transparent white bootsnav on no-full">
+  	<!--=== Start Top Search ===-->
+    <div class="fullscreen-search-overlay" id="search-overlay"> <a href="home-design-lab.html#" class="fullscreen-close" id="fullscreen-close-button"><i class="mdi mdi-close"></i></a>
+      <div id="fullscreen-search-wrapper">
+        <form action="{% url 'assignment:search' %}" method="get" accept-charset="utf-8" id="fullscreen-searchform">
+          <input type="text" name="q"  placeholder="Search..." id="fullscreen-search-input" class="search-bar-top">
+          <i class="fullscreen-search-icon mdi mdi-magnify">
+          <button type="submit"><i class="fa fa-search"></i></button>
+          </i>
+        </form>
+      </div>
+    </div>
+    <!--=== End Top Search ===-->
 
-                                  <!-- Search Form Ends -->
-                              </div>
-                          </nav>
-                          <!-- Navigation Menu Ends -->
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </header>
-      <!-- Header Section Ends -->
+    <div class="container">
+      <!--=== Start Atribute Navigation ===-->
+      <div class="attr-nav">
+        <ul>
+        	<li class="search"><a href="home-design-lab.html#" id="search-button"><i class="mdi mdi-magnify"></i></a></li>
+        	<li class="side-menu"><a href="home-design-lab.html#"><i class="mdi mdi-menu"></i></a></li>
+        </ul>
+      </div>
+      <!--=== End Atribute Navigation ===-->
 
-      <!-- Banner Section Begins -->
-      {% block banner%}
-      {%endblock%}
-      <!-- Banner Section Ends -->
-  </div>
+      <!--=== Start Header Navigation ===-->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="mdi mdi-menu"></i> </button>
+        <div class="logo logo-sm"> <a href="home-design-lab.html"> <img class="logo logo-display" src="{% static 'accounts/assets/images/logo-white-sm.png' %}" alt=""> <img class="logo logo-scrolled" src="{% static 'accounts/assets/images/logo-black-sm.png' %}" alt=""> </a> </div>
+      </div>
+      <!--=== End Header Navigation ===-->
 
-      <div class="main">
-
-        {% block head %}
-            <h1></h1>
-        {% endblock%}
-
-        {% block body%}
-        {%endblock%}
-
-        <!-- Copyright Section Begins -->
-        <div id="copyright" class="copyright pr text-align-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <h5>&copy; 2018 <a href="{% url 'assignment:home'%}">assignmate</a> is powered by <a href="https://smilingrahul.com/" class="dotstore-link" target="_blank">rahul.</a></h5>
-                    </div>
-                </div>
+      <!--=== Collect the nav links, forms, and other content for toggling ===-->
+      <div class="collapse navbar-collapse" id="navbar-menu">
+        <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
+            <li><a href="{% url 'assignment:home' %}">Home</a></li>
+            <li><a href="{% url 'accounts:view_profile' %}">About Us</a></li>
+          <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Assignment</a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url 'assignment:index' %}">Assignments</a></li>
+              <li><a href="{% url 'assignment:assignment_page' %}">all Assignments</a></li>
+              <li><a href="{% url 'assignment:my_assignment_page' %}">My Assignments</a></li>
+              <li><a href="{% url 'assignment:filter' %}">Filter Assignment</a></li>
+              <li><a href="{% url 'assignment:result' %}">My result</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Booklet</a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url 'assignment:index_booklet' %}">Booklet</a></li>
+              <li><a href="{% url 'assignment:booklet' %}">All Booklet</a></li>
+              <li><a href="{% url 'assignment:my-booklet' %}">My Booklet</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"> <a href="{% url 'assignment:blog_site_list' %}" class="dropdown-toggle" data-toggle="dropdown">Blogs</a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:void(0)">Blog Default</a></li>
+              <li><a href="javascript:void(0)">Blog Details</a></li>
+            </ul>
+          </li>
+          <li><a href="{% url 'home:notifications' %}">Notifications</a></li>
+          <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">User</a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url 'accounts:view_profile' %}">profile</a></li>
+              <li><a href="{% url 'accounts:edit_profile' %}">Edit Profile</a></li>
+              <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+              <li><a href="{% url 'accounts:change_password' %}">ChangePassword</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!--=== /.navbar-collapse ===-->
+    </div>
+    <!-- Start Side Menu -->
+    <div class="side">
+            <a href="home-design-lab.html#" class="close-side"><i class="mdi mdi-close"></i></a>
+            <div class="widget">
+                <h6 class="title">Custom Pages</h6>
+                <ul class="link">
+                    <li><a href="{% url 'accounts:view_profile' %}">About</a></li>
+                    <li><a href="javascript:void(0)">Services</a></li>
+                    <li><a href="{% url 'assignment:blog_site_list' %}">Blog</a></li>
+                    <li><a href="javascript:void(0)">Our Work</a></li>
+                    <li><a href="javascript:void(0)">Contact</a></li>
+                </ul>
             </div>
+            <div class="widget">
+                <h6 class="title">Home Page Variations</h6>
+                <ul class="link">
+                    <li><a href="javascript:void(0)">Home Creative Default</a></li>
+					<li><a href="javascript:void(0)">Home Startup</a></li>
+					<li><a href="javascript:void(0)">Home Design Lab</a></li>
+					<li><a href="javascript:void(0)">Home Onepage</a></li>
+                </ul>
+            </div>
+     </div>
+     <!-- End Side Menu -->
+  </nav>
+  <!--=== Header End ===-->
+      <!-- Banner Section Begins -->
+      {% block banner %}
+      <section class="title-hero-bg parallax-effect" style="background-image: url({% static 'accounts/assets/images/background/title-bg-01.jpg' %});">
+          <div class="parallax-overlay"></div>
+            <div class="container">
+              <div class="page-title text-center white-color">
+                <h1>About Us</h1>
+                <h4 class="text-uppercase mt-30">CREATIVE DIGITAL AGENCY SINCE 2004</h4>
+              </div>
+            </div>
+          </section>
+      {% endblock banner %}
+      <!-- Banner Section Ends -->
+
+    <!--rest of the body starts-->
+        {% block body%}
+
+        {%endblock%}
+    <!--rest of the body starts-->
+
+
+<!--=== Footer Start ===-->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <div class="widget widget-links">
+              <h5 class="widget-title">About Us</h5>
+              <div class="footer-about">
+              	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at purus varius odio tempus cursus. vitae, commodo dui. </p>
+              	<ul class="social-media">
+				  <li><a href="home-design-lab.html#" class="mdi mdi-facebook"></a></li>
+				  <li><a href="home-design-lab.html#" class="mdi mdi-twitter"></a></li>
+				  <li><a href="home-design-lab.html#" class="mdi mdi-pinterest"></a></li>
+				  <li><a href="home-design-lab.html#" class="mdi mdi-dribbble"></a></li>
+				</ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-2">
+            <div class="widget widget-links">
+              <h5 class="widget-title">Quick Links</h5>
+              <ul>
+                <li><a href="home-design-lab.html#">About Us</a></li>
+                <li><a href="home-design-lab.html#">Services</a></li>
+                <li><a href="home-design-lab.html#">Portfolio</a></li>
+                <li><a href="home-design-lab.html#">Blogs</a></li>
+                <li><a href="home-design-lab.html#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="widget widget-links">
+              <h5 class="widget-title">Recent Post</h5>
+              <div class="row post-sm-content">
+              	<div class="col-md-3 col-sm-3 col-xs-3"><img class="img-overlay img-circle" src="{% static 'accounts/assets/images/post/post-img-sm.jpg' %}" alt=""/></div>
+              	<div class="col-md-9 col-sm-9 col-xs-9">
+              		<h6>Ut venenatis, Commodo ligula</h6>
+              		<p>Lorem ipsum dolor sit amet, adipiscing elit...</p>
+              	</div>
+              </div>
+              <div class="row post-sm-content mt-20">
+              	<div class="col-md-3 col-sm-3 col-xs-3"><img class="img-overlay img-circle" src="{% static 'accounts/assets/images/post/post-img-sm-2.jpg' %}" alt=""/></div>
+              	<div class="col-md-9 col-sm-9 col-xs-9">
+              		<h6>Ut venenatis, Commodo ligula</h6>
+              		<p>Lorem ipsum dolor sit amet, adipiscing elit...</p>
+              	</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="widget widget-text">
+              <h5 class="widget-title">Contact Us</h5>
+              <ul class="footer-contact">
+              	<li><i class="mdi mdi-map-marker"></i> <p>Schönhauser Allee 167c 10435
+				Berlin Germany</p></li>
+                <li><i class="mdi mdi-email"></i> <p><a href="home-design-lab.html#">chaos@gmail.com</a></p></li>
+                <li><i class="mdi mdi-phone"></i> <p>+49 30 47373795</p></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <!-- Copyright Section Ends -->
-        <!-- Back to top Section Begins -->
-        <a href="javascript:void(0);" class="back-to-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
-        <!-- Back to top Section Ends -->
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+       <div class="row">
+        	<div class="col-md-2 col-md-offset-5">
+        		<div class="logo-footer"><a href="index.html"><img class="img-responsive" src="{% static 'accounts/assets/images/logo-footer.png' %}" alt="chaos-logo"/></a></div>
+        	</div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="copy-right">©  2018 Chaos Designed by <span class="pink-color">Incognito Themes</span></div>
+          </div>
+        </div>
 
       </div>
+    </div>
+  </footer>
+  <!--=== Footer End ===-->
 
 </div>
-      <!-- Mobile Menu Section Begins -->
-      <div class="main_menucontent overlapblackbg"></div>
-      <div class="menu-wrap">
-      </div>
-      <!-- Mobile Menu Section Ends -->
-        {% block script %}
-        {% endblock %}
-<!--################-->
-<script>
-function openSearch() {
-    document.getElementById("myOverlay").style.display = "block";
-}
+<!--=== Wrapper End ===-->
 
-function closeSearch() {
-    document.getElementById("myOverlay").style.display = "none";
-}
-</script>
-<!--#################-->
-      <!-- Jquery Js-->
-      <script type="text/javascript" src="{% static 'accounts/js/jquery.min.js' %}" ></script>
-    <!--<script type="text/javascript" src="http://scribbler.projectsmd.in/html/js/jquery.min.js"></script>-->
-      <!-- Bootstrap Js -->
-      <script type="text/javascript" src="{% static 'accounts/js/bootstrap.min.js'%}"></script>
-    <!--<script type="text/javascript" src="http://scribbler.projectsmd.in/html/js/bootstrap.min.js"></script>-->
-      <!-- Modernizr Js -->
-      <script type="text/javascript" src="{% static 'accounts/js/modernizr.js' %}"></script>
-    <!--<script type="text/javascript" src="http://scribbler.projectsmd.in/html/js/modernizr.js"></script>-->
-      <!-- Owl Carousel Js -->
-      <script type="text/javascript" src="{% static 'accounts/js/owl.carousel.js' %}"></script>
-    <!--<script type="text/javascript" src="http://scribbler.projectsmd.in/html/js/owl.carousel.js"></script>-->
-      <!-- Localscroll Js -->
-      <script type="text/javascript" src="{% static 'accounts/js/jquery.localscroll-1.2.7-min.js' %}"></script>
-    <!--<script type="text/javascript" src="http://scribbler.projectsmd.in/html/js/jquery.localscroll-1.2.7-min.js"></script>-->
-      <!-- Isotope Js -->
-      <script type="text/javascript" src="{% static 'accounts/js/jquery.isotope.min.js' %}"></script>
-    <!--<script type="text/javascript" src="http://scribbler.projectsmd.in/html/js/jquery.isotope.min.js"></script>-->
-      <!-- Parallax Js -->
-      <script type="text/javascript" src="{% static 'accounts/js/jquery.parallax-1.1.3.js' %}"></script>
-    <!--<script type="text/javascript" src="http://scribbler.projectsmd.in/html/js/jquery.parallax-1.1.3.js"></script>-->
-      <!-- Magnific Popup Js -->
-      <script type="text/javascript" src="{% static 'accounts/js/jquery.magnific-popup.js' %}"></script>
-    <!--<script type="text/javascript" src="http://scribbler.projectsmd.in/html/js/jquery.magnific-popup.js"></script>-->
-      <!-- Custom Js -->
-      <script type="text/javascript" src="{% static 'accounts/js/element.js' %}"></script>
-    <!--<script type="text/javascript" src="http://scribbler.projectsmd.in/html/js/element.js"></script>-->
-    <!-- Imagesloaded Js -->
-      <!--<script type="text/javascript" src="{% static 'accounts/js/imagesloaded.pkgd.min.js' %}"></script>-->
-    <!--<script type="text/javascript" src="http://scribbler.projectsmd.in/html/js/imagesloaded.pkgd.min.js"></script>-->
-    <!--##########-->
-
+<!--=== Javascript Plugins ===-->
+{% block script %}
+{% endblock %}
+<script src="{% static 'accounts/assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'accounts/assets/js/smoothscroll.js'%}"></script>
+<script src="{% static 'accounts/assets/js/plugins.js' %}"></script>
+<script src="{% static 'accounts/assets/js/master.js' %}"></script>
+<!--=== Javascript Plugins End ===-->
 
 </body>
 </html>
+

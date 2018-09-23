@@ -1,10 +1,12 @@
 {% extends 'accounts/base.html'%}
 {% block body %}
-
+<section class="white-bg">
+    <div class="container">
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Update" />
 </form>
-
+</div>
+    </section>
 {% endblock %}

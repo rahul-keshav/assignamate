@@ -1,116 +1,49 @@
 {% extends 'accounts/base.html'%}
-{% block title%}<title>Index</title>{% endblock %}
+<!--=== Header End ===-->
+{% block title%}Index{% endblock %}
+<!--==costume styling starts==-->
 {% block style %}
 {% endblock %}
+<!--==costume styling ends==-->
 {% block body %}
-<div class="container">
-    <!-- Sidebar -->
-    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-      <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-          <a href="{% url 'assignment:add_intrest' %}" class="w3-bar-item w3-button">add intrests</a>
-            <ul>
+   <section class="white-bg">
+    <div class="container">
+     <div class="row">
+     	<div class="col-md-12">
+     		<div id="chaos-gallery-filter" class="cbp-l-filters-alignCenter default-filter">
+            <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div>
             {% for intrest in intrests %}
-                <li>{{intrest}} <a class="w3-tag w3-white w3-border w3-border-red w3-round" href="{% url 'assignment:delete_interest' intrest.id %}">del</a></li>
+            <div data-filter=".{{intrest}}" class="cbp-filter-item">{{intrest}}<a href="{% url 'assignment:delete_interest' intrest.id %}" class="w3-badge w3-margin-left w3-pink w3-hover-black">x</a></div>
             {% endfor %}
-            </ul>
-    </div>
-    <!--Sidebar ends-->
-    <!-- Page Content -->
-    <div class="w3-black">
-        <p class="w3-text-white">
-        <button class="w3-button w3-black" onclick="w3_open()">Interest</button><b><-Select your interest to get better result</b></p>
-    </div>
-    <div class="row">
-        <div class="col-lg-8">
-            <!--intrest section-->
-            <div class="container-fluid">
+            <div  class="cbp-filter-item"><a href="{% url 'assignment:add_interest' %}"> + add interests</a> </div>
+            </div>
+     	  </div>
+         </div>
+        <div class="row mt-50">
+            <div id="chaos-gallery" class="cbp gallery-style-two">
                 {% for username,list_assignment in dictionary2.items %}
-                    {%if list_assignment %}
-                    <h3>{{username}}</h3>
-                    <div class="row">
-                        {% for assignment in list_assignment %}
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 w3-section">
-                            <div class="w3-card-4 ">
-                            <header class="w3-container w3-light-grey">
-                              <a href="{% url 'assignment:assignment' assignment.id %}"><h3>{{ assignment|truncatechars_html:15 }}</h3></a>
-                            </header>
-                            <div class="w3-container">
-                              <p>uploaded by:{{assignment.user}}</p>
-                              <hr>
-                              <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
-                            </div>
-                            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>
-                            </div>
+
+                    {% for assignment in list_assignment %}
+                    <!--=== Post starts ===-->
+                    <div class="cbp-item col-md-4 col-sm-6 {{username}}">
+                        <div class="post mb-20">
+                        <div class="post-img" style = "max-height: 220px;" > <img class="img-responsive" src="https://www.desktopbackground.org/p/2013/10/29/661790_download-free-100-cute-and-sweet-cat-wallpapers-the-quotes-land_1920x1200_h.jpg" alt=""/> </div>
+                        <div class="post-info">
+                          <h3><a href="{% url 'assignment:assignment' assignment.id %}">{{assignment}}</a></h3>
+                          <h6 class="pink-color">{{username}}</h6>
+                          <p>{{assignment.created}}</p>
+                          <a class="readmore" href="blog-default.html#"><span>{{assignment.user}}</span></a> </div>
                         </div>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <!--follower section-->
-            <div class="container-fluid">
-                {% for username,list_assignment in dictionary.items %}
-                    {%if list_assignment %}
-                    <h3>{{username}}</h3>
-                    <div class="row">
-                        {% for assignment in list_assignment %}
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 w3-section">
-                            <div class="w3-card-4 ">
-                            <header class="w3-container w3-light-grey">
-                              <a href="{% url 'assignment:assignment' assignment.id %}"><h3>{{ assignment|truncatechars_html:15 }}</h3></a>
-                            </header>
-                            <div class="w3-container">
-                              <p>uploaded by:{{assignment.user}}</p>
-                              <hr>
-                              <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
-                            </div>
-                            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-        <div class="col-lg-4">
-                    <div class="widget widget_tag_cloud">
-                          <h2 class="widget-title">Popular on net</h2>
-                          <div class="popular-box">
-                              <ul>
-                                  <li> <a href="{% url 'assignment:index_jee_main' %}">jee-main</a> </li>
-                                  <li> <a href="{% url 'assignment:index_jee_adv' %}">jee-adv</a> </li>
-                                  <li> <a href="{% url 'assignment:index_ssc' %}">ssc</a> </li>
-                                  <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-CS</a> </li>-->
-                                  <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-Civil</a> </li>-->
-                                  <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-EE</a> </li>-->
-                                  <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-ECE</a> </li>-->
-                                  <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-ME</a> </li>-->
-                                  <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-MT</a> </li>-->
-                                  <li> <a href="{% url 'assignment:index_others' %}">banking</a> </li>
-                                  <li> <a href="{% url 'assignment:index_others' %}">others</a> </li>
-                              </ul>
-                          </div>
                       </div>
+                      <!--=== Post End ===-->
+                      {% endfor %}
+
+                  {% endfor %}
+            </div>
         </div>
     </div>
-</div>
-
-
+  </section>
 {% endblock %}
 
 {% block script %}
-<script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-});
-</script>
-<script>
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-}
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-}
-</script>
 {% endblock %}

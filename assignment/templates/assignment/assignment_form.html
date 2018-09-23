@@ -1,12 +1,15 @@
 {% extends 'accounts/base.html'%}
-{% block title%}<title>add assignment</title>{% endblock %}
+{% block title%}add assignment{% endblock %}
 {% block body %}
+<section class="white-bg">
+    <div class="container">
+        <form method="post">
+         {% csrf_token %}
+          {{form.as_p}}
+        <button type="submit">Submit</button>
 
-<form method="post">
- {% csrf_token %}
-{{form.as_p}}
-<button type="submit">Submit</button>
-
-</form>
+        </form>
+    </div>
+ </section>
 
 {% endblock %}

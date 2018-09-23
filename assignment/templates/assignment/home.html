@@ -1,5 +1,397 @@
 {% extends 'accounts/base.html'%}
-{% block title%}<title>Home</title>{% endblock %}
+<!--=== Header End ===-->
+{% block title%}<title> Home Assignmate</title>{% endblock %}
+<!--==costume styling starts==-->
+{% block style %}
+{% endblock %}
+{% load staticfiles %}
+<!--==costume styling ends==-->
+
+<!--=== Hero Style Two Start ===-->
+{% block banner %}
+  <section class="hero-style-two pt-0 pb-0">
+	<div class="rounded-triangle rd-imgs">
+		<div class="hero-text-wrap">
+          <div class="hero-text text-left">
+            <div class="container">
+              <div class="white-color">
+                <h3 class="upper-case">About You &</h3>
+                <h1 class="upper-case font-600">.Design Lab</h1>
+                <h3 class="upper-case">A <span class="font-600">Chaos</span> Web <span class="font-800">Agency.</span></h3>
+                <p class="text-left mt-50">
+                	<a href="about-us.html" class="btn btn-pink btn-md btn-animated-none">Start a Project</a>
+                	<div class="call-us">
+                		<h5>Call Us (0123) 456 - 789</h5>
+                		<h6>For any query or concern</h6>
+                	</div>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+	</div>
+  </section>
+{% endblock banner %}
+<!--=== Hero Sytle Two End ===-->
+
+
 {% block body %}
-welcome to my website
+<!--=== Welcome Start ===-->
+  <section>
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-12 heading-style-one box-title-two text-center">
+  				<h6 class="yellow-color text-uppercase">About You</h6>
+  				<h2><span class="font-700">We are an independent
+				strategic <br>advertising
+				agency.</span></h2>
+  			</div>
+  		</div>
+
+  		<div class="row mt-100">
+  			<div class="col-md-4">
+  				<div class="feature-box text-center feature-box-rounded mb-20">
+  					<i class="bulb-yellow-icon img-icon"></i>
+  					<h3>Creative Design</h3>
+  					<p>Integer purus ipsum, auctor vitae posuere
+					et, consectetur ac leo.</p>
+					<p class="mt-30">
+						<a class="btn btn-yellow btn-sm btn-circle">Read More</a>
+					</p>
+  				</div>
+  			</div>
+  			<div class="col-md-4">
+  				<div class="feature-box text-center feature-box-rounded mb-20">
+  					<i class="diamond-pink-icon img-icon"></i>
+  					<h3>Development</h3>
+  					<p>Integer purus ipsum, auctor vitae posuere
+					et, consectetur ac leo.</p>
+					<p class="mt-30">
+						<a class="btn btn-pink btn-sm btn-circle">Read More</a>
+					</p>
+  				</div>
+  			</div>
+  			<div class="col-md-4">
+  				<div class="feature-box text-center feature-box-rounded">
+  					<i class="magic-purple-icon img-icon"></i>
+  					<h3>Implementation</h3>
+  					<p>Integer purus ipsum, auctor vitae posuere
+					et, consectetur ac leo.</p>
+					<p class="mt-30">
+						<a class="btn btn-purple btn-sm btn-circle">Read More</a>
+					</p>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+  <!--=== Welcome End ===-->
+
+
+  <!--=== Portfolio Start ===-->
+  <section class="skew-bg pt-0">
+
+    <div class="container">
+		<div class="row">
+     		<div class="col-md-12 heading-style-one text-left">
+  				<h6 class="pink-color text-uppercase">What We Do</h6>
+                <h2><span class="font-700">For You</span></h2>
+  			</div>
+        </div>
+      <div class="row mt-100">
+        <div class="col-md-6 col-sm-6">
+        	<div class="row single-portfolio pt-60 pb-60">
+        		<div class="col-md-4 col-sm-4">
+        			<h1>01</h1>
+        		</div>
+        		<div class="col-md-8 col-sm-8 text-right">
+        			<div class="single-portfolio-title-right">
+       				  <h2>Assignment</h2>
+        			</div>
+       			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus nibh. Donec facilisis id quam quis tincidunt. Aenean eget mattis ligula. Ut dignissim justo sed neque eleifend, eu fringilla magna facilisis.</p>
+				</div>
+        	</div>
+        </div>
+        <div class="col-md-6 col-sm-6 single-portfolio">
+   	    	<img class="img-responsive" src="{% static 'accounts/assets/images/portfolio/grid/16.jpg' %}" alt="creative-img-01"/>
+   	    </div>
+      </div>
+
+      <div class="row mt-50">
+
+        <div class="col-md-6 col-sm-6 col-md-push-6">
+        	<div class="row single-portfolio pt-60 pb-60">
+        		<div class="col-md-4 col-sm-4 col-md-push-8">
+        			<h1>02</h1>
+        		</div>
+        		<div class="col-md-8 col-sm-8 text-left col-md-pull-4">
+        			<div class="single-portfolio-title-left">
+       				  <h2>Blog</h2>
+        			</div>
+       			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus nibh. Donec facilisis id quam quis tincidunt. Aenean eget mattis ligula. Ut dignissim justo sed neque eleifend, eu fringilla magna facilisis.</p>
+				</div>
+
+        	</div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 single-portfolio col-md-pull-6">
+   	    	<img class="img-responsive" src="{% static 'accounts/assets/images/portfolio/grid/17.jpg' %}" alt="creative-img-02"/>
+   	    </div>
+
+      </div>
+
+      <div class="row mt-50">
+        <div class="col-md-6 col-sm-6">
+        	<div class="row single-portfolio pt-60 pb-60">
+        		<div class="col-md-4 col-sm-4">
+        			<h1>03</h1>
+        		</div>
+        		<div class="col-md-8 col-sm-8 text-right">
+        			<div class="single-portfolio-title-right">
+       				  <h2>Booklet</h2>
+        			</div>
+       			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus nibh. Donec facilisis id quam quis tincidunt. Aenean eget mattis ligula. Ut dignissim justo sed neque eleifend, eu fringilla magna facilisis.</p>
+				</div>
+        	</div>
+        </div>
+        <div class="col-md-6 col-sm-6 single-portfolio">
+   	    	<img class="img-responsive" src="{% static 'accounts/assets/images/portfolio/grid/18.jpg' %}" alt="creative-img-03"/>
+   	    </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!--=== Portfolio End ===-->
+
+  <!--=== Our Services Start ===-->
+  <section class="pt-0">
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-12 heading-style-one text-center">
+  				<h6 class="pink-color text-uppercase"></h6>
+                <h2><span class="font-700">We are digital specialists. It's all we do</span></h2>
+  			</div>
+  		</div>
+  		<div class="row mt-50">
+  			<div class="col-md-4 main-service-box text-center radius-50 col-sm-6">
+  				<i class="mdi mdi-laptop purple-color"></i>
+  				<h4>Responsive</h4>
+  				<p>Integer purus ipsum, auctor vitae posuere et, consectetur ac leo. Pellentesque sit amet risus sagittis, fermentum ligula.</p>
+  			</div>
+  			<div class="col-md-4 main-service-box text-center radius-50 col-sm-6">
+  				<i class="mdi mdi-rocket default-color"></i>
+  				<h4>Amazing Design</h4>
+  				<p>Integer purus ipsum, auctor vitae posuere et, consectetur ac leo. Pellentesque sit amet risus sagittis, fermentum ligula.</p>
+  			</div>
+  			<div class="col-md-4 main-service-box text-center radius-50 col-sm-6">
+  				<i class="mdi mdi-tune blue-color"></i>
+  				<h4>Easy to Customize</h4>
+  				<p>Integer purus ipsum, auctor vitae posuere et, consectetur ac leo. Pellentesque sit amet risus sagittis, fermentum ligula.</p>
+  			</div>
+  			<div class="col-md-4 main-service-box text-center radius-50 col-sm-6">
+  				<i class="mdi mdi-wechat green-color"></i>
+  				<h4>Live Support</h4>
+  				<p>Integer purus ipsum, auctor vitae posuere et, consectetur ac leo. Pellentesque sit amet risus sagittis, fermentum ligula.</p>
+  			</div>
+  			<div class="col-md-4 main-service-box text-center radius-50 col-sm-6">
+  				<i class="mdi mdi-ungroup yellow-color"></i>
+  				<h4>Pixel Perfect</h4>
+  				<p>Integer purus ipsum, auctor vitae posuere et, consectetur ac leo. Pellentesque sit amet risus sagittis, fermentum ligula.</p>
+  			</div>
+  			<div class="col-md-4 main-service-box text-center radius-50 col-sm-6">
+  				<i class="mdi mdi-trophy brown-color"></i>
+  				<h4>Award Winning</h4>
+  				<p>Integer purus ipsum, auctor vitae posuere et, consectetur ac leo. Pellentesque sit amet risus sagittis, fermentum ligula.</p>
+  			</div>
+  		</div>
+  		<div class="row">
+    		<div class="col-md-12"><div class="triangle-light-blue-big shapes" data-opacity="0.15"></div></div>
+     	</div>
+  	</div>
+
+  </section>
+  <!--=== Our Services End ===-->
+
+  <!--=== What We Do Start ===-->
+  <section class="pt-0 pb-0">
+  	<div class="container-fluid">
+      <div class="row row-flex flex-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="col-inner pt-70 pb-50 spacer border-block">
+          	<div class="heading-style-one">
+            	<h6 class="green-color text-uppercase">What We Do</h6>
+                <h2><span class="font-700">How we build awesome<br>
+				products</span></h2>
+            </div>
+            <div class="mt-30">
+              <p>We are an Creative agency, based in New York. Vision Every company is<br>
+                performing best online. Mission Helping businesses to find the perfect<br>
+                and most succesful strategy, to be online.</p>
+                <div class="inline-btn mt-30"><a href="https://www.youtube.com/watch?v=sU3FkzUKHXU" class="btn btn-sm btn-circle btn-green ml-0 popup-youtube btn-animated-none"><i class="mdi mdi-play"></i></a>
+            		<p>See Our Work</p>
+          		</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({% static 'accounts/assets/images/about-img.jpg' %});">
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!--=== What We Do End ===-->
+
+
+  <!--=== Testimonails Start ===-->
+  <section>
+    <div class="container">
+      <div class="row">
+  			<div class="col-md-12 heading-style-one text-center">
+  				<h6 class="yellow-color text-uppercase">Testimonials</h6>
+                <h2><span class="font-700">Our Clients Saying About Us</span></h2>
+  			</div>
+  		</div>
+      <div class="row mt-50">
+
+          <div class="slick testimonial-two">
+
+				<!--=== Slide ===-->
+				<div class="testimonial-item">
+			  		<div class="col-md-12">
+					  <div class="testimonial-content">
+					  	<div class="testimonial-content-in radius-50">
+						  <div class="img">
+						  	<img class="img-responsive img-circle" src="{% static 'accounts/assets/images/team/avatar-4.jpg' %}" alt="avatar-1"/>
+						  </div>
+							<h5>Melina Walber</h5>
+							<h6>manager@chaos.io</h6>
+							<p>Mauris aliquam risus id dui elementum accumsan. Cum sociis natoque penatibus et magnis dis parturient montes mus.</p>
+						 </div>
+					  </div>
+				  </div>
+				</div>
+            	<!--=== Slide ===-->
+				<div class="testimonial-item">
+			  		<div class="col-md-12">
+					  <div class="testimonial-content">
+					  <div class="testimonial-content-in radius-50">
+					  	<div class="img">
+						  <img class="img-responsive img-circle" src="{% static 'accounts/assets/images/team/avatar-5.jpg' %}" alt="avatar-2"/>
+						</div>
+							<h5>Doris Campos</h5>
+							<h6>founder@chaos.io</h6>
+							<p>Mauris aliquam risus id dui elementum accumsan. Cum sociis natoque penatibus et magnis dis parturient montes mus.</p>
+						 </div>
+					  </div>
+					</div>
+				</div>
+
+
+				<!--=== Slide ===-->
+				<div class="testimonial-item">
+			  		<div class="col-md-12">
+					  <div class="testimonial-content">
+					  	<div class="testimonial-content-in radius-50">
+						  <div class="img">
+						  	<img class="img-responsive img-circle" src="{% static 'accounts/assets/images/team/avatar-6.jpg' %}" alt="avatar-2"/>
+							</div>
+							<h5>Melina Walber</h5>
+							<h6>manager@chaos.io</h6>
+							<p>Mauris aliquam risus id dui elementum accumsan. Cum sociis natoque penatibus et magnis dis parturient montes mus.</p>
+						 </div>
+					  </div>
+				  </div>
+				</div>
+            	<!--=== Slide ===-->
+				<div class="testimonial-item">
+			  		<div class="col-md-12">
+					  <div class="testimonial-content">
+					  <div class="testimonial-content-in radius-50">
+						 <div class="img">
+						  <img class="img-responsive img-circle" src="{% static 'accounts/assets/images/team/avatar-4.jpg' %}" alt="avatar-2"/>
+						</div>
+							<h5>Doris Campos</h5>
+							<h6>founder@chaos.io</h6>
+							<p>Mauris aliquam risus id dui elementum accumsan. Cum sociis natoque penatibus et magnis dis parturient montes mus.</p>
+						 </div>
+					  </div>
+					</div>
+				</div>
+
+          </div>
+
+      </div>
+      <div class="row">
+    		<div class="col-md-12">
+    			<div class="triangle-yellow-big hidden-xs" data-opacity="0.1"></div>
+    		</div>
+     </div>
+    </div>
+  </section>
+  <!--=== Testimonails End ===-->
+
+  <!--=== Blogs Start ===-->
+  <section class="pb-0 pt-0">
+
+    <div class="container">
+     <div class="row">
+    		<div class="col-md-12">
+    			<div class="square-light-green-big shapes hidden-xs" data-opacity="0.1"></div>
+    		</div>
+     </div>
+
+      <div class="row">
+  			<div class="col-md-12 heading-style-one text-center">
+  				<h6 class="yellow-color text-uppercase">Our Blogs</h6>
+                <h2><span class="font-700">Check What Happening Inside Score</span></h2>
+  			</div>
+  		</div>
+      <div class="row mt-50">
+        <div class="col-md-4">
+          <div class="post">
+            <div class="post-img"> <img class="img-responsive" src="{% static 'accounts/assets/images/post/post-01.jpg' %}" alt=""/> </div>
+            <div class="post-info">
+              <h3><a href="http://www.incognitothemes.com/chaos/blog-grid.html">Kobe Steel plant that supplied plane
+			  components being checked</a></h3>
+              <h6 class="purple-color">News</h6>
+              <p>7 hours ago</p>
+              <a class="readmore" href="home-design-lab.html#"><span>Read More <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
+          </div>
+        </div>
+        <!--=== Post End ===-->
+
+        <div class="col-md-4">
+          <div class="post">
+            <div class="post-img"> <img class="img-responsive" src="{% static 'accounts/assets/images/post/post-02.jpg' %}" alt=""/> </div>
+            <div class="post-info">
+              <h3><a href="http://www.incognitothemes.com/chaos/blog-grid.html">They say that a picture is worth a
+			  thousand words</a></h3>
+              <h6 class="pink-color">Events</h6>
+              <p>Yesterday</p>
+              <a class="readmore" href="home-design-lab.html#"><span>Read More <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
+          </div>
+        </div>
+        <!--=== Post End ===-->
+
+        <div class="col-md-4">
+          <div class="post">
+            <div class="post-img"> <img class="img-responsive" src="{% static 'accounts/assets/images/post/post-03.jpg' %}" alt=""/> </div>
+            <div class="post-info">
+              <h3><a href="http://www.incognitothemes.com/chaos/blog-grid.html">NewsBike | NY News Satire, Parody
+			  and Spoof News</a></h3>
+              <h6 class="blue-color">Blog</h6>
+              <p>December 21, 2017</p>
+              <a class="readmore" href="home-design-lab.html#"><span>Read More <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
+          </div>
+        </div>
+        <!--=== Post End ===-->
+
+      </div>
+    </div>
+  </section>
+<!--=== Blogs End ===-->
+{% endblock %}
+
+{% block script %}
 {% endblock %}

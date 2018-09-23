@@ -1,30 +1,40 @@
 {% extends 'accounts/base.html'%}
-{% block title%}<title>My Assignment</title>{% endblock %}
+{% block title%}My Assignment{% endblock %}
 {% block body %}
-<div class="container">
-    <div class="row">
-        {% for assignment in user.assignment_set.all %}
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 w3-section">
-            <div class="w3-card-4 ">
-            <header class="w3-container w3-light-grey">
-              <h3><a href="{% url 'assignment:assignment' assignment.id %}" data-toggle="tooltip" data-placement="top" title="{{assignment}}">{{ assignment|truncatechars_html:15 }}</a>
-                  {% if request.user == assignment.user%}
-                     <small><a href="{% url 'assignment:my_assignment_update' assignment.id %}">edit</a></small>
+  <section class="white-bg">
+    <div class="container">
+    	<div class="row">
+            {% for assignment in user.assignment_set.all %}
+                <div class="col-md-4 col-sm-6">
+                  <div class="post mb-20">
+                    <div class="post-img"> <img class="img-responsive" src="https://www.maritimefirstnewspaper.com/wp-content/uploads/2017/10/exams.jpg" alt=""/> </div>
+                    <div class="post-info">
+                      <h3><a href="{% url 'assignment:assignment' assignment.id %}">{{ assignment.title}}</a></h3>
+                      <h6 class="pink-color">{{assignment.discription|truncatechars_html:10}}</h6>
+                      <p>{{assignment.created}}</p>
+                    {% if request.user == assignment.user%}
+                         <a class="readmore" href="{% url 'assignment:my_assignment_update' assignment.id %}"><span>edit</span></a> </div>
+                    {% else%}
+                         <a class="readmore" href="{% url 'assignment:assignment' assignment.id %}"><span>{{assignment.user}}</span></a> </div>
                     {% endif %}
-              </h3>
-            </header>
-            <div class="w3-container">
-              <p>uploaded by:{{assignment.user}}</p>
-              <hr>
-              <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
+                  </div>
+            {% endfor %}
+            <div class="container">
+                 <a href="{% url 'assignment:assignment_add' %}" class="btn">+Add Assignment</a>
             </div>
-            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>
-            </div>
-        </div>
-        {% endfor %}
+    <!--=== Post End ===-->
+      </div>
+      <div class="row">
+      	<div class="col-md-12">
+      		<ul class="pagination">
+                      <li><a href="blog-default.html#">Prev</a></li>
+                      <li class="active"><a href="blog-default.html#">1</a></li>
+                      <li><a href="blog-default.html#">2</a></li>
+                      <li><a href="blog-default.html#">3</a></li>
+                      <li><a href="blog-default.html#">Next</a></li>
+                    </ul>
+      	</div>
+      </div>
     </div>
-</div>
-<div class="container">
-     <a href="{% url 'assignment:assignment_add' %}" class="btn">+Add Assignment</a>
-</div>
+  </section>
 {% endblock %}

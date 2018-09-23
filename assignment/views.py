@@ -18,10 +18,10 @@ def home(request):
 def index(request):
     if request.user.is_authenticated:
         dictionary2 = {}
-        for intrest in request.user.intrests_set.all():
-            list_of_assignment=list(Assignment.objects.intrests(intrest))
-            dictionary2[intrest]=list_of_assignment
-        intrests = request.user.intrests_set.all()
+        for interest in request.user.interests_set.all():
+            list_of_assignment=list(Assignment.objects.intrests(interest))
+            dictionary2[interest]=list_of_assignment
+        intrests = request.user.interests_set.all()
         for useraccount in request.user.is_following.all():
             user=useraccount.user
             name=user.username
@@ -35,7 +35,7 @@ def index(request):
         dictionary = {'JEE-Mains':list_jee,'JEE-Adv':list_jee_adv,'SSC':list_ssc}
         return render(request, 'assignment/index2.html', {'dictionary':dictionary})
 
-def add_intrest(request):
+def add_interest(request):
     if request.method=='POST':
         form=Interest_form(request.POST)
         if form.is_valid():
@@ -92,8 +92,7 @@ def view_list_my_assignment(request,pk=None):
         user=get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
     else:
         user = request.user
-    booklet = Booklet.objects.all()
-    args={'user':user,'booklet': booklet}
+    args={'user':user,}
     return render(request,'assignment/my_assignment_page.html',args)
 
 

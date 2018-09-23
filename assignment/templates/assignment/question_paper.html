@@ -1,5 +1,5 @@
 {% extends 'accounts/base.html'%}
-{% block title%}<title>Qusetion Paper</title>{% endblock %}
+{% block title%}Qusetion Paper{% endblock %}
 {% block style %}
 <style>
 .w3-myfont {
@@ -9,8 +9,8 @@
 {% endblock %}
 {% block heading %}<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>{% endblock %}
 {% block body %}
+<section class="white-bg">
 <div class="container w3-card-4">
-
     <h1 class="w3-myfont">{{ assignment.title|title }}</h1>
 
         {% if request.user == assignment.user %}
@@ -95,7 +95,7 @@
     </div>
 
 </div>
-
+</section>
 {% endblock %}
 
 {% block script %}

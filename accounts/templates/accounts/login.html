@@ -1,26 +1,22 @@
 {%extends 'accounts/base.html'%}
 
 
-{% block title %}
-<title>login</title>
-{% endblock %}
+{% block title %}Login{% endblock %}
 
-
-{% block head %}
-<h1>Welcome to ASSIGN<span style="color:#f1868a">MATE</span></h1>
-{% endblock %}
 {% block body %}
+<section class="white-bg">
     <div class="container">
-            welcome you can login here
+            <h1>Welcome to ASSIGN<span style="color:#f1868a">MATE</span>.Co</h1>
         <br>
         <br>
         <form method="post" >
                 {% csrf_token %}
-            {{form.as_p}}
+                {{form.as_p}}
                 <button type="submit" class="btn btn-outline-primary">Login</button>
         </form>
         or
         <br>
         <a class="btn btn-outline-primary" href="{% url 'accounts:register' %}">Sign-up</a>
     </div>
+</section>
 {% endblock %}

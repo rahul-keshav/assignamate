@@ -1,15 +1,11 @@
 {%extends 'accounts/base.html'%}
-{% block title %}
-<title>registration</title>
-{% endblock %}
-
-{% block head %}
-<h1>Welcome</h1>
-{% endblock %}
+{% block title %}registration{% endblock %}
 
 {% block body %}
-
-{% if messages %}
+<section class="white-bg">
+    <div class="container">
+        <h1>Welcome</h1>
+        {% if messages %}
             <ul>
                 {% for message in messages %}
                 <li>{{ message }}</li>
@@ -24,6 +20,8 @@
     <button type="submit">submit</button>
 </form>
     </div>
+        </div>
+    </section>
 
 {% endblock %}
 

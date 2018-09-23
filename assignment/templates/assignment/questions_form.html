@@ -1,12 +1,14 @@
 {% extends 'accounts/base.html'%}
 {% block body %}
-
-
+<section class="white-bg">
+    <div class="container">
 <form enctype="multipart/form-data" method="post">
     {% csrf_token %}
     {{form.as_p}}
 
     <button type="submit">Submit</button>
     </form>
+        </div>
+    </section>
 
 {% endblock %}

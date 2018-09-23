@@ -1,11 +1,15 @@
 {% extends 'accounts/base.html'%}
 
-{% block title%}<title>Update info</title>{% endblock %}
+{% block title%}Update info{% endblock %}
 
 {% block body %}
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Update" />
-</form>
+<section class="white-bg">
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Update" />
+        </form>
+    </div>
+</section>
 {% endblock %}

@@ -1,5 +1,7 @@
 {% extends 'accounts/base.html'%}
 {% block body %}
+<section class="white-bg">
+    <div class="container">
   <form method="get">
     {{ filter.form.as_p }}
     <button type="submit">Search</button>
@@ -9,4 +11,6 @@
     <li>{{ assignment }} - {{ assignment.user }}</li>
   {% endfor %}
   </ul>
+        </div>
+    </section>
 {% endblock %}
