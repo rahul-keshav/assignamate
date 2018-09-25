@@ -22,7 +22,7 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(reverse('home:home'))
+            return redirect(reverse('assignment:home'))
         else:
             messages.warning(request,"please correct the error below")
     else:
