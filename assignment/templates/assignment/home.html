@@ -1,6 +1,6 @@
 {% extends 'accounts/base.html'%}
 <!--=== Header End ===-->
-{% block title%}<title> Home Assignmate</title>{% endblock %}
+{% block title%}Home Assignmate{% endblock %}
 <!--==costume styling starts==-->
 {% block style %}
 {% endblock %}
@@ -15,15 +15,15 @@
           <div class="hero-text text-left">
             <div class="container">
               <div class="white-color">
-                <h3 class="upper-case">About You &</h3>
-                <h1 class="upper-case font-600">.Design Lab</h1>
-                <h3 class="upper-case">A <span class="font-600">Chaos</span> Web <span class="font-800">Agency.</span></h3>
+                <h3 class="upper-case">You can share</h3>
+                <h1 class="upper-case font-600">your work & assignment</h1>
+                <h3 class="upper-case">between your networks :)</h3>
                 <p class="text-left mt-50">
-                	<a href="about-us.html" class="btn btn-pink btn-md btn-animated-none">Start a Project</a>
-                	<div class="call-us">
-                		<h5>Call Us (0123) 456 - 789</h5>
-                		<h6>For any query or concern</h6>
-                	</div>
+                	<a href="{% url 'assignment:index' %}" class="btn btn-pink btn-md btn-animated-none">Start with us</a>
+                	<!--<div class="call-us">-->
+                		<!--<h5>Call Us (0123) 456 - 789</h5>-->
+                		<!--<h6>For any query or concern</h6>-->
+                	<!--</div>-->
                 </p>
               </div>
             </div>
@@ -41,10 +41,9 @@
   	<div class="container">
   		<div class="row">
   			<div class="col-md-12 heading-style-one box-title-two text-center">
-  				<h6 class="yellow-color text-uppercase">About You</h6>
-  				<h2><span class="font-700">We are an independent
-				strategic <br>advertising
-				agency.</span></h2>
+  				<h6 class="yellow-color text-uppercase">who we are</h6>
+  				<h2><span class="font-700">	we assignment sharing website,
+					<br>where you can share your assignments,booklet and workbooks :)</span></h2>
   			</div>
   		</div>
 
@@ -106,9 +105,12 @@
         		</div>
         		<div class="col-md-8 col-sm-8 text-right">
         			<div class="single-portfolio-title-right">
-       				  <h2>Assignment</h2>
+       				  <h2>Assignments</h2>
         			</div>
-       			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus nibh. Donec facilisis id quam quis tincidunt. Aenean eget mattis ligula. Ut dignissim justo sed neque eleifend, eu fringilla magna facilisis.</p>
+       			  <p> Assignments are the question papers that you create and share
+					  between your networks like students, friends, and colleague.it will
+					  get checked automatically and you will get all
+					  the submissions and marks of them.</p>
 				</div>
         	</div>
         </div>
@@ -126,9 +128,10 @@
         		</div>
         		<div class="col-md-8 col-sm-8 text-left col-md-pull-4">
         			<div class="single-portfolio-title-left">
-       				  <h2>Blog</h2>
+       				  <h2>Booklets</h2>
         			</div>
-       			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus nibh. Donec facilisis id quam quis tincidunt. Aenean eget mattis ligula. Ut dignissim justo sed neque eleifend, eu fringilla magna facilisis.</p>
+       			  <p>Booklets are the PDF document that you would like to share
+					  between your followers and friends very easily on just one click. </p>
 				</div>
 
         	</div>
@@ -148,9 +151,11 @@
         		</div>
         		<div class="col-md-8 col-sm-8 text-right">
         			<div class="single-portfolio-title-right">
-       				  <h2>Booklet</h2>
+       				  <h2>Workbook</h2>
         			</div>
-       			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed purus nibh. Donec facilisis id quam quis tincidunt. Aenean eget mattis ligula. Ut dignissim justo sed neque eleifend, eu fringilla magna facilisis.</p>
+       			  <p>Workbooks are the collection of all the work that you do.
+					  You can create numbers of pages to describe them  and you can share them with your
+					  followers and also can submit to your instructor.</p>
 				</div>
         	</div>
         </div>

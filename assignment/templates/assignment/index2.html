@@ -3,39 +3,36 @@
 {% block style %}
 {% endblock %}
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8">
-                <div class="container-fluid">
-                {% for name,list in dictionary.items %}
-                    {%if list%}
-                    <h3>{{name}}</h3>
-                    <div class="row">
-                        {% for assignment in list %}
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 w3-section">
-                            <div class="w3-card-4 ">
-                            <header class="w3-container w3-light-grey">
-                              <a href="{% url 'assignment:assignment' assignment.id %}"><h3>{{ assignment|truncatechars_html:15 }}</h3></a>
-                            </header>
 
-                            <div class="w3-container">
-                              <p>uploaded by:{{assignment.user}}</p>
-                              <hr>
-                              <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>
-                            </div>
-                            <a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>
-                            </div>
-                        </div>
-                        {% endfor %}
+
+<section class="white-bg">
+    <div class="container">
+        {% for name,list in dictionary.items %}
+            {%if list%}
+            <h3>{{name}}</h3>
+            <div class="row">
+                {% for assignment in list %}
+                    <!--=== Post End ===-->
+                    <div class="col-md-4 col-sm-6">
+                      <div class="post mb-20">
+                        <div class="post-img" style = "max-height: 220px;"> <img class="img-responsive" src="https://az616578.vo.msecnd.net/files/2016/12/30/636186644641673630-1672572549_act%202.jpg" alt=""/> </div>
+                        <div class="post-info">
+                          <h3><a href="{% url 'assignment:assignment' assignment.id %}">{{ assignment.title}}</a></h3>
+                          <h6 class="pink-color">{{assignment.discription|truncatechars_html:10}}</h6>
+                          <p>{{assignment.created}}</p>
+                          <a class="readmore" href="{% url 'assignment:assignment' assignment.id %}"><span>{{assignment.user}}</span></a> </div>
+                      </div>
                     </div>
-                    {%endif%}
-                {% endfor %}
-                </div>
+                    <!--=== Post End ===-->
+              {% endfor %}
             </div>
-        <div class="col-lg-4">
-            <div class="widget widget_tag_cloud">
+            {% endif %}
+        {% endfor %}
+    </div>
+  </section>
+<section class="white-bg">
+    <div class="container">
               <h2 class="widget-title">Popular Tag</h2>
-              <div class="popular-box">
                   <ul>
                       <li> <a href="{% url 'assignment:index_jee_main' %}">jee-main</a> </li>
                       <li> <a href="{% url 'assignment:index_jee_adv' %}">jee-adv</a> </li>
@@ -50,10 +47,59 @@
                       <li> <a href="{% url 'assignment:index_others' %}">others</a> </li>
                   </ul>
               </div>
-          </div>
-        </div>
-    </div>
-</div>
+    </section>
+<!--##############################-->
+<!--<div class="container">-->
+    <!--<div class="row">-->
+        <!--<div class="col-lg-8">-->
+                <!--<div class="container-fluid">-->
+                <!--{% for name,list in dictionary.items %}-->
+                    <!--{%if list%}-->
+                    <!--<h3>{{name}}</h3>-->
+                    <!--<div class="row">-->
+                        <!--{% for assignment in list %}-->
+                        <!--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 w3-section">-->
+                            <!--<div class="w3-card-4 ">-->
+                            <!--<header class="w3-container w3-light-grey">-->
+                              <!--<a href="{% url 'assignment:assignment' assignment.id %}"><h3>{{ assignment|truncatechars_html:15 }}</h3></a>-->
+                            <!--</header>-->
+
+                            <!--<div class="w3-container">-->
+                              <!--<p>uploaded by:{{assignment.user}}</p>-->
+                              <!--<hr>-->
+                              <!--<a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="{{assignment.discription}}"><p>{{assignment.discription|truncatechars_html:20}}</p></a>-->
+                            <!--</div>-->
+                            <!--<a href="{% url 'assignment:assignment' assignment.id %}"><button class="w3-button w3-block w3-light-grey"> solve</button></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--{% endfor %}-->
+                    <!--</div>-->
+                    <!--{%endif%}-->
+                <!--{% endfor %}-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--<div class="col-lg-4">-->
+            <!--<div class="widget widget_tag_cloud">-->
+              <!--<h2 class="widget-title">Popular Tag</h2>-->
+              <!--<div class="popular-box">-->
+                  <!--<ul>-->
+                      <!--<li> <a href="{% url 'assignment:index_jee_main' %}">jee-main</a> </li>-->
+                      <!--<li> <a href="{% url 'assignment:index_jee_adv' %}">jee-adv</a> </li>-->
+                      <!--<li> <a href="{% url 'assignment:index_ssc' %}">ssc</a> </li>-->
+                      <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-CS</a> </li>-->
+                      <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-Civil</a> </li>-->
+                      <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-EE</a> </li>-->
+                      <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-ECE</a> </li>-->
+                      <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-ME</a> </li>-->
+                      <!--<li> <a href="{% url 'assignment:index_others' %}">GATE-MT</a> </li>-->
+                      <!--<li> <a href="{% url 'assignment:index_others' %}">banking</a> </li>-->
+                      <!--<li> <a href="{% url 'assignment:index_others' %}">others</a> </li>-->
+                  <!--</ul>-->
+              <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
 
 

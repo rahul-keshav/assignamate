@@ -148,6 +148,7 @@ LOGIN_EXEMPT_URLS=(
 PREVIEW_URLS = (
     #assignment url
     r'^$',
+    r'^index$',
     r'^index_jee_main$',
     r'^index_jee_adv$',
     r'^index_ssc$',

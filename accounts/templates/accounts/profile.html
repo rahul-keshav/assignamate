@@ -1,9 +1,10 @@
 {% extends 'accounts/base.html'%}
 
-{%block title%}<title>profile</title>{% endblock %}
+{%block title%}profile{% endblock %}
 
 {% block body %}
 <!-- Content Section Begins -->
+<section class="white-bg">
 <div id="main-content" class="content-box no-sidebar pad-top-big pad-bottom-big pr">
     <div class="container">
         <div class="row">
@@ -20,12 +21,12 @@
                 <div class="aboutus-info">
                     <h2>About Me</h2>
                     {% if user == request.user %}
-                    <h5><a href="{% url 'accounts:update_profile' user.useraccount.id %}">edit info</a></h5>
+                    <a href="{% url 'accounts:update_profile' user.useraccount.id %}">edit info</a>
                     {% else %}
                              {% if user.useraccount in request.user.is_following.all %}
                               <h5>following</h5>
                              {% endif %}
-                    <h5>{% include 'accounts/snippet/follow_form.html' with username=user.username is_following=is_following %}</h5>
+                    {% include 'accounts/snippet/follow_form.html' with username=user.username is_following=is_following %}
                     {% endif %}
 
                     <p>Hello i m_{{user.first_name}} {{user.last_name}}</p>
@@ -96,6 +97,7 @@
         </div>
     </div>
 </div>
+    </section>
 <!-- Content Section Ends -->
 
 {% endblock %}
