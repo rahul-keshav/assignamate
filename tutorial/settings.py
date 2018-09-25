@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_5j566d$0e-#14+p^rq(d4k&u-5bd(oj$&m=-hd1hli8^d9v2t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -129,8 +129,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 # STATIC_ROOT='/home/assignmate/assignmate/static/'
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 MEDIA_URL='/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR,'tutorial/media')
+
 
 LOGIN_REDIRECT_URL = '/'
 
