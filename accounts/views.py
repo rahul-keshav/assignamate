@@ -3,7 +3,7 @@ from .forms import RegistrationForm,EditProfile
 from accounts.forms import EditProfile
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
-from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth import update_session_auth_hash,login,authenticate
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
@@ -22,6 +22,10 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
             return redirect(reverse('assignment:home'))
         else:
             messages.warning(request,"please correct the error below")

@@ -1,0 +1,23 @@
+{% extends 'accounts/base.html'%}
+{% block title%}add assignment{% endblock %}
+{% block body %}
+<section class="white-bg">
+    <div class="container">
+        <div class="w3-card-4">
+                <div class="w3-container">
+                  <h2>Result </h2>
+                  <p class="w3-red">Please log in, So we can show your overall performances.</p>
+                  <ul class="w3-ul">
+                      <li>name of Assignment:{{name_of_assignment}}</li>
+                      <li>name_of_teacher:{{name_of_teacher}}</li>
+                      <li>marks:{{marks}}</li>
+                      <li>total marks :{{total_marks}}</li>
+                  </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

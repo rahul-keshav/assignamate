@@ -84,10 +84,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'assignmate',
-        'USER': 'postgres',
+        'USER': 'rahul',
         'PASSWORD': 'lvuwhat*',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -156,6 +156,7 @@ PREVIEW_URLS = (
     r'^index_jee_adv$',
     r'^index_ssc$',
     r'^index_others$',
+    r'^assignment_check/(?P<pk>\d+)$',
     r'^assignment/(?P<pk>\d+)$',
     r'^(?:search?(?P<slug>[\w+]))$',
     r'^booklet',

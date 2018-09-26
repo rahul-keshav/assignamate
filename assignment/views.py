@@ -200,15 +200,18 @@ def assignment_check(request,assignment_id):
          forloopcounter = forloopcounter+1
     # print(answersting)
     # print(marks)
-
-    p = Assignment_answered_by(name_of_assignment=assignment.title,assignment_id=assignment.id,
-                               name_of_teacher=assignment.user.first_name+" "+assignment.user.last_name,
-                               assigner_username=assignment.user.username,
-                               user=request.user,answer_string=answersting,
-                               marks=marks,total_marks=total_marks)
-    p.save()
-
-    return redirect(reverse('assignment:assignment_page'))
+    if request.user.is_authenticated:
+        p = Assignment_answered_by(name_of_assignment=assignment.title,assignment_id=assignment.id,
+                                   name_of_teacher=assignment.user.first_name+" "+assignment.user.last_name,
+                                   assigner_username=assignment.user.username,
+                                   user=request.user,answer_string=answersting,
+                                   marks=marks,total_marks=total_marks)
+        p.save()
+        return redirect(reverse('assignment:assignment_page'))
+    else:
+        return render(request,'assignment/result_not_logged_in.html',{'name_of_assignment':assignment.title,'assignment_id':assignment.id,
+                                                                      'name_of_teacher':assignment.user.first_name+" "+assignment.user.last_name,
+                                                                      'marks':marks,'total_marks':total_marks})
 
 def answersheet(request,ass_id, ans_id):
     assignment=get_object_or_404(Assignment,pk=ass_id)#Assignment.objects.get(pk=ass_id)
