@@ -27,12 +27,12 @@
             {% for booklet in booklet %}
             <div class="col-md-4 col-sm-6">
               <div class="post mb-20">
-              <div class="post-img" style = "max-height: 220px;"> <img class="img-responsive" src="https://wallpaper.wiki/wp-content/uploads/2017/05/Free-Photos-Book-Wallpapers-HD.jpg" alt=""/> </div>
+              <a target="_blank" href="{{booklet.link}}"> <div class="post-img" style = "max-height: 220px;"> <img class="img-responsive" src="https://wallpaper.wiki/wp-content/uploads/2017/05/Free-Photos-Book-Wallpapers-HD.jpg" alt=""/> </div></a>
               <div class="post-info">
-                <h3><a href="{{booklet.document.url}}">{{booklet.name}}</a></h3>
-                <h6 class="purple-color">{{booklet.discription|truncatewords:10}}</h6>
+                <h3><a href="{{booklet.link}}" target="_blank">{{booklet.name}}</a></h3>
+                <a href="{{booklet.link}}" target="_blank"><h6 class="purple-color">{{booklet.discription|truncatewords:10}}</h6></a>
                 <p>{{booklet.uploaded_at}}</p>
-                <a class="readmore" href="{{booklet.document.url}}"><span>Read More <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
+                <a class="readmore" target="_blank" href="{{booklet.link}}"><span>Read More <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
               </div>
             </div>
             <!--=== Post End ===-->

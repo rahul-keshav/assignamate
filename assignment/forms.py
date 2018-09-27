@@ -118,9 +118,33 @@ class QuestionForm(forms.ModelForm):
 
 
 class DocumentForm(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Write the title of the book...'
+        }
+    ))
+    subject = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'mention about the subject...'
+        }
+    ))
+    discription = forms.CharField(widget=forms.Textarea(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'mention about the book...'
+        }
+    ))
+    link = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter the link (google-drive,Dropbox etc)...'
+        }
+    ))
     class Meta:
         model = Booklet
-        fields = ('name', 'subject','discription', 'document', )
+        fields = ('name', 'subject','discription', 'link', )
 
 
 class BlogForm(forms.ModelForm):

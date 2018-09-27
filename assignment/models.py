@@ -179,7 +179,7 @@ class Booklet(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     subject=models.CharField(max_length=20)
     discription=models.CharField(max_length=500)
-    document=models.FileField(upload_to='documents//%Y/%m/%d/')
+    link=models.TextField(blank=True)
     uploaded_at=models.DateField(auto_now=True)
 
     objects = BookletManager()
