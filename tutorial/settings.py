@@ -124,10 +124,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-# STATIC_ROOT='/home/assignmate/assignmate/static/'
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
@@ -159,7 +158,8 @@ PREVIEW_URLS = (
     r'^assignment_check/(?P<pk>\d+)$',
     r'^assignment/(?P<pk>\d+)$',
     r'^(?:search?(?P<slug>[\w+]))$',
-    r'^booklet',
+    r'^booklet$',
+    r'^booklet_preview/(?P<pk>\d+)$',
     # home url
     r'^home/$',
     r'^home/mypost/(?P<pk>\d+)$',

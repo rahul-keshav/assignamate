@@ -8,7 +8,7 @@ from assignment.views import view_list_assignment,\
     add_blog,blog,QuestionUpdate,AssignmentUpdate,QuestionDelete,\
     index,AssignmentLikeToggle,booklet,my_booklet,\
     index_booklet,index_jee_main,index_jee_adv,index_ssc,index_others,\
-    show_submission,filter_search,add_interest,InterestDelete,home
+    show_submission,filter_search,add_interest,InterestDelete,home,booklet_preview
 
 
 app_name='assignment'
@@ -60,6 +60,7 @@ urlpatterns = [
     path('submissions/<pk>',show_submission,name='show_submission'),
 
     path('booklet',booklet,name='booklet'),
+    path('booklet_preview/<pk>',booklet_preview,name='booklet_preview'),
     path('my-booklet',my_booklet,name='my-booklet'),
     path('my-booklet/<pk>',my_booklet,name='my-booklet'),
     path('index-booklet',index_booklet,name='index_booklet'),

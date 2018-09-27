@@ -285,6 +285,13 @@ def booklet(request):
     booklet = Booklet.objects.all()
     return render(request,'assignment/booklet.html',{'booklet':booklet})
 
+def booklet_preview(request,pk):
+    booklet=get_object_or_404(Booklet,pk=pk)
+    return render(request, 'assignment/booklet_preview.html',{'booklet':booklet})
+
+
+
+
 
 def booklet_upload(request):
     if request.method == 'POST':

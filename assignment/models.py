@@ -180,6 +180,7 @@ class Booklet(models.Model):
     subject=models.CharField(max_length=50)
     discription=models.CharField(max_length=500)
     link=models.TextField(blank=True)
+    image = models.ImageField(upload_to='booklet_image//%Y/%m/%d/', blank=True, )
     uploaded_at=models.DateField(auto_now=True)
 
     objects = BookletManager()

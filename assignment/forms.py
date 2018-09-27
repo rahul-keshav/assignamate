@@ -144,7 +144,7 @@ class DocumentForm(forms.ModelForm):
     ))
     class Meta:
         model = Booklet
-        fields = ('name', 'subject','discription', 'link', )
+        fields = ('name', 'subject','discription', 'link','image' )
 
 
 class BlogForm(forms.ModelForm):

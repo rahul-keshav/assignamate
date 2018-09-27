@@ -1,0 +1,22 @@
+{% extends 'accounts/base.html'%}
+{% block title%}{{booklet.name}}{% endblock %}
+
+{% block body %}
+<section class="white-bg">
+    <div class="container">
+        <!-- left side -->
+        <div class="col-md-8">
+            <div class="post mb-20">
+            <div class="post-img"> <img class="img-responsive" src="{% if booklet.image %}{{booklet.image.url}}{% endif %}" alt=""/> </div>
+            <div class="post-info">
+              <h1><a href="{{booklet.link}}">{{booklet.name}}</a></h1>
+              <h6>{{booklet.user}}</h6>
+              <a target="_blank" href="{{booklet.link}}"><p class="w3-text-blue">{{booklet.discription}}</p></a>
+              <p>{{booklet.uploaded_at}}</p>
+              <a class="readmore" href="{{booklet.link}}" target="_blank"><span>Read More <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
+            </div>
+        </div>
+    		<!--=== Left Side End===-->
+        </div>
+    </section>
+{% endblock %}
