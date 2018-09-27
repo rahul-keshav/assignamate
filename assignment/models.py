@@ -175,9 +175,9 @@ class Interests(models.Model):
 
 
 class Booklet(models.Model):
-    name=models.CharField(max_length=30)
+    name=models.CharField(max_length=50)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    subject=models.CharField(max_length=20)
+    subject=models.CharField(max_length=50)
     discription=models.CharField(max_length=500)
     link=models.TextField(blank=True)
     uploaded_at=models.DateField(auto_now=True)
