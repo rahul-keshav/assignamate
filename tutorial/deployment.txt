@@ -1,0 +1,181 @@
+sudo apt update
+sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl
+
+sudo apt-get update
+sudo apt-get -y upgrade
+
+sudo apt-get -y install postgresql postgresql-contrib
+
+sudo apt-get -y install supervisor
+sudo systemctl enable supervisor
+sudo systemctl start supervisor
+sudo apt-get -y install python-virtualenv
+
+su - postgres
+
+createuser rahul
+createdb assignamate --owner rahul
+psql -c "ALTER USER rahul WITH PASSWORD 'lvuwhat*'"
+exit
+
+adduser rahul
+
+gpasswd -a rahul sudo
+su - rahul
+
+sudo -H pip3 install --upgrade pip
+sudo -H pip3 install virtualenv
+
+virtualenv .
+source bin/activate
+git clone https://github.com/smiling-rahul/assignamate.git
+
+cd assignamate
+pip install Django==2.0 gunicorn psycopg2-binary django-filter==2.0.0 djangorestframework==3.8.2 Pillow==5.2.0
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'assignmate',
+        'USER': 'rahul',
+        'PASSWORD': 'lvuwhat*',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+manage.py makemigrations
+python manage.py migrate
+manage.py createsuperuser
+python manage.py collectstatic
+python manage.py runserver 0.0.0.0:8000
+ctrl+c
+
+pip install gunicorn
+nano bin/gunicorn_start
+
+cd ~
+######################
+NAME="assignamate"
+DIR=/home/rahul/assignamate
+USER=rahul
+GROUP=rahul
+WORKERS=3
+BIND=unix:/home/rahul/run/gunicorn.sock
+DJANGO_SETTINGS_MODULE=tutorial.settings
+DJANGO_WSGI_MODULE=tutorial.wsgi
+LOG_LEVEL=error
+
+cd $DIR
+source ../bin/activate
+
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DIR:$PYTHONPATH
+
+exec ../bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+  --name $NAME \
+  --workers $WORKERS \
+  --user=$USER \
+  --group=$GROUP \
+  --bind=$BIND \
+  --log-level=$LOG_LEVEL \
+  --log-file=-
+
+########################
+chmod u+x bin/gunicorn_start
+mkdir run
+mkdir logs
+touch logs/gunicorn-error.log
+sudo nano /etc/supervisor/conf.d/assignamate.conf
+########################
+[program:assignamate]
+command=/home/rahul/bin/gunicorn_start
+user=rahul
+autostart=true
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/home/rahul/logs/gunicorn-error.log
+########################
+sudo supervisorctl reread
+sudo supervisorctl update
+
+sudo supervisorctl status assignamate
+sudo supervisorctl restart assignamate
+
+
+sudo nano /etc/nginx/sites-available/assignamate
+#############################
+upstream app_server {
+    server unix:/home/rahul/run/gunicorn.sock fail_timeout=0;
+}
+
+server {
+    listen 80;
+
+    # add here the ip address of your server
+    # or a domain pointing to that ip (like example.com or www.example.com)
+    server_name 142.93.244.57;
+
+    keepalive_timeout 5;
+    client_max_body_size 4G;
+
+    access_log /home/rahul/logs/nginx-access.log;
+    error_log /home/rahul/logs/nginx-error.log;
+
+    location /static/ {
+        alias /home/rahul/assignamate/static/;
+    }
+    location /media/ {
+        alias /home/rahul/assignamate/tutorial/media/;
+    }
+
+    # checks for static file, if not found proxy to app
+    location / {
+        try_files $uri @proxy_to_app;
+    }
+
+    location @proxy_to_app {
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_redirect off;
+      proxy_pass http://app_server;
+    }
+}
+#################
+sudo ln -s /etc/nginx/sites-available/assignamate /etc/nginx/sites-enabled/assignamate
+
+sudo rm /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
+
+sudo reboot
+
+#########################
+ssh rahul@142.93.244.57
+
+source bin/activate
+cd assignamate
+git pull origin master
+python manage.py collectstatic
+python manage.py migrate
+sudo supervisorctl restart assignamate
+exit
+#########################
+
+
+
+
+
+
+
+
+
+
+
+
+
