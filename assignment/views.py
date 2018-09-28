@@ -289,10 +289,6 @@ def booklet_preview(request,pk):
     booklet=get_object_or_404(Booklet,pk=pk)
     return render(request, 'assignment/booklet_preview.html',{'booklet':booklet})
 
-
-
-
-
 def booklet_upload(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
@@ -313,6 +309,18 @@ def my_booklet(request,pk=None):
         user = request.user
     booklet=user.booklet_set.all()
     return render(request,'assignment/booklet.html',{'booklet':booklet})
+
+class BookletUpdate(UpdateView):
+    model = Booklet
+    fields = ['name','subject','discription','link','image']
+    template_name_suffix = '_update_form'
+    success_url = reverse_lazy('assignment:my-booklet')
+
+
+class BookletDelete(DeleteView):
+    model = Booklet
+    success_url = reverse_lazy('assignment:my-booklet')
+
 ################
 # filter
 ###############

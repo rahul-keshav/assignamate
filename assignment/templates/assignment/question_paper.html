@@ -30,7 +30,7 @@
                 <header class="w3-container w3-light-grey">
                     <h3>{{ question.question }}
                         <p class="w3-right">
-                            {% if request.user == assignment.user%}
+                            {% if request.user == assignment.user %}
                                 <a href="{% url 'assignment:question_update' question.id %}">edit </a>
                                 <a href="{% url 'assignment:question_delete' question.id %}">delete </a>
                             {% endif %}

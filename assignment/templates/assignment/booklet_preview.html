@@ -1,6 +1,11 @@
 {% extends 'accounts/base.html'%}
 {% block title%}{{booklet.name}}{% endblock %}
 
+{% block meta %}
+<meta name="description" content="Download Free {{booklet.name}},{{booklet.subject}}" />
+<meta name="keywords" content="{{booklet.name}},{{booklet.subject}}" />
+{% endblock %}
+
 {% block body %}
 <section class="white-bg">
     <div class="container">
@@ -17,6 +22,14 @@
             </div>
         </div>
     		<!--=== Left Side End===-->
+        <div class="col-md-4">
+            {% if request.user == booklet.user %}
+            <ul>
+                <li><a href="{% url 'assignment:edit-booklet' booklet.id %}">Edit</a></li>
+                <li><a href="{% url 'assignment:del-booklet' booklet.id %}">Delete</a></li>
+            </ul>
+            {% endif %}
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}

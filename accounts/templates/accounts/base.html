@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>{% block title%}Assignmate{% endblock %}</title>
-<meta name="description" content="Onepage Parallax HTML5 Template" />
-<meta name="keywords" content="design lab, chaos, business, user interface" />
+  {% block meta %}
+<meta name="description" content="We are Assignmate,assignment sharing website. You can create assignment, booklets, workbook very easily and can share them to your network . :) " />
+<meta name="keywords" content="Assignmate, Download Free Book, Share, Assignment,online Exam,Free online Exam " />
+  {% endblock %}
 {% load staticfiles %}
 <link rel="shortcut icon" href="{% static 'accounts/assets/images/favicon.ico' %} ">
 <link rel="stylesheet" href="{% static 'accounts/assets/css/master.css' %}">
