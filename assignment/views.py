@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from itertools import chain
 from accounts.models import UserAccount
 from .filters import AssignmentFilter
+from django.utils.text import slugify
 
 # Create your views here.
 
@@ -52,7 +53,6 @@ class InterestDelete(DeleteView):
     success_url = reverse_lazy('assignment:index')
 
 
-
 def index_jee_main(request):
     heading='Jee-Main'
     list = Assignment.objects.jee_main().order_by('-created')
@@ -92,8 +92,11 @@ def view_list_my_assignment(request,pk=None):
         user=get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
     else:
         user = request.user
-    args={'user':user,}
-    return render(request,'assignment/my_assignment_page.html',args)
+    assignment=user.assignment_set.all()
+    paginator = Paginator(assignment, 30)
+    page = request.GET.get('page')
+    assignment = paginator.get_page(page)
+    return render(request,'assignment/my_assignment_page.html',{'assignment':assignment})
 
 
 def AssignmentLikeToggle(request,id):
@@ -120,12 +123,20 @@ class AssignmentUpdate(UpdateView):
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('assignment:my_assignment_page')
 
+class AssignmentDelete(DeleteView):
+    model = Assignment
+    success_url = reverse_lazy('assignment:my_assignment_page')
+
 def assignmentCreate(request):
     if request.method=='POST':
         form=AssignmentForm(request.POST)
         if form.is_valid():
             assignment=form.save(commit=False)
             assignment.user=request.user
+            assignment.slug=slugify(assignment.title)
+            assignment.save()
+            slug="%s %s"%(assignment.title,assignment.id)
+            assignment.slug=slugify(slug)
             assignment.save()
             return redirect(reverse('assignment:my_assignment_page'))
     else:
@@ -149,6 +160,11 @@ class QuestionView(DetailView):
     model = Assignment
 
 
+def assignment_preview(request,slug):
+    assignment = get_object_or_404(Assignment, slug=slug)
+    return render(request, 'assignment/assignment_preview.html', {'assignment': assignment})
+
+
 def QuestionAdd(request,pk):
     if request.method == 'POST':
         form = QuestionForm(request.POST, request.FILES)
@@ -157,7 +173,6 @@ def QuestionAdd(request,pk):
             question.assignment = get_object_or_404(Assignment,pk=pk)#Assignment.objects.get(pk=pk)
             question.save()
             return redirect(reverse('assignment:assignment', args=[pk]))
-
     else:
         form = QuestionForm
     return render(request,'assignment/add_question_form.html',{'form': form})
@@ -229,6 +244,10 @@ def add_blog_site(request):
         if form.is_valid():
             blog_site=form.save(commit=False)
             blog_site.user = request.user
+            blog_site.slug=slugify(blog_site.name)
+            blog_site.save()
+            slug="%s %s"%(blog_site.name,blog_site.id)
+            blog_site.slug=slugify(slug)
             blog_site.save()
             return redirect(reverse('assignment:blog_site_list'))
     else:
@@ -255,6 +274,10 @@ def add_blog(request,pk):
             blog=form.save(commit=False)
             blog.blog_site=get_object_or_404(Blogsite,pk=pk)#Blogsite.objects.get(pk=pk)
             blog.user = request.user
+            blog.slug=slugify(blog.title)
+            blog.save()
+            slug="%s %s"%(blog.title,blog.id)
+            blog.slug=slugify(slug)
             blog.save()
             return redirect(reverse('assignment:blog_site',args=[pk]))
     else:
@@ -283,10 +306,13 @@ def index_booklet(request):
 
 def booklet(request):
     booklet = Booklet.objects.all()
+    paginator = Paginator(booklet, 30)
+    page = request.GET.get('page')
+    booklet = paginator.get_page(page)
     return render(request,'assignment/booklet.html',{'booklet':booklet})
 
-def booklet_preview(request,pk):
-    booklet=get_object_or_404(Booklet,pk=pk)
+def booklet_preview(request,slug):
+    booklet=get_object_or_404(Booklet,slug=slug)
     return render(request, 'assignment/booklet_preview.html',{'booklet':booklet})
 
 def booklet_upload(request):
@@ -295,6 +321,10 @@ def booklet_upload(request):
         if form.is_valid():
             booklet=form.save(commit=False)
             booklet.user=request.user
+            booklet.slug=slugify(booklet.name)
+            booklet.save()
+            slug="%s %s %s"%(booklet.name,booklet.author,booklet.id )
+            booklet.slug=slugify(slug)
             booklet.save()
             return redirect(reverse('assignment:my-booklet'))
     else:
@@ -308,6 +338,9 @@ def my_booklet(request,pk=None):
     else:
         user = request.user
     booklet=user.booklet_set.all()
+    paginator = Paginator(booklet, 30)
+    page = request.GET.get('page')
+    booklet = paginator.get_page(page)
     return render(request,'assignment/booklet.html',{'booklet':booklet})
 
 class BookletUpdate(UpdateView):

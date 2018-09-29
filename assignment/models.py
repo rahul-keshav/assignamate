@@ -106,6 +106,7 @@ class Assignment(models.Model):
     discription=models.CharField(max_length=500)
     category=models.CharField(max_length=30,blank=True)
     created = models.DateTimeField(auto_now=True)
+    slug=models.SlugField(unique=True,max_length=100)
     objects = AssignmentManager()
     class Meta:
         ordering = ["-created"]
@@ -177,8 +178,10 @@ class Interests(models.Model):
 class Booklet(models.Model):
     name=models.CharField(max_length=50)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    subject=models.CharField(max_length=50)
-    discription=models.CharField(max_length=500)
+    subject=models.CharField(max_length=50,blank=True)
+    author=models.CharField(max_length=50,blank=True)
+    slug=models.SlugField(unique=True)
+    discription=models.CharField(max_length=500,blank=True)
     link=models.TextField(blank=True)
     image = models.ImageField(upload_to='booklet_image//%Y/%m/%d/', blank=True, )
     uploaded_at=models.DateField(auto_now=True)
@@ -195,6 +198,7 @@ class Blogsite(models.Model):
     discription = models.CharField(max_length=500,blank=True)
     background_image=models.ImageField(upload_to='blogger_image/')
     submitted = models.DateTimeField(default=now)
+    slug = models.SlugField(unique=True, max_length=100)
     def __str__(self):
         return self.name
 
@@ -205,6 +209,7 @@ class Blog_page(models.Model):
     text=models.TextField()
     image = models.ImageField(upload_to='blog_image/',blank=True)
     submitted = models.DateTimeField(default=now)
+    slug = models.SlugField(unique=True, max_length=100)
     def __str__(self):
         return self.title
 

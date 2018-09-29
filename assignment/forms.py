@@ -130,6 +130,12 @@ class DocumentForm(forms.ModelForm):
             'placeholder': 'mention about the subject...'
         }
     ))
+    author = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'mention about the author...'
+        }
+    ))
     discription = forms.CharField(widget=forms.Textarea(
         attrs={
             'class': 'form-control',
@@ -144,7 +150,7 @@ class DocumentForm(forms.ModelForm):
     ))
     class Meta:
         model = Booklet
-        fields = ('name', 'subject','discription', 'link','image' )
+        fields = ('name', 'subject','author','discription', 'link','image' )
 
 
 class BlogForm(forms.ModelForm):

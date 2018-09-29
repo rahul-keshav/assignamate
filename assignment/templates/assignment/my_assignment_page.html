@@ -4,18 +4,18 @@
   <section class="white-bg">
     <div class="container">
     	<div class="row">
-            {% for assignment in user.assignment_set.all %}
+            {% for assignment in assignment %}
                 <div class="col-md-4 col-sm-6">
                   <div class="post mb-20">
                     <div class="post-img"> <img class="img-responsive" src="https://www.maritimefirstnewspaper.com/wp-content/uploads/2017/10/exams.jpg" alt=""/> </div>
                     <div class="post-info">
-                      <h3><a href="{% url 'assignment:assignment' assignment.id %}">{{ assignment.title}}</a></h3>
-                      <h6 class="pink-color">{{assignment.discription|truncatechars_html:10}}</h6>
+                      <h3><a href="{% url 'assignment:assignment_preview' assignment.slug %}">{{ assignment.title}}</a></h3>
+                      <h6 class="pink-color">{{assignment.discription|truncatewords_html:10}}</h6>
                       <p>{{assignment.created}}</p>
                     {% if request.user == assignment.user%}
                          <a class="readmore" href="{% url 'assignment:my_assignment_update' assignment.id %}"><span>edit</span></a> </div>
                     {% else%}
-                         <a class="readmore" href="{% url 'assignment:assignment' assignment.id %}"><span>{{assignment.user}}</span></a> </div>
+                         <a class="readmore" href="{% url 'assignment:assignment_preview' assignment.slug %}"><span>{{assignment.user}}</span></a> </div>
                     {% endif %}
                   </div>
             {% endfor %}
@@ -26,14 +26,18 @@
       </div>
       <div class="row">
       	<div class="col-md-12">
-      		<ul class="pagination">
-                      <li><a href="blog-default.html#">Prev</a></li>
-                      <li class="active"><a href="blog-default.html#">1</a></li>
-                      <li><a href="blog-default.html#">2</a></li>
-                      <li><a href="blog-default.html#">3</a></li>
-                      <li><a href="blog-default.html#">Next</a></li>
-                    </ul>
-      	</div>
+                <ul class="pagination">
+                    {% if assignment.has_previous %}
+                  <li><a href="?page={{ assignment.previous_page_number }}">Prev</a></li>
+                  <li class="active"><a href="?page=1">1</a></li>
+                    {% endif %}
+                  <li><a href="blog-default.html#">Page {{ assignment.number }} of {{ assignment.paginator.num_pages }}</a></li>
+                    {% if assignment.has_next %}
+                  <li><a href="?page={{ assignment.next_page_number }}">Next</a></li>
+                    <li><a href="?page={{ assignment.paginator.num_pages }}">last</a></li>
+                    {% endif %}
+                </ul>
+            </div>
       </div>
     </div>
   </section>

@@ -8,8 +8,8 @@
   <div class="parallax-overlay"></div>
     <div class="container">
       <div class="page-title text-center white-color">
-        <h1>Our Blogs</h1>
-        <h4 class="text-uppercase mt-30">Latest News</h4>
+        <h1>Our Books</h1>
+        <h4 class="text-uppercase mt-30">Assignmate</h4>
       </div>
     </div>
   </section>
@@ -21,42 +21,43 @@
 <section class="white-bg">
     <div class="container">
     	<div class="row">
-            <!--#############-->
-
-
             {% for booklet in booklet %}
+            <!--=== Book Start ===-->
             <div class="col-md-4 col-sm-6">
               <div class="post mb-20">
-              <a target="_blank" href="{% url 'assignment:booklet_preview' booklet.id %}"> <div class="post-img" style = "max-height: 220px;"> <img class="img-responsive" src="{% if booklet.image %} {{booklet.image.url}}{% else %}https://wallpaper.wiki/wp-content/uploads/2017/05/Free-Photos-Book-Wallpapers-HD.jpg {% endif %}" alt=""/> </div></a>
+              <a target="_blank" href="{% url 'assignment:booklet_preview' booklet.slug %}"> <div class="post-img" style = "max-height: 220px;"> <img class="img-responsive" src="{% if booklet.image %} {{booklet.image.url}}{% else %}https://wallpaper.wiki/wp-content/uploads/2017/05/Free-Photos-Book-Wallpapers-HD.jpg {% endif %}" alt=""/> </div></a>
               <div class="post-info">
-                <h3><a href="{% url 'assignment:booklet_preview' booklet.id %}" target="_blank">{{booklet.name}}</a></h3>
+                <h3><a href="{% url 'assignment:booklet_preview' booklet.slug %}" target="_blank">{{booklet.name}}</a></h3>
                 <a href="{{booklet.link}}" target="_blank"><h6 class="w3-text-blue">{{booklet.discription|truncatewords:10}}</h6></a>
                 <p>{{booklet.uploaded_at}}</p>
-                <a class="readmore" target="_blank" href="{% url 'assignment:booklet_preview' booklet.id %}"><span>Read More <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
+                <a class="readmore" target="_blank" href="{% url 'assignment:booklet_preview' booklet.slug %}"><span>Read More <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
               </div>
             </div>
-            <!--=== Post End ===-->
+            <!--=== Book End ===-->
             {% endfor%}
 
 
 
         <!--############-->
-            <div>
-            <a href="{% url 'assignment:uploadfile'%}" class="btn">upload booklet</a>
-                </div>
+            <div><a href="{% url 'assignment:uploadfile'%}" class="btn">upload booklet</a></div>
 
       <div class="row">
       	<div class="col-md-12">
-      		<ul class="pagination">
-                      <li><a href="blog-default.html#">Prev</a></li>
-                      <li class="active"><a href="blog-default.html#">1</a></li>
-                      <li><a href="blog-default.html#">2</a></li>
-                      <li><a href="blog-default.html#">3</a></li>
-                      <li><a href="blog-default.html#">Next</a></li>
-                    </ul>
-      	</div>
+                <ul class="pagination">
+                  {% if assignment.has_previous %}
+                  <li><a href="?page={{ assignment.previous_page_number }}">Prev</a></li>
+                  <li class="active"><a href="?page=1">1</a></li>
+                  {% endif %}
+                  <li><a href="blog-default.html#">Page {{ assignment.number }} of {{ assignment.paginator.num_pages }}</a></li>
+                  {% if assignment.has_next %}
+                  <li><a href="?page={{ assignment.next_page_number }}">Next</a></li>
+                  <li><a href="?page={{ assignment.paginator.num_pages }}">last</a></li>
+                  {% endif %}
+                </ul>
+            </div>
       </div>
     </div>
+        </div>
   </section>
   <!--=== Blogs End ===-->
 {% endblock %}
