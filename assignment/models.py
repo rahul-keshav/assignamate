@@ -3,8 +3,6 @@ from django.contrib.auth.models import User
 from django.shortcuts import reverse
 from django.utils.timezone import now
 from django.db.models import Q
-#############
-
 
 class AssignmentQuerySet(models.QuerySet):
     def search(self, query=None):
@@ -107,6 +105,8 @@ class Assignment(models.Model):
     category=models.CharField(max_length=30,blank=True)
     created = models.DateTimeField(auto_now=True)
     slug=models.SlugField(unique=True,max_length=100)
+    image = models.ImageField(upload_to='assignment_image//%Y/%m/%d/', blank=True, )
+
     objects = AssignmentManager()
     class Meta:
         ordering = ["-created"]

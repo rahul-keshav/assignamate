@@ -31,9 +31,10 @@ class AssignmentForm(forms.ModelForm):
     )
     category = forms.ChoiceField(widget=forms.Select,choices=CATEGORY_CHOICES)
 
+
     class Meta:
         model=Assignment
-        fields = ('title', 'discription', 'category')
+        fields = ('title', 'discription', 'category','image')
 
 
 class QuestionForm(forms.ModelForm):

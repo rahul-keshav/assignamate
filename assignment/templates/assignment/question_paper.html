@@ -90,7 +90,7 @@
             <a href="{%url 'assignment:like' assignment.id %}" ><button class="w3-bar-item w3-button">Like<span class="badge">{{assignment.assignmentlikecounter.number_of_like}}</span></button></a>
             {%endif%}
             <a href="{% url 'home:assignment-discussion' assignment.id %}"class="w3-bar-item w3-button"> Discuss<span class="badge">{{assignment.assignment_discussion_set.all|length}}</span></a>
-            <button class="w3-bar-item w3-button ">Share<span class="badge">5</span></button>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}" target="_blank"  class="w3-bar-item w3-button ">Share</a>
         </div>
     </div>
 
