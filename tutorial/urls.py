@@ -18,6 +18,7 @@ from django.urls import path,include
 from .views import login_redirect
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
 
 
 urlpatterns = [
@@ -27,5 +28,6 @@ urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('home/',include('home.urls')),
     # path('assignment/',include('assignment.urls')),
-
+    # ckeditor
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
               ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

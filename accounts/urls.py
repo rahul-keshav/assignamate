@@ -14,7 +14,6 @@ app_name='accounts'
 
 urlpatterns = [
 
-
     path('login/',login,{'template_name':'accounts/login.html'},name='login'),
     path('logout/',logout,{'template_name':'accounts/logout.html'},name='logout'),
     path('register/',views.register,name='register'),

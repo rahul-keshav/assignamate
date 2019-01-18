@@ -1,0 +1,138 @@
+{% extends 'accounts/base.html'%}
+{% block title%}{{page.title}}{% endblock %}
+      <!-- Banner Section Begins -->
+
+    <!--this line is for banner class-->
+      {% block tag_banner%}
+    {% endblock%}
+    <!--this line is for banner class-->
+
+
+      {% block banner%}
+    <!---->
+    <!--=== page-title-section start ===-->
+  <section class="title-hero-bg parallax-effect" {% if page.image %} style="background-image: url({{ page.image.url }});"{% endif %}>
+  <div class="parallax-overlay"></div>
+    <div class="container">
+      <div class="page-title text-center white-color">
+        <h1>Our Blogs</h1>
+        <h4 class="text-uppercase mt-30">Latest News</h4>
+      </div>
+    </div>
+  </section>
+  <!--=== page-title-section end ===-->
+  {%endblock%}
+      <!-- Banner Section Ends -->
+{% block body %}
+<!--=== workbook_page Start ===-->
+  <section class="white-bg">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-8">
+
+    			<div class="post mb-20">
+				<div class="post-img"> <img class="img-responsive" {% if page.image %} src="{{ page.image.url }}" {% endif%}alt="{{page.title}}"/> </div>
+				<div class="post-info">
+				  <h1><a href="javascript:void(0)">{{page.title}}</a></h1>
+				  <h6 class="purple-color">News</h6>
+				  <p class="w3-text-black">{{page.submitted}}</p>
+				  <p>{{page.text|safe}} </p>
+				</div>
+			  	</div>
+
+    		</div>
+    		<!--=== Left Side End===-->
+
+    		<div class="col-md-4 right-col-rv">
+    			<div class="widget sidebar_widget">
+                      <!--  back to the workbook-->
+					  <h2 class="widget-title">{{page.workbook.name}}</h2>
+                      <a href="{% url 'assignment:workbook' page.workbook.slug%}" class="btn" > + back to workbook</a>
+				</div>
+                <!--about section  -->
+                <div class="widget widget_about">
+                  <h2 class="widget-title"><a href="{% url 'accounts:view_profile' %}">About Me</a></h2>
+                  <div class="about-box">
+                      <div class="about-img">
+                          {%if user.useraccount.image%}
+                            <img src="{{user.useraccount.image.url}}" alt="images" />
+                          {% else %}
+                            <img src="https://www.atomix.com.au/media/2015/06/atomix_user31.png" alt="images" />
+                          {%endif%}
+                      </div>
+                      <div class="about-info">
+                          <p>{{user.useraccount.discription|truncatewords:10}}</p>
+                          <ul class="social">
+                                {%if user.useraccount.facebook%}
+                                <li>
+                                    <a href="{{user.useraccount.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                {% endif %}
+                                {%if user.useraccount.instagram%}
+                                <li>
+                                    <a href="{{user.useraccount.instagram}}" target="_blank"><i class="fa fa-instagram"></i></a>
+                                </li>
+                                {% endif %}
+                                {%if user.useraccount.twitter%}
+                                <li>
+                                    <a href="{{user.useraccount.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                {% endif %}
+                                {%if user.useraccount.google_plus%}
+                                <li>
+                                    <a href="{{user.useraccount.google_plus}}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                </li>
+                                {% endif %}
+                                {%if user.useraccount.linkedin%}
+                                <li>
+                                    <a href="{{user.useraccount.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                          <a href="{% url 'accounts:view_profile' %}" class="continue-read">Read More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                      </div>
+                  </div>
+              </div>
+            <!--about section ends-->
+
+   				<div class="widget sidebar_widget widget_archive">
+					<h5 class="widget-title">Archive</h5>
+					<ul>
+					  <li> <a href="blog-details.html#"><span>January</span><em>(54)</em></a> </li>
+					  <li> <a href="blog-details.html#"><span>December</span><em>(83)</em></a> </li>
+					  <li> <a href="blog-details.html#"><span>April</span><em>(96)</em></a> </li>
+					  <li> <a href="blog-details.html#"><span>July</span><em>(38)</em></a> </li>
+					  <li> <a href="blog-details.html#"><span>September</span><em>(44)</em></a> </li>
+					</ul>
+				  </div>
+
+				  <div class="widget sidebar_widget widget_categories">
+					<h5 class="widget-title">Categories</h5>
+					<ul>
+					  <li> <a href="blog-details.html#">Graphic Design</a> </li>
+					  <li> <a href="blog-details.html#">Web Design</a> </li>
+					  <li> <a href="blog-details.html#">Web Development</a> </li>
+					  <li> <a href="blog-details.html#">Desktop Apps</a> </li>
+					  <li> <a href="blog-details.html#">3D Animation</a> </li>
+					</ul>
+				  </div>
+
+         		  <div class="widget sidebar_widget widget_recent_news">
+					<h5 class="widget-title">Recent News</h5>
+					<p>Lorem ipsum dolor sit amet,consectetur <span class="red-color">adipiscing</span> elit. Morbi eget justo velit...<span class="purple-color">Posted</span> by John Smith</p>
+					<p class="mt-30">Lorem ipsum dolor sit amet,consectetur <span class="red-color">adipiscing</span> elit. Morbi eget justo velit...<span class="purple-color">Posted</span> by John Smith</p>
+					<p class="mt-30">Lorem ipsum dolor sit amet,consectetur <span class="red-color">adipiscing</span> elit. Morbi eget justo velit...<span class="purple-color">Posted</span> by John Smith</p>
+				  </div>
+
+                  <div class="widget sidebar_widget widget_tag_cloud">
+					<h5 class="widget-title">Popular Tags</h5>
+					<div class="post-tags"> <a href="blog-details.html#">Creative Ideas</a> <a href="blog-details.html#">Themeforest</a> <a href="blog-details.html#">PSD</a> <a href="blog-details.html#">Design</a> <a href="blog-details.html#">One Page</a> <a href="blog-details.html#">Planning</a> </div>
+				  </div>
+
+
+    		</div>
+    	</div>
+    </div>
+  </section>
+  <!--=== workbook_page End ===-->
+ {% endblock %}

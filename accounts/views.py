@@ -51,6 +51,8 @@ class UseraccountUpdate(UpdateView):
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('accounts:view_profile')
 
+
+
 def edit_profile(request):
     if request.method=='POST':
         form=EditProfile(request.POST,instance=request.user)
@@ -74,8 +76,6 @@ def edit_new_profile(request):
     else:
         form = EditProfile(instance=request.user)
     return render(request, 'accounts/edit_profile.html', {'form': form})
-
-
 
 
 
@@ -113,10 +113,5 @@ class ProfileFollowToggle(LoginRequiredMixin,View):
             profile.follower.add(user)
 
         return redirect(reverse('accounts:view_profile_with_pk',args=[user_.id]))
-
-
-
-
-
 
 

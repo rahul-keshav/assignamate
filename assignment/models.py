@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import reverse
 from django.utils.timezone import now
 from django.db.models import Q
+from ckeditor_uploader.fields import  RichTextUploadingField
 
 class AssignmentQuerySet(models.QuerySet):
     def search(self, query=None):
@@ -176,12 +177,12 @@ class Interests(models.Model):
 
 
 class Booklet(models.Model):
-    name=models.CharField(max_length=50)
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
-    subject=models.CharField(max_length=50,blank=True)
-    author=models.CharField(max_length=50,blank=True)
-    slug=models.SlugField(unique=True)
-    discription=models.CharField(max_length=500,blank=True)
+    name = models.CharField(max_length=50)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    subject = models.CharField(max_length=50,blank=True)
+    author = models.CharField(max_length=50,blank=True)
+    slug = models.SlugField(unique=True)
+    discription = models.CharField(max_length=500,blank=True)
     link=models.TextField(blank=True)
     image = models.ImageField(upload_to='booklet_image//%Y/%m/%d/', blank=True, )
     uploaded_at=models.DateField(auto_now=True)
@@ -191,25 +192,26 @@ class Booklet(models.Model):
     def __str__(self):
         return self.name
 
-class Blogsite(models.Model):
-    name=models.CharField(max_length=50)
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
-    quotes=models.CharField(max_length=100,blank=True)
+
+class Workbook(models.Model):
+    name = models.CharField(max_length=50)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    quotes = models.CharField(max_length=100,blank=True)
     discription = models.CharField(max_length=500,blank=True)
-    background_image=models.ImageField(upload_to='blogger_image/')
+    background_image = models.ImageField(upload_to='blogger_image/',blank=True)
     submitted = models.DateTimeField(default=now)
-    slug = models.SlugField(unique=True, max_length=100)
+    slug = models.SlugField(unique=True)
     def __str__(self):
         return self.name
 
-class Blog_page(models.Model):
-    title=models.CharField(max_length=50)
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
-    blog_site=models.ForeignKey(Blogsite,on_delete=models.CASCADE)
-    text=models.TextField()
+class Workbook_page(models.Model):
+    title = models.CharField(max_length=50)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    workbook = models.ForeignKey(Workbook,on_delete=models.CASCADE)
+    text  = RichTextUploadingField()
     image = models.ImageField(upload_to='blog_image/',blank=True)
     submitted = models.DateTimeField(default=now)
-    slug = models.SlugField(unique=True, max_length=100)
+    slug = models.SlugField(unique=True)
     def __str__(self):
         return self.title
 

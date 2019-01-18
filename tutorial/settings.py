@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'assignment',
     'home',
     'notes',
+    'ckeditor',
+    'ckeditor_uploader',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -170,3 +172,16 @@ PREVIEW_URLS = (
 EMAIL_HOST='localhost'
 EMAIL_PORT='1025'
 
+
+# ckeditor
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}
+# ckeditor ends

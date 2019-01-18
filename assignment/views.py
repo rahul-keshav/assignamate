@@ -1,15 +1,16 @@
 from django.shortcuts import render,redirect,reverse,get_object_or_404,render_to_response
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,View
 from .models import Assignment,Questions,Assignment_answered_by, \
-    Booklet,Blogsite,Blog_page,Assignmentlikecounter,Interests
+    Booklet,Workbook,Workbook_page,Assignmentlikecounter,Interests
 from django.contrib.auth.models import User
-from assignment.forms import QuestionForm,DocumentForm,Blog_site_Form,BlogForm,AssignmentForm,Interest_form
+from assignment.forms import QuestionForm,DocumentForm,Workbook_Form,Workbook_page_Form,AssignmentForm,Interest_form
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from itertools import chain
 from accounts.models import UserAccount
 from .filters import AssignmentFilter
 from django.utils.text import slugify
+from django.contrib import messages
 
 # Create your views here.
 
@@ -123,9 +124,11 @@ class AssignmentUpdate(UpdateView):
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('assignment:my_assignment_page')
 
+
 class AssignmentDelete(DeleteView):
     model = Assignment
     success_url = reverse_lazy('assignment:my_assignment_page')
+
 
 def assignmentCreate(request):
     if request.method=='POST':
@@ -238,55 +241,58 @@ def answersheet(request,ass_id, ans_id):
     return render(request,'assignment/answersheetpage.html', {'assignment':assignment,'answer':list1})
 
 
-def add_blog_site(request):
+def add_workbook(request):
     if request.method=='POST':
-        form=Blog_site_Form(request.POST,request.FILES)
+        form=Workbook_Form(request.POST,request.FILES)
         if form.is_valid():
-            blog_site=form.save(commit=False)
-            blog_site.user = request.user
-            blog_site.slug=slugify(blog_site.name)
-            blog_site.save()
-            slug="%s %s"%(blog_site.name,blog_site.id)
-            blog_site.slug=slugify(slug)
-            blog_site.save()
-            return redirect(reverse('assignment:blog_site_list'))
+            workbook=form.save(commit=False)
+            workbook.user = request.user
+            workbook.slug=slugify(workbook.name)
+            workbook.save()
+            slug="%s %s"%(workbook.name,workbook.id)
+            workbook.slug=slugify(slug)
+            workbook.save()
+            return redirect(reverse('assignment:workbook_list'))
     else:
-        form=Blog_site_Form()
-    return render(request,'assignment/add_blog_site.html',{'form':form})
+        form=Workbook_Form()
+    return render(request,'assignment/add_workbook.html',{'form':form})
 
-def blog_site_list(request,pk=None):
+def view_workbook_list(request,pk=None):
     if pk:
         user=get_object_or_404(User,pk=pk)#User.objects.get(pk=pk)
     else:
-        user=request.user
+        user = request.user
+    return render(request,'assignment/workbook_list.html',{'user':user,})
 
-    return render(request,'assignment/blog_site_list.html',{'user':user,})
+def view_workbook(request,slug):
+    workbook=get_object_or_404(Workbook,slug=slug)#workbook.objects.get(pk=pk)
+    workbook_pages=workbook.workbook_page_set.all
+    user=workbook.user
+    return render(request,'assignment/workbook.html',{'workbook':workbook,'workbook_pages':workbook_pages,'user':user})
 
-def view_blog_site(request,pk):
-    blog_site=get_object_or_404(Blogsite,pk=pk)#Blogsite.objects.get(pk=pk)
-    blogs=blog_site.blog_page_set.all
-    return render(request,'assignment/blog_site.html',{'blog_site':blog_site,'blogs':blogs})
-
-def add_blog(request,pk):
+def add_workbook_page(request,pk):
     if request.method == 'POST':
-        form = BlogForm(request.POST,request.FILES)
+        form = Workbook_page_Form(request.POST,request.FILES)
         if form.is_valid():
-            blog=form.save(commit=False)
-            blog.blog_site=get_object_or_404(Blogsite,pk=pk)#Blogsite.objects.get(pk=pk)
-            blog.user = request.user
-            blog.slug=slugify(blog.title)
-            blog.save()
-            slug="%s %s"%(blog.title,blog.id)
-            blog.slug=slugify(slug)
-            blog.save()
-            return redirect(reverse('assignment:blog_site',args=[pk]))
+            page=form.save(commit=False)
+            page.workbook=get_object_or_404(Workbook,pk=pk)#workbook.objects.get(pk=pk)
+            page.user = request.user
+            page.slug=slugify(page.title)
+            page.save()
+            slug="%s %s"%(page.title,page.id)
+            slug=slugify(slug)
+            page.slug=slug
+            page.save()
+            return redirect(reverse('assignment:workbook_page',args=[slug]))
+        else:
+            messages.warning(request, "please correct the error below")
     else:
-        form=BlogForm()
-        return render(request,'assignment/add_blog.html',{'form': form,})
+        form=Workbook_page_Form()
+        return render(request,'assignment/add_workbook_page.html',{'form': form,})
 
-def blog(request,pk):
-    blog=get_object_or_404(Blog_page,pk=pk)#Blog_page.objects.get(pk=pk)
-    return render(request,'assignment/blog.html',{'blog':blog})
+def view_workbook_page(request,slug):
+    page=get_object_or_404(Workbook_page,slug=slug)#workbook_page.objects.get(pk=pk)
+    return render(request,'assignment/workbook_page.html',{'page':page})
 
 def result(request):
     result=request.user.assignment_answered_by_set.order_by('-submitted')
@@ -323,8 +329,8 @@ def booklet_upload(request):
             booklet.user=request.user
             booklet.slug=slugify(booklet.name)
             booklet.save()
-            slug="%s %s %s"%(booklet.name,booklet.author,booklet.id )
-            booklet.slug=slugify(slug)
+            slug = "%s %s %s"%(booklet.name,booklet.author,booklet.id)
+            booklet.slug = slugify(slug)
             booklet.save()
             return redirect(reverse('assignment:my-booklet'))
     else:

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>{% block title%}Assignmate{% endblock %}</title>
+<title>{% block title%}AssignMate{% endblock %}</title>
   {% block meta %}
 <meta name="description" content="We are Assignmate,assignment sharing website. You can create assignment, booklets, workbook very easily and can share them to your network . :) " />
 <meta name="keywords" content="Assignmate, Download Free Book, Share, Assignment,online Exam,Free online Exam " />
@@ -82,10 +82,15 @@
               <li><a href="{% url 'assignment:my-booklet' %}">My Booklet</a></li>
             </ul>
           </li>
-          <li class="dropdown"> <a href="{% url 'assignment:blog_site_list' %}" class="dropdown-toggle" data-toggle="dropdown">Workbook</a>
+          <li class="dropdown"> <a href="{% url 'assignment:workbook_list' %}" class="dropdown-toggle" data-toggle="dropdown">Workbook</a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:void(0)">workbook 1</a></li>
-              <li><a href="javascript:void(0)">workbook 2</a></li>
+              {% if user.workbook_set.all %}
+                {% for workbook in user.workbook_set.all %}
+              <li><a href="{% url 'assignment:workbook' workbook.slug %}">{{ workbook.name }}</a></li>
+              <!--<li><a href="javascript:void(0)">workbook 2</a></li>-->
+                {% endfor %}
+              {% endif %}
+              <li><a href="{% url 'assignment:add_workbook' %}"> + Create Workbook</a></li>
             </ul>
           </li>
           <li><a href="{% url 'home:notifications' %}">Notifications</a></li>
@@ -118,7 +123,7 @@
               <!--<li><a href="{% url 'assignment:my-booklet' %}">My Booklet</a></li>-->
             </ul>
           </li>
-          <!--<li class="dropdown"> <a href="{% url 'assignment:blog_site_list' %}" class="dropdown-toggle" data-toggle="dropdown">Blogs</a>-->
+          <li class="dropdown"> <a href="{% url 'assignment:workbook_list' %}">Workbooks</a>
             <!--<ul class="dropdown-menu">-->
               <!--<li><a href="javascript:void(0)">Blog Default</a></li>-->
               <!--<li><a href="javascript:void(0)">Blog Details</a></li>-->
@@ -146,7 +151,7 @@
                 <ul class="link">
                     <li><a href="{% url 'accounts:view_profile' %}">About</a></li>
                     <li><a href="javascript:void(0)">Services</a></li>
-                    <li><a href="{% url 'assignment:blog_site_list' %}">Blog</a></li>
+                    <li><a href="{% url 'assignment:workbook_list' %}">Blog</a></li>
                     <li><a href="javascript:void(0)">Our Work</a></li>
                     <li><a href="javascript:void(0)">Contact</a></li>
                 </ul>

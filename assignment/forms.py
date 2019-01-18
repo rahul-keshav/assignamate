@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Assignment,Questions,Booklet,Blogsite,Blog_page,Interests
+from .models import Assignment,Questions,Booklet,Workbook,Workbook_page,Interests
 
 from django.contrib.auth.models import User
 
@@ -154,7 +154,7 @@ class DocumentForm(forms.ModelForm):
         fields = ('name', 'subject','author','discription', 'link','image' )
 
 
-class BlogForm(forms.ModelForm):
+class Workbook_page_Form(forms.ModelForm):
 
     title = forms.CharField(widget=forms.TextInput(
         attrs={
@@ -162,17 +162,11 @@ class BlogForm(forms.ModelForm):
             'placeholder': 'Write your title...'
         }
     ))
-    text = forms.CharField(widget=forms.Textarea(
-        attrs={
-            'class': 'form-control',
-            'placeholder': 'Write your text...'
-        }
-    ))
     class Meta:
-        model=Blog_page
+        model=Workbook_page
         fields=('title','text','image')
 
-class Blog_site_Form(forms.ModelForm):
+class Workbook_Form(forms.ModelForm):
 
     name = forms.CharField(widget=forms.TextInput(
         attrs={
@@ -196,15 +190,13 @@ class Blog_site_Form(forms.ModelForm):
     ),required=False)
 
     class Meta:
-        model=Blogsite
+        model=Workbook
         fields=('name','quotes','discription','background_image')
 
 class Interest_form(forms.ModelForm):
     class Meta:
         model =Interests
         fields=('intrest',)
-
-
 
 
 

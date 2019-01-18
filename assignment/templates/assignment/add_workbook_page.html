@@ -5,10 +5,13 @@
 <form enctype="multipart/form-data" method="post">
 
     {% csrf_token %}
+    {{ form.media }}
     {{ form.as_p }}
 
     <button type="submit">Submit</button>
 
     </form>
 
+
 {% endblock %}
+

@@ -4,8 +4,8 @@ from assignment.views import view_list_assignment,\
     QuestionView,assignmentCreate,QuestionAdd,\
     view_list_my_assignment,assignment_check, \
     booklet_upload,SearchView,result,\
-    answersheet,blog_site_list,add_blog_site,view_blog_site,\
-    add_blog,blog,QuestionUpdate,AssignmentUpdate,AssignmentDelete,QuestionDelete,\
+    answersheet,view_workbook_list,add_workbook,view_workbook,\
+    add_workbook_page,view_workbook_page,QuestionUpdate,AssignmentUpdate,AssignmentDelete,QuestionDelete,\
     index,AssignmentLikeToggle,booklet,my_booklet,\
     index_booklet,index_jee_main,index_jee_adv,index_ssc,index_others,\
     show_submission,filter_search,add_interest,InterestDelete,\
@@ -15,6 +15,7 @@ from assignment.views import view_list_assignment,\
 app_name='assignment'
 
 urlpatterns = [
+
     path('',home,name='home'),
     path('index',index,name='index'),
     path('index_jee_main',index_jee_main,name='index_jee_main'),
@@ -22,7 +23,6 @@ urlpatterns = [
     path('index_ssc',index_ssc,name='index_ssc'),
     path('index_others',index_others,name='index_others'),
     path('add_interest',add_interest,name='add_interest'),
-
 
     path('all-assignment',view_list_assignment,name='assignment_page'),
     path('myassignment',view_list_my_assignment,name='my_assignment_page'),
@@ -40,24 +40,21 @@ urlpatterns = [
     path('assignment_check/<int:assignment_id>',assignment_check,name='assignment_check'),
     path('uploadfile/',booklet_upload,name='uploadfile'),
 
-
     path('search',SearchView.as_view(),name='search'),
     path('filter',filter_search,name='filter'),
     path('delete_interest/<pk>',InterestDelete.as_view(),name='delete_interest'),
 
+    path('workbook_list',view_workbook_list,name='workbook_list'),
+    path('workbook_list/<pk>',view_workbook_list,name='workbook_list'),
 
+    path('workbook/<slug>',view_workbook,name='workbook'),
 
-    path('blog_site_list',blog_site_list,name='blog_site_list'),
-    path('blog_site_list/<pk>',blog_site_list,name='blog_site_list'),
-
-    path('blog_site/<pk>',view_blog_site,name='blog_site'),
-
-    path('create_blog_site',add_blog_site,name='add_blog_site'),
+    path('create_workbook',add_workbook,name='add_workbook'),
     # path('my_blog_site_list',blog_site_list,name='blog_site'),
     # path('blog_site_list/<pk>',blog_site_list,name='blog_site'),
 
-    path('blog/<pk>',blog,name='blog'),
-    path('add_blog/<pk>',add_blog,name='add_blog'),
+    path('page/<slug>',view_workbook_page,name='workbook_page'),
+    path('add_page/<pk>',add_workbook_page,name='add_workbook_page'),
 
     path('result',result,name='result'),
     path('answersheet/<ass_id>-<ans_id>',answersheet,name='answersheet'),
@@ -70,7 +67,6 @@ urlpatterns = [
     path('index-booklet',index_booklet,name='index_booklet'),
     path('booklet/update/<pk>',BookletUpdate.as_view(),name='edit-booklet'),
     path('booklet/delete/<pk>',BookletDelete.as_view(),name='del-booklet'),
-
 
 
               ]

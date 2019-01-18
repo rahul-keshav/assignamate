@@ -29,10 +29,10 @@ class UserAccountManager(models.Manager):
 
 class UserAccount(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    discription=models.CharField(max_length=50)
-    contact_no=models.CharField(max_length=15)
-    city=models.CharField(max_length=20)
-    website=models.CharField(max_length=20)
+    discription=models.CharField(max_length=50,blank=True)
+    contact_no=models.CharField(max_length=15,blank=True)
+    city=models.CharField(max_length=20,blank=True)
+    website=models.CharField(max_length=20,blank=True)
     image=models.ImageField(upload_to='profile_image',blank=True)
     follower=models.ManyToManyField(User,related_name='is_following',blank=True)
     facebook=models.CharField(max_length=50,blank=True)
@@ -40,6 +40,7 @@ class UserAccount(models.Model):
     twitter=models.CharField(max_length=50,blank=True)
     google_plus = models.CharField(max_length=50, blank=True)
     linkedin = models.CharField(max_length=50, blank=True)
+
 
     objects = UserAccountManager()
 

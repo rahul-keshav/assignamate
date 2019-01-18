@@ -1,12 +1,10 @@
 {% extends 'accounts/base.html'%}
-{% block title%}Add blog site% endblock %}
+{% block title%}Add Workbook{% endblock %}
 {% block body %}
 
 <form enctype="multipart/form-data" method="post">
-
     {% csrf_token %}
     {{ form.as_p }}
-
     <button type="submit">Submit</button>
 
     </form>

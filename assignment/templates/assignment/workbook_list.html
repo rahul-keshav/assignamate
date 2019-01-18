@@ -1,0 +1,58 @@
+{% extends 'accounts/base.html'%}
+{% block title%}Blog list{% endblock %}
+{% load staticfiles %}
+{% block banner %}
+<!--=== page-title-section start ===-->
+  <section class="title-hero-bg parallax-effect" style="background-image: url({% static 'accounts/assets/images/background/title-bg-03.jpg' %});">
+  <div class="parallax-overlay"></div>
+    <div class="container">
+      <div class="page-title text-center white-color">
+        <h1>Our Blogs</h1>
+        <h4 class="text-uppercase mt-30">Latest News</h4>
+      </div>
+    </div>
+  </section>
+  <!--=== page-title-section end ===-->
+{% endblock %}
+{% block body %}
+<!--=== workbook section Start ===-->
+  <section class="white-bg">
+    <div class="container">
+            <div class="row">
+
+
+            {% if user.workbook_set.all %}
+                {% for workbook in user.workbook_set.all %}
+                <!--workbook post start-->
+                <div class="col-md-4 col-sm-6">
+                  <div class="post mb-20">
+                    <div class="post-img">{% if workbook.background_image %} <img class="img-responsive" src="{{workbook.background_image.url}}" alt="{{ workbook.name }}"/> {% endif %}</div>
+                    <div class="post-info">
+                      <h3><a href="{% url 'assignment:workbook' workbook.slug %}">{{ workbook.name }}</a></h3>
+                      <h6 class="pink-color">Events</h6>
+                      <p>Yesterday</p>
+                      <a class="readmore" href="{% url 'assignment:workbook' workbook.slug %}"><span>Read More <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
+                  </div>
+                </div>
+                <!--=== Post End ===-->
+                {% endfor %}
+            {% endif %}
+            {%if user == request.user%}
+            <a href="{% url 'assignment:add_workbook' %}" class="btn" >Create Workbook</a>
+            {%endif%}
+     </div>
+      <div class="row">
+      	<div class="col-md-12">
+      		<ul class="pagination">
+                      <li><a href="blog-default.html#">Prev</a></li>
+                      <li class="active"><a href="blog-default.html#">1</a></li>
+                      <li><a href="blog-default.html#">2</a></li>
+                      <li><a href="blog-default.html#">3</a></li>
+                      <li><a href="blog-default.html#">Next</a></li>
+                    </ul>
+      	</div>
+      </div>
+    </div>
+  </section>
+  <!--=== Blogs End ===-->
+{% endblock %}
