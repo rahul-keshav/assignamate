@@ -6,8 +6,6 @@
       {% block tag_banner%}
     {% endblock%}
     <!--this line is for banner class-->
-
-
       {% block banner%}
     <!---->
     <!--=== page-title-section start ===-->
@@ -50,8 +48,8 @@
                       <a href="{% url 'assignment:workbook' page.workbook.slug%}" class="btn" > + back to workbook</a>
 				</div>
                 <!--about section  -->
-                <div class="widget widget_about">
-                  <h2 class="widget-title"><a href="{% url 'accounts:view_profile' %}">About Me</a></h2>
+                <div class="widget sidebar_widget">
+                  <a href="{% url 'accounts:view_profile' %}"  class="btn"> About Me</a>
                   <div class="about-box">
                       <div class="about-img">
                           {%if user.useraccount.image%}

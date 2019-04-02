@@ -32,7 +32,7 @@ urlpatterns = [
     path('assignment/add',assignmentCreate,name='assignment_add'),
 
     path('assignment/<slug>',assignment_preview,name='assignment_preview'),
-    path('assignment/<pk>',QuestionView.as_view(),name='assignment'),
+    path('questionpaper/<slug>',QuestionView.as_view(),name='assignment'),
     path('assignment-like/<id>',AssignmentLikeToggle,name='like'),
     path('question/add/<pk>',QuestionAdd,name='question_add'),
     path('question/update/<pk>',QuestionUpdate.as_view(),name='question_update'),

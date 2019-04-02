@@ -14,11 +14,11 @@
             <div class="post mb-20">
             <div class="post-img"> <img class="img-responsive" src="{% if assignment.image %}{{assignment.image.url}}{% endif %}" alt="{{assignment.title}}"/> </div>
             <div class="post-info">
-              <h1><a href="{%url 'assignment:assignment' assignment.id %}" target="_blank">{{assignment.title}}</a></h1>
+              <h1><a href="{%url 'assignment:assignment' assignment.slug %}" target="_blank">{{assignment.title}}</a></h1>
               <h6>{{assignment.user}}</h6>
-              <a target="_blank" href="{%url 'assignment:assignment' assignment.id %}"><p class="w3-text-blue">{{assignment.discription|truncatewords_html:10}}</p></a>
+              <a target="_blank" href="{%url 'assignment:assignment' assignment.slug %}"><p class="w3-text-blue">{{assignment.discription|truncatewords_html:10}}</p></a>
               <p>{{assignment.submitted}}</p>
-              <a class="readmore" href="{%url 'assignment:assignment' assignment.id %}" target="_blank"><span>Solve <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
+              <a class="readmore" href="{%url 'assignment:assignment' assignment.slug %}" target="_blank"><span>Solve <i class="eicon mdi mdi-arrow-right"></i></span></a> </div>
             </div>
         </div>
     		<!--=== Left Side End===-->
